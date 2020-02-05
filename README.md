@@ -168,3 +168,10 @@ In case of missing PIN parameter for a Alarm accessory, the plugin send a log wa
 ### Select night or home status
 Homekit can return "Night" status or "Home" status for an "Perimeter only alarm". Zipato can only have one of the both. To choose if the homebridge should return Night or Home, the user has to select nightMode = true if the system has to return Night.
 Home mode is selected has default.
+
+## CREDITS
+
+### Thanks to the best plugin example
+homebridge-gpio-wpi2
+homebridge-camera-ffmpeg
+homebridge-hue
