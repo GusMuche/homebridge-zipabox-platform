@@ -12,5 +12,5 @@ module.exports = function(homebridge) {
   Characteristic = homebridge.hap.Characteristic;
   /* Platform plugin to be considered as dynamic
   registerPlatform(pluginName, platformName, constructor, dynamic), dynamic must be true */
-  homebridge.registerPlatform("homebridge-zipabox-platform", "ZipaPlatform", ZipaPlatform, true);
+  homebridge.registerPlatform("homebridge-zipabox-platform", "Zipabox", ZipaPlatform, true);
 }

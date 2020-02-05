@@ -21,7 +21,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
 1. Configure a very simple platform > Version 0.2.0
   - [x] Clear the structure of code
   - [x] Add CHANGELOG to help following the developpment
-  - [ ] Test and publish with smallest module
+  - [x] Test and publish with smallest module
   - [ ] Add two simple switch through the Platform
 1. Add all device of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory).
 1. Validate the remote API access
