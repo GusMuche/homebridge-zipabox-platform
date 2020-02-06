@@ -1,4 +1,4 @@
-## 0.2.1
+## 0.2.1 - 0.2.21
 First version with correct files structures and config.
 ## 0.1.2 - 0.2.1
 Syntax and small bug fix.
