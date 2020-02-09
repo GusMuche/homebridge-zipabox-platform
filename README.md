@@ -28,13 +28,13 @@ I didn't work with javascript since a few years, so please be comprehensive.
 1. Connect the user to the box > Version 0.4.0
   - [x] initUser
   - [x] connectUser
+1. Add first device : a simple switch > Version 0.5.0
 1. Add all device of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory).
 1. Validate the remote API access
 
 ### Further To-do List (based on accessory-plugin)
 
-- [ ]
-- [ ] Add a method to check config file if same UUID used
+- [x] Add a method to check config file if same UUID used
 - [ ] Add a method to force cache reset at startut
 - [ ] Add a method to refresh cash every x minutes ?
 - [ ] Add a fake switch to reboot the box ?

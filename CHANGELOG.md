@@ -1,4 +1,6 @@
-## 0.4.0 -> latest
+## 0.5.0 -> latest
+Integration of fist accessory > switch
+## 0.4.0 -> 0.4.2
 Test connection to the box
 ## 0.3.0 -> 0.3.4
 isAccessoryStored method integration
