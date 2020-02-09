@@ -22,12 +22,21 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Clear the structure of code
   - [x] Add CHANGELOG to help following the developpment
   - [x] Test and publish with smallest module
-  - [ ] Add two simple switch through the Platform
+  - [x] Add two simple switch through the Platform
+1. Create a new structure with accessory level > Version 0.3.0
+  - [x] new class zipAccessory
+1. Connect the user to the box > Version 0.4.0
+  - [x] initUser
+  - [x] connectUser
 1. Add all device of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory).
 1. Validate the remote API access
 
 ### Further To-do List (based on accessory-plugin)
 
+- [ ]
+- [ ] Add a method to check config file if same UUID used
+- [ ] Add a method to force cache reset at startut
+- [ ] Add a method to refresh cash every x minutes ?
 - [ ] Add a fake switch to reboot the box ?
 - [ ] Force an online method with the use of StatusFault
 - [ ] Rewrite the parameter order to have something more clear and logic (sub division?)

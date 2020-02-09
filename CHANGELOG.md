@@ -1,4 +1,8 @@
-## 0.2.1 - 0.2.21
+## 0.4.0 -> latest
+Test connection to the box
+## 0.3.0 -> 0.3.4
+isAccessoryStored method integration
+## 0.2.1 - 0.2.50
 First version with correct files structures and config.
 ## 0.1.2 - 0.2.1
 Syntax and small bug fix.
