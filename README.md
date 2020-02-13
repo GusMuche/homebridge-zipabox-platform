@@ -34,7 +34,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
 
 ### Further To-do List (based on accessory-plugin)
 
-- [x] Add a method to check config file if same UUID used
+- [FIX] Add a method to check config file if same UUID used
 - [ ] Add a method to force cache reset at startut
 - [ ] Add a method to refresh cash every x minutes ?
 - [ ] Add a fake switch to reboot the box ?
@@ -113,6 +113,7 @@ manufacturer | Manufacturer of your device. No more use than info in HomeKit
 model | Model of your device. No more use than info in HomeKit
 serial | Serial number of your device. No more use than info in HomeKit
 debug | (Optional) If true the console will display tests informations
+~~reset~~ | ~~(Optional) If true the plugin will try to delete all the accessories from cache~~
 refresh | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
 batteryLimit | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive)
 noStatus | (Optional) = true if no Status (is connected) option is available for<br>the device - false in default - see below-
@@ -143,15 +144,21 @@ Security System     | alarm       | Get Value - Set Value - Not ready - Night or
 The UUID need to be the "STATE" UUID of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this UUID as parameter for attributes request.
 The Device UUID is find automatically by the plugin if noStatus is not specified.
 
-### Window and Doors
-The plugin only get the status open or closed for door and window. It's like a contact sensor but with an other icon. If the user click on the button in HomeKit, the plugin will force the get position method.
-
 ### uuidB - Second Characteristic for implemented Services
 For some Accessory, two UUID are necessary to get all the needed Information.
 
 Accessory | uuid          | uuidB
 --------- | ----          | -----
 Battery   | BatteryLevel  | ChargingStage
+
+### Clear the cache
+Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. ~~If some old accessories doesn't disappear, try to put this option to "true". If other parameter given, parameter will be forced to false.~~
+If you reset the cache, you can loose all your rooom configuration and other topic inside iOS.
+If the problem is not solve, try to delete the file "cachedAccessories" inside folder "accessories" from homebridge installation.
+
+### Window and Doors
+The plugin only get the status open or closed for door and window. It's like a contact sensor but with an other icon. If the user click on the button in HomeKit, the plugin will force the get position method.
+
 
 ### Reverse a value
 Some sensor work inverted as HomeKit expect. Example : a motion sensor return true if no motion are detected. If you can't change your sensor return value in his configuration or Zipato configuration, you can add the "reverse = true" parameter to reverse the returned value. Work for all "get" for attributes.
