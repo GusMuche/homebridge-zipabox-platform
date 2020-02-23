@@ -29,13 +29,17 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] initUser
   - [x] connectUser
 1. Add first device : a simple switch > Version 0.5.0
+  - [x] Simple add
+  - [ ] Cache manager for old cached accessories
 1. Add all device of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory).
 1. Validate the remote API access
 
 ### Further To-do List (based on accessory-plugin)
 
-- [FIX] Add a method to check config file if same UUID used
-- [ ] Add a method to force cache reset at startut
+- [x] Add a method to check config file if same UUID used
+- [ ] -ongoing - Add a method to force cache reset at startut
+- [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
+- [ ] Add a Identify ? config
 - [ ] Add a method to refresh cash every x minutes ?
 - [ ] Add a fake switch to reboot the box ?
 - [ ] Force an online method with the use of StatusFault
@@ -153,8 +157,9 @@ Battery   | BatteryLevel  | ChargingStage
 
 ### Clear the cache
 Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. ~~If some old accessories doesn't disappear, try to put this option to "true". If other parameter given, parameter will be forced to false.~~
-If you reset the cache, you can loose all your rooom configuration and other topic inside iOS.
+If you reset the cache, you can loose all your room configuration and other topic inside iOS.
 If the problem is not solve, try to delete the file "cachedAccessories" inside folder "accessories" from homebridge installation.
+Additionally see Troubleshooting at the end of README.
 
 ### Window and Doors
 The plugin only get the status open or closed for door and window. It's like a contact sensor but with an other icon. If the user click on the button in HomeKit, the plugin will force the get position method.
@@ -184,6 +189,11 @@ In case of missing PIN parameter for a Alarm accessory, the plugin send a log wa
 ### Select night or home status
 Homekit can return "Night" status or "Home" status for an "Perimeter only alarm". Zipato can only have one of the both. To choose if the homebridge should return Night or Home, the user has to select nightMode = true if the system has to return Night.
 Home mode is selected has default.
+
+## Troubleshoting
+
+### Cached accessories from old config
+Unfortunattely I didn't success during my test to clean all the cache for old platform accessories. If this is your case, you need to delete the cachedAccessories file inside the accessories folder.
 
 ## CREDITS
 
