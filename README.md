@@ -30,16 +30,38 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] connectUser
 1. Add first device : a simple switch > Version 0.5.0
   - [x] Simple add
-  - [ ] Cache manager for old cached accessories
-1. Add all device of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory).
+  - [x] Cache manager for old cached accessories
+1. Add all device of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.6.0
+  - [ ] Light
+  - [ ] Outlet
+  - [ ] Temperature
+  - [ ] Ambient
+  - [ ] Motion
+  - [ ] Contact
+  - [ ] window
+  - [ ] Door
+  - [ ] Leak
+  - [ ] Battery
+  - [ ] co2
+1. Add the reconnect method and other tool from [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.7.0
+  - [ ] Battery limit
+  - [ ] Specify Model, manufacturer and serial
+  - [ ] Refresh (accessory or platform ?)
+  - [ ] No Status
+  - [ ] Reverse
+1. Add the security layer > Version 0.7.0
+  - [ ] Init and connect for security
+  - [ ] Alarm accessory
+  - [ ] Nightmode
 1. Validate the remote API access
 
 ### Further To-do List (based on accessory-plugin)
 
 - [x] Add a method to check config file if same UUID used
-- [ ] -ongoing - Add a method to force cache reset at startut
+- [x] Change the check double to agree same UUID with different type
+- [x] ~~Add a method to force cache reset at startut~~
 - [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
-- [ ] Add a Identify ? config
+- [ ] Add a Identify config to blink or else accessory
 - [ ] Add a method to refresh cash every x minutes ?
 - [ ] Add a fake switch to reboot the box ?
 - [ ] Force an online method with the use of StatusFault
@@ -50,7 +72,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
 - [ ] Check lux scale if correct
 - [ ] Defense prog if batteryLevel requested without battery available ?
 - [ ] Get name with name device ? > first test no concluded > do we need ?
-- [ ] Adapt to non local access > if requested
+- [ ] -ongoing- Adapt to non local access > use of "remote" in IP parameter
 - [ ] Adapt from accessory to platform > check if need (actual multiple connection)
 - [ ] Implementation of Outlet In Use Status > if needed
 - [ ] Add Smoke Sensor > if needed
@@ -66,41 +88,49 @@ I didn't work with javascript since a few years, so please be comprehensive.
 
 Simple example
 ```JSON
-"accessories": [
+"platforms": [
         {
-          "accessory": "ZipaAccessory",
-          "type": "switch",
-          "name": "MyZipaSwitch",
-          "USERNAME": "yourUserName",
-          "PASSWORD": "yourPassword",
-          "server_ip": "192.168.0.0",
-          "uuid": "123456789",
-          "refresh": 10
+            "platform": "ZipaboxPlatform",
+            "USERNAME": "you@email.com",
+            "PASSWORD": "yourPassword",
+            "server_ip": "192.168.0.1",
+            "debug": true,
+            "accessories": [
+                {
+                    "name": "Switch first room",
+                    "UUID": "aa2zx65s-013s-1s12-12s2-s12312s9s253",
+                    "type": "switch"
+                }
+            ]
         }
-]
+    ]
 ```
 Full example
 ```JSON
-"accessories": [
+"platforms": [
         {
-          "accessory": "ZipaAccessory",
-          "type": "switch",
-          "name": "MyZipaSwitch",
-          "USERNAME": "yourUserName",
-          "PASSWORD": "yourPassword",
-          "server_ip": "192.168.0.0",
-          "uuid": "123456789",
-          "uuidB": "001256",
-          "manufacturer": "mySwitchManufacturer",
-          "model": "mySwitchModel",
-          "serial": "mySwitchSerial",
-          "debug": true,
-          "refresh": 5,
-          "noStatus": true,
-          "reverse": true,
-          "batteryLimit": 15
+            "platform": "ZipaboxPlatform",
+            "USERNAME": "you@email.com",
+            "PASSWORD": "yourPassword",
+            "server_ip": "192.168.0.1",
+            "debug": true,
+            "refresh": 5,
+            "accessories": [
+                {
+                    "name": "Switch first room",
+                    "uuid": "aa2zx65s-013s-1s12-12s2-s12312s9s253",
+                    "uuidb": "aa2zx65s-013s-1s12-12s2-s12312s9s25b",
+                    "type": "switch",
+                    "manufacturer": "mySwitchManufacturer",
+                    "model": "mySwitchModel",
+                    "serial": "mySwitchSerial",
+                    "noStatus": true,
+                    "reverse": true,
+                    "batteryLimit": 15
+                }
+            ]
         }
-]
+    ]
 ```
 ## Parameters information
 Parameter | Remarks
@@ -193,7 +223,7 @@ Home mode is selected has default.
 ## Troubleshoting
 
 ### Cached accessories from old config
-Unfortunattely I didn't success during my test to clean all the cache for old platform accessories. If this is your case, you need to delete the cachedAccessories file inside the accessories folder.
+Unfortunately I didn't success during my test to clean all the cache for old platform accessories. If this is your case, you need to delete the cachedAccessories file inside the accessories folder.
 
 ## CREDITS
 

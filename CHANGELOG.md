@@ -1,4 +1,8 @@
-## 0.5.0 -> latest
+## 0.6.0 -> latest
+Add accessory outlet
+
+#Previous minor version
+## 0.5.0 -> 0.5.71
 Integration of fist accessory > switch
 ## 0.4.0 -> 0.4.2
 Test connection to the box
