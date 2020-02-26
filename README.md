@@ -110,8 +110,8 @@ Full example
 "platforms": [
         {
             "platform": "ZipaboxPlatform",
-            "USERNAME": "you@email.com",
-            "PASSWORD": "yourPassword",
+            "username": "you@email.com",
+            "password": "yourPassword",
             "server_ip": "192.168.0.1",
             "debug": true,
             "refresh": 5,
@@ -137,12 +137,12 @@ Parameter | Remarks
 --------- | -------
 accessory | MUST be ZipaAccessory, will say at Homebridge to use the good plugin
 type | Select the Accessory Type. switch (default) -others see below-
-name | Name of your plugin, will be displayed in HomeKit (muss be unique)
-USERNAME | Username use to connect to my.zipato.com
-PASSWORD | Password use to connect to my.zipato.com > never publish your Config <br> with this infos
+name | Name of your plugin, will be displayed in HomeKit (muss be unique) - see below -
+username | Username use to connect to my.zipato.com
+password | Password use to connect to my.zipato.com > never publish your Config <br> with this infos
 server_ip | Local ip of your Box : format 192.168.0.1 - do not add http or port
 uuid | uuid of your devices Switch (see Below)
-uuidB | (Optional) Specify a second uuid for a service with two implemented<br>Characteristic - see below -
+uuidb | (Optional) Specify a second uuid for a service with two implemented<br>Characteristic - see below -
 manufacturer | Manufacturer of your device. No more use than info in HomeKit
 model | Model of your device. No more use than info in HomeKit
 serial | Serial number of your device. No more use than info in HomeKit
@@ -154,6 +154,8 @@ noStatus | (Optional) = true if no Status (is connected) option is available for
 reverse | (Optional) = true if the boolean signal of the sensor need to be<br>reversed - see below
 pin | (Optional) : your Pin in Zipato Board to arm or disarm alarm.
 nightMode | (Optional) : Select Home or Night for Security system
+
+Please note the lower and upper case of the parameters.
 
 ## List of implemented function
 Device              | type        | Methods
@@ -174,16 +176,21 @@ Security System     | alarm       | Get Value - Set Value - Not ready - Night or
 
 ## Remarks
 
-### UUID of Accessory
-The UUID need to be the "STATE" UUID of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this UUID as parameter for attributes request.
-The Device UUID is find automatically by the plugin if noStatus is not specified.
+### Name of an accessory
+The name will be display in the Home app on your devices. For best pratice use a short one.
+An accessory name must be unique.
+You can use same UUID with two different name or type.
+
+### uuid of Accessory
+The uuid need to be the "STATE" uuid of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this uuid as parameter for attributes request.
+The Device uuid is find automatically by the plugin if noStatus is not specified.
 
 ### uuidB - Second Characteristic for implemented Services
 For some Accessory, two UUID are necessary to get all the needed Information.
 
 Accessory | uuid          | uuidB
 --------- | ----          | -----
-Battery   | BatteryLevel  | ChargingStage
+Battery   | BatteryLevel  | ChargingState
 
 ### Clear the cache
 Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. ~~If some old accessories doesn't disappear, try to put this option to "true". If other parameter given, parameter will be forced to false.~~
