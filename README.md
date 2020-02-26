@@ -32,7 +32,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Simple add
   - [x] Cache manager for old cached accessories
 1. Add all device of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.6.0
-  - [ ] Light
+  - [x] Light > 0.6.17
   - [ ] Outlet
   - [ ] Temperature
   - [ ] Ambient
