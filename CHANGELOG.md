@@ -1,7 +1,9 @@
 ## 0.6.0 -> latest
-Add accessory outlet
+Add accessory outlet + light bulb
+Add sensor temperature + ambient
+Add method for refresh + model Info
 
-#Previous minor version
+# Previous minor version
 ## 0.5.0 -> 0.5.71
 Integration of fist accessory > switch
 ## 0.4.0 -> 0.4.2

@@ -33,9 +33,11 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Cache manager for old cached accessories
 1. Add all device of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.6.0
   - [x] Light > 0.6.17
-  - [ ] Outlet
-  - [ ] Temperature
-  - [ ] Ambient
+  - [x] Outlet > 0.6.30
+  - [x] Temperature > 0.6.30
+  - [x] Refresh (accessory or platform ?) > platform > 0.6.30
+  - [x] Specify Model, manufacturer and serial > 0.6.31
+  - [x] Ambient
   - [ ] Motion
   - [ ] Contact
   - [ ] window
@@ -45,8 +47,6 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [ ] co2
 1. Add the reconnect method and other tool from [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.7.0
   - [ ] Battery limit
-  - [ ] Specify Model, manufacturer and serial
-  - [ ] Refresh (accessory or platform ?)
   - [ ] No Status
   - [ ] Reverse
 1. Add the security layer > Version 0.7.0
@@ -63,6 +63,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
 - [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
 - [ ] Add a Identify config to blink or else accessory
 - [ ] Add a method to refresh cash every x minutes ?
+- [ ] Add a button accessory to force refresh ?
 - [ ] Add a fake switch to reboot the box ?
 - [ ] Force an online method with the use of StatusFault
 - [ ] Rewrite the parameter order to have something more clear and logic (sub division?)
@@ -133,27 +134,27 @@ Full example
     ]
 ```
 ## Parameters information
-Parameter | Remarks
---------- | -------
-accessory | MUST be ZipaAccessory, will say at Homebridge to use the good plugin
-type | Select the Accessory Type. switch (default) -others see below-
-name | Name of your plugin, will be displayed in HomeKit (muss be unique) - see below -
-username | Username use to connect to my.zipato.com
-password | Password use to connect to my.zipato.com > never publish your Config <br> with this infos
-server_ip | Local ip of your Box : format 192.168.0.1 - do not add http or port
-uuid | uuid of your devices Switch (see Below)
-uuidb | (Optional) Specify a second uuid for a service with two implemented<br>Characteristic - see below -
-manufacturer | Manufacturer of your device. No more use than info in HomeKit
-model | Model of your device. No more use than info in HomeKit
-serial | Serial number of your device. No more use than info in HomeKit
-debug | (Optional) If true the console will display tests informations
-~~reset~~ | ~~(Optional) If true the plugin will try to delete all the accessories from cache~~
-refresh | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
-batteryLimit | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive)
-noStatus | (Optional) = true if no Status (is connected) option is available for<br>the device - false in default - see below-
-reverse | (Optional) = true if the boolean signal of the sensor need to be<br>reversed - see below
-pin | (Optional) : your Pin in Zipato Board to arm or disarm alarm.
-nightMode | (Optional) : Select Home or Night for Security system
+Parameter     | Remarks
+---------     | -------
+accessory     | MUST be ZipaAccessory, will say at Homebridge to use the good plugin
+type          | Select the Accessory Type. switch (default) -others see below-
+name          | Name of your plugin, will be displayed in HomeKit (muss be unique) - see below -
+username      | Username use to connect to my.zipato.com
+password      | Password use to connect to my.zipato.com > never publish your Config <br> with this infos
+server_ip     | Local ip of your Box : format 192.168.0.1 - do not add http or port
+uuid          | uuid of your devices Switch - see Below -
+uuidb         | (Optional) Specify a second uuid for a service with two implemented<br>Characteristic - see below -
+manufacturer  | Manufacturer of your device. No more use than info in HomeKit
+model         | Model of your device. No more use than info in HomeKit
+serial        | Serial number of your device. No more use than info in HomeKit
+debug         | (Optional) If true the console will display tests informations
+~~reset~~     | ~~(Optional) If true the plugin will try to delete all the accessories from cache~~
+refresh       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
+batteryLimit  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive)
+noStatus      | (Optional) = true if no Status (is connected) option is available for<br>the device - false in default - see below-
+reverse       | (Optional) = true if the boolean signal of the sensor need to be<br>reversed - see below
+pin           | (Optional) : your Pin in Zipato Board to arm or disarm alarm.
+nightMode     | (Optional) : Select Home or Night for Security system
 
 Please note the lower and upper case of the parameters.
 
