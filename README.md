@@ -37,7 +37,8 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Temperature > 0.6.30
   - [x] Refresh (accessory or platform ?) > platform > 0.6.30
   - [x] Specify Model, manufacturer and serial > 0.6.31
-  - [x] Ambient
+  - [x] Ambient > 0.6.34
+  - [x] Add the config method for scale adaptation > 0.6.35
   - [ ] Motion
   - [ ] Contact
   - [ ] window
@@ -128,44 +129,62 @@ Full example
                     "noStatus": true,
                     "reverse": true,
                     "batteryLimit": 15
+                },
+                {
+                    "name": "lux kitchen",
+                    "uuid": "aa2zx65s-013s-1s12-12s2-s12312s9s253",
+                    "type": "ambient",
+                    "manufacturer": "mySwitchManufacturer",
+                    "model": "mySwitchModel",
+                    "serial": "mySwitchSerial",
+                    "min": 10,
+                    "max": 200,
                 }
             ]
         }
     ]
 ```
-## Parameters information
+## Parameters information - Platform
 Parameter     | Remarks
 ---------     | -------
-accessory     | MUST be ZipaAccessory, will say at Homebridge to use the good plugin
-type          | Select the Accessory Type. switch (default) -others see below-
-name          | Name of your plugin, will be displayed in HomeKit (muss be unique) - see below -
+platform      | Must be "ZipaboxPlatform" for select the correct plugin
 username      | Username use to connect to my.zipato.com
 password      | Password use to connect to my.zipato.com > never publish your Config <br> with this infos
-server_ip     | Local ip of your Box : format 192.168.0.1 - do not add http or port
+server_ip     | Local ip of your Box : format 192.168.0.1 - do not add http or port <br>OR "remote" - see below -
+debug         | (Optional) If true the console will display tests informations
+refresh       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
+~~reset~~     | ~~(Optional) If true the plugin will try to delete all the accessories from cache~~
+
+Please note the lower and upper case of the parameters.
+
+## Parameters information - Accessory
+Parameter     | Remarks
+---------     | -------
+type          | Select the Accessory Type. switch (default) -others see below-
+name          | Name of your accessory, will be displayed in HomeKit <br> (muss be unique) - see below -
+manufacturer  | Manufacturer of your device. No more use than info in HomeKit <br> "unknown" by default
+model         | Model of your device. No more use than info in HomeKit <br> "unknown" by default
+serial        | Serial number of your device. No more use than info in HomeKit <br> "unknown" by default
 uuid          | uuid of your devices Switch - see Below -
 uuidb         | (Optional) Specify a second uuid for a service with two implemented<br>Characteristic - see below -
-manufacturer  | Manufacturer of your device. No more use than info in HomeKit
-model         | Model of your device. No more use than info in HomeKit
-serial        | Serial number of your device. No more use than info in HomeKit
-debug         | (Optional) If true the console will display tests informations
-~~reset~~     | ~~(Optional) If true the plugin will try to delete all the accessories from cache~~
-refresh       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
 batteryLimit  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive)
 noStatus      | (Optional) = true if no Status (is connected) option is available for<br>the device - false in default - see below-
 reverse       | (Optional) = true if the boolean signal of the sensor need to be<br>reversed - see below
+min           | (Optional) Fix a min value for a specific range. 0 by default
+max           | (Optional) Fix a max value for a specific range. 100 by default
 pin           | (Optional) : your Pin in Zipato Board to arm or disarm alarm.
 nightMode     | (Optional) : Select Home or Night for Security system
 
 Please note the lower and upper case of the parameters.
 
-## List of implemented function
+## List of implemented accessories and function
 Device              | type        | Methods
 ------------------- | ----------- | -------
 Switch (default)    | switch      | Get Status - Set On - Set Off - Unavailable
 Light Bulb          | light       | Get Status - Set On - Set Off - Unavailable
 Outlet              | outlet      | Get Status - Set On - Set Off - Unavailable
 Temperature Sensor  | temperature | Get Value - Battery Low Status - Unavailable
-Light Sensor        | ambient     | Get Value - Battery Low Status - Unavailable
+Light Sensor        | ambient     | Get Value - min/max - Battery Low Status - Unavailable
 Motion Sensor       | motion      | Get Value - Battery Low Status - Unavailable
 Contact Sensor      | contact     | Get Value - Battery Low Status - Unavailable
 Window              | window      | Current Position (0 or 100 %) - Unavailable
@@ -176,6 +195,9 @@ Carbon Monoxide     | co          | Carbon Detected - Battery Low Status - Unava
 Security System     | alarm       | Get Value - Set Value - Not ready - Night or Home
 
 ## Remarks
+
+### remote or local use
+-COMPLETE TEXT -
 
 ### Name of an accessory
 The name will be display in the Home app on your devices. For best pratice use a short one.
@@ -202,6 +224,8 @@ Additionally see Troubleshooting at the end of README.
 ### Window and Doors
 The plugin only get the status open or closed for door and window. It's like a contact sensor but with an other icon. If the user click on the button in HomeKit, the plugin will force the get position method.
 
+### min / max value
+TEXT TO COMPLETE
 
 ### Reverse a value
 Some sensor work inverted as HomeKit expect. Example : a motion sensor return true if no motion are detected. If you can't change your sensor return value in his configuration or Zipato configuration, you can add the "reverse = true" parameter to reverse the returned value. Work for all "get" for attributes.
