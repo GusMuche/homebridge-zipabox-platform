@@ -1,7 +1,7 @@
 ## 0.6.0 -> latest
 Add accessory outlet + light bulb
 Add sensor temperature + ambient
-Add method for refresh + model Info
+Add method for refresh + model Info + range lux
 
 # Previous minor version
 ## 0.5.0 -> 0.5.71

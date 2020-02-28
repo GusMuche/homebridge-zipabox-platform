@@ -70,7 +70,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
 - [ ] Make a function with reconnect method
 - [ ] Bind with a graph viewer (like fakegato)
 - [ ] Config to force a device UUID (need ?)
-- [ ] Check lux scale if correct
+- [x] Check lux scale if correct
 - [ ] Defense prog if batteryLevel requested without battery available ?
 - [ ] Get name with name device ? > first test no concluded > do we need ?
 - [ ] -ongoing- Adapt to non local access > use of "remote" in IP parameter
