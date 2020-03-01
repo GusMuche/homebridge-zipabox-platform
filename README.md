@@ -40,21 +40,21 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Ambient > 0.6.34
   - [x] Add the config method for scale adaptation > 0.6.35
   - [x] Motion > 0.6.38
-  - [ ] Contact
-  - [ ] window
-  - [ ] Door
+  - [x] Contact > 0.6.39
+  - [x] window
+  - [x] Door
   - [ ] Leak
-  - [ ] Battery
   - [ ] co2
+  - [ ] Battery
 1. Add the reconnect method and other tool from [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.7.0
   - [ ] Battery limit
-  - [ ] No Status
-  - [ ] Reverse
-1. Add the security layer > Version 0.7.0
+  - [x] No Status > 0.6.34
+  - [x] Reverse > 0.6.38
+1. Add the security layer > Version 0.8.0
   - [ ] Init and connect for security
   - [ ] Alarm accessory
   - [ ] Nightmode
-1. Validate the remote API access
+1. Validate the remote API access > Already done
 
 ### Further To-do List (based on accessory-plugin)
 
@@ -153,7 +153,7 @@ password      | Password use to connect to my.zipato.com > never publish your Co
 server_ip     | Local ip of your Box : format 192.168.0.1 - do not add http or port <br>OR "remote" - see below -
 debug         | (Optional) If true the console will display tests informations
 refresh       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
-~~reset~~     | ~~(Optional) If true the plugin will try to delete all the accessories from cache~~
+reset         | (Optional) If true the plugin will try to rebuilt all accessories
 
 Please note the lower and upper case of the parameters.
 
