@@ -39,7 +39,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Specify Model, manufacturer and serial > 0.6.31
   - [x] Ambient > 0.6.34
   - [x] Add the config method for scale adaptation > 0.6.35
-  - [ ] Motion
+  - [x] Motion > 0.6.38
   - [ ] Contact
   - [ ] window
   - [ ] Door
