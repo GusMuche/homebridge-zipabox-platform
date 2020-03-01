@@ -153,7 +153,7 @@ password      | Password use to connect to my.zipato.com > never publish your Co
 server_ip     | Local ip of your Box : format 192.168.0.1 - do not add http or port <br>OR "remote" - see below -
 debug         | (Optional) If true the console will display tests informations
 refresh       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
-reset         | (Optional) If true the plugin will try to rebuilt all accessories
+reset         | (Optional) If true the plugin will try to rebuilt all accessories <br> from config.json
 
 Please note the lower and upper case of the parameters.
 
