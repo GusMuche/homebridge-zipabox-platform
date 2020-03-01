@@ -41,11 +41,12 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Add the config method for scale adaptation > 0.6.35
   - [x] Motion > 0.6.38
   - [x] Contact > 0.6.39
-  - [x] window
-  - [x] Door
-  - [ ] Leak
-  - [ ] co2
+  - [x] window > 0.6.48
+  - [x] Door > 0.6.48
+  - [x] Leak > 0.6.48
+  - [x] co2 > 0.6.48
   - [ ] Battery
+  - [ ] Test leak and CO
 1. Add the reconnect method and other tool from [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.7.0
   - [ ] Battery limit
   - [x] No Status > 0.6.34
@@ -54,6 +55,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [ ] Init and connect for security
   - [ ] Alarm accessory
   - [ ] Nightmode
+1. Find a solution for removing accessory in cache
 1. Validate the remote API access > Already done
 
 ### Further To-do List (based on accessory-plugin)
@@ -61,23 +63,20 @@ I didn't work with javascript since a few years, so please be comprehensive.
 - [x] Add a method to check config file if same UUID used
 - [x] Change the check double to agree same UUID with different type
 - [x] ~~Add a method to force cache reset at startut~~
-- [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
-- [ ] Add a Identify config to blink or else accessory
-- [ ] Add a method to refresh cash every x minutes ?
-- [ ] Add a button accessory to force refresh ?
-- [ ] Add a fake switch to reboot the box ?
-- [ ] Force an online method with the use of StatusFault
-- [ ] Rewrite the parameter order to have something more clear and logic (sub division?)
-- [ ] Make a function with reconnect method
-- [ ] Bind with a graph viewer (like fakegato)
-- [ ] Config to force a device UUID (need ?)
+- [x] Rewrite the parameter order to have something more clear and logic (sub division?)
 - [x] Check lux scale if correct
+- [x] Adapt to non local access > use of "remote" in IP parameter
+- [x] Adapt from accessory to platform > check if need (actual multiple connection)
+- [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
+- [ ] Force an online method with the use of StatusFault
+- [ ] Add a Identify config to blink or else accessory
+- [ ] Add a method to refresh cash every x minutes
+- [ ] Add a button accessory to force refresh
+- [ ] Add a fake switch to reboot the box
+- [ ] Bind with a graph viewer (like fakegato)
 - [ ] Defense prog if batteryLevel requested without battery available ?
 - [ ] Get name with name device ? > first test no concluded > do we need ?
-- [ ] -ongoing- Adapt to non local access > use of "remote" in IP parameter
-- [ ] Adapt from accessory to platform > check if need (actual multiple connection)
 - [ ] Implementation of Outlet In Use Status > if needed
-- [ ] Add Smoke Sensor > if needed
 - [ ] Manage possibility to have night mode with an alarm
 
 
@@ -149,11 +148,11 @@ Parameter     | Remarks
 ---------     | -------
 platform      | Must be "ZipaboxPlatform" for select the correct plugin
 username      | Username use to connect to my.zipato.com
-password      | Password use to connect to my.zipato.com > never publish your Config <br> with this infos
+password      | Password use to connect to my.zipato.com > never publish your Config <br>with this infos
 server_ip     | Local ip of your Box : format 192.168.0.1 - do not add http or port <br>OR "remote" - see below -
 debug         | (Optional) If true the console will display tests informations
 refresh       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
-reset         | (Optional) If true the plugin will try to rebuilt all accessories <br> from config.json
+reset         | (Optional) If true the plugin will try to rebuilt all accessories <br>from config.json
 
 Please note the lower and upper case of the parameters.
 
@@ -191,7 +190,7 @@ Window              | window      | Current Position (0 or 100 %) - Unavailable
 Door                | door        | Current Position (0 or 100 %) - Unavailable
 Leak Sensor         | leak        | Get Value - Battery Low Status - Unavailable
 Battery             | battery     | Battery Level - Status - Unavailable
-Carbon Monoxide     | co          | Carbon Detected - Battery Low Status - Unavailable
+Carbon Monoxide     | co2         | Carbon Detected - Battery Low Status - Unavailable
 Security System     | alarm       | Get Value - Set Value - Not ready - Night or Home
 
 ## Remarks
