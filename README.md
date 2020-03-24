@@ -18,20 +18,20 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] GitHub on private
   - [x] Package on NPM
   - [x] Installation through npm on homebridge
-1. Configure a very simple platform > Version 0.2.0
+2. Configure a very simple platform > Version 0.2.0
   - [x] Clear the structure of code
   - [x] Add CHANGELOG to help following the developpment
   - [x] Test and publish with smallest module
   - [x] Add two simple switch through the Platform
-1. Create a new structure with accessory level > Version 0.3.0
+3. Create a new structure with accessory level > Version 0.3.0
   - [x] new class zipAccessory
-1. Connect the user to the box > Version 0.4.0
+4. Connect the user to the box > Version 0.4.0
   - [x] initUser
   - [x] connectUser
-1. Add first device : a simple switch > Version 0.5.0
+5. Add first device : a simple switch > Version 0.5.0
   - [x] Simple add
   - [x] Cache manager for old cached accessories
-1. Add all device of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.6.0
+6. Add all device of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.6.0
   - [x] Light > 0.6.17
   - [x] Outlet > 0.6.30
   - [x] Temperature > 0.6.30
@@ -45,18 +45,18 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Door > 0.6.48
   - [x] Leak > 0.6.48
   - [x] co2 > 0.6.48
-  - [ ] Battery
+  - [x] Battery > 0.6.54
   - [ ] Test leak and CO
-1. Add the reconnect method and other tool from [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.7.0
+7. Add the reconnect method and other tool from [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.7.0
   - [ ] Battery limit
   - [x] No Status > 0.6.34
   - [x] Reverse > 0.6.38
-1. Add the security layer > Version 0.8.0
+8. Add the security lawyer > Version 0.8.0
   - [ ] Init and connect for security
   - [ ] Alarm accessory
   - [ ] Nightmode
-1. Find a solution for removing accessory in cache
-1. Validate the remote API access > Already done
+9. Find a solution for removing accessory in cache
+10. Validate the remote API access > Already done
 
 ### Further To-do List (based on accessory-plugin)
 
@@ -78,6 +78,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
 - [ ] Get name with name device ? > first test no concluded > do we need ?
 - [ ] Implementation of Outlet In Use Status > if needed
 - [ ] Manage possibility to have night mode with an alarm
+- [ ] Find a solution for the battery level not recognize by app (simple sensor ?)
 
 
 ### Not Implemented Accessory (cause I'm not using them)
@@ -255,6 +256,10 @@ Home mode is selected has default.
 
 ### Cached accessories from old config
 Unfortunately I didn't success during my test to clean all the cache for old platform accessories. If this is your case, you need to delete the cachedAccessories file inside the accessories folder.
+
+### Battery device not recognize by Home APP
+In my test the Battery Service is not recognize by the app, but the value and the status are correctly given. The icon will be a house with a status "not recognize".
+If someone have a solution or idea, please send mp or fetch.
 
 ## CREDITS
 
