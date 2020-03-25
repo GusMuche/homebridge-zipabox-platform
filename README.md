@@ -206,8 +206,8 @@ An accessory name must be unique.
 You can use same UUID with two different name or type.
 
 ### uuid of Accessory
-The uuid need to be the "STATE" uuid of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this uuid as parameter for attributes request.
-![alt text](https://github.com/GusMuche/homebridge-zipabox-platform/pics/state_uuid.png)
+The uuid need to be the "STATE" uuid of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this uuid as parameter for attributes request.<br>
+![alt text](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/select_state.jpeg?raw=true)<br>
 The Device uuid is find automatically by the plugin if noStatus is not specified.
 
 ### uuidB - Second Characteristic for implemented Services
