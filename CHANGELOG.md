@@ -1,7 +1,8 @@
 ## 0.6.0 -> latest
 Add accessory outlet + light bulb <br>
-Add sensor temperature + ambient + motion = contact + door + window <br>
-Add method for refresh + model Info + range lux
+Add sensor temperature + ambient + motion + contact + door + window + battery <br>
+Add method for refresh + model Info + range lux<br>
+Add method for Battery Level
 
 # Previous minor version
 ### 0.5.0 -> 0.5.71

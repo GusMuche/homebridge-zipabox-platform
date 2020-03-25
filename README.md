@@ -168,7 +168,7 @@ model         | Model of your device. No more use than info in HomeKit <br> "unk
 serial        | Serial number of your device. No more use than info in HomeKit <br> "unknown" by default
 uuid          | uuid of your devices Switch - see Below -
 uuidb         | (Optional) Specify a second uuid for a service with two implemented<br>Characteristic - see below -
-batteryLimit  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive)
+batteryLimit  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive) - see below -
 noStatus      | (Optional) = true if no Status (is connected) option is available for<br>the device - false in default - see below-
 reverse       | (Optional) = true if the boolean signal of the sensor need to be<br>reversed - see below
 min           | (Optional) Fix a min value for a specific range. 0 by default
@@ -207,7 +207,7 @@ You can use same UUID with two different name or type.
 
 ### uuid of Accessory
 The uuid need to be the "STATE" uuid of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this uuid as parameter for attributes request.<br>
-![alt text](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/select_state.jpeg?raw=true)<br>
+![Select state for uuid](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/select_state.jpeg?raw=true)<br>
 The Device uuid is find automatically by the plugin if noStatus is not specified.
 
 ### uuidB - Second Characteristic for implemented Services
@@ -241,6 +241,14 @@ This option is fixed to true by the plugin for an alarm type.
 ### Refresh Rate
 HomeKit update the status of your device when you reopen the Home APP. If you want to force a refresh you can use the optional parameter "refresh".
 You do not need this to keep the connection to the Box. The plugin will reconnect if need after a long time without connection.
+
+### Battery Limit
+If you specify the batteryLimit parameter the plugin will try to get the battery value of the device of the accessory. To use this the device answer need to have a battery level status.
+If use correctly, Home app will indicate a warning if the battery level is under the specified battery limit.<br>
+![Battery limit indicator](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/batteryLowIndicator.jpeg?raw=true)<br>
+The information will be also displayed on the accessory pop-up.
+![Battery limit indication](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/batteryLowAccessory.jpeg?raw=true)<br>
+
 
 ## Alarm - Security system
 
