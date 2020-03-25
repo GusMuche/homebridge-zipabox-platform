@@ -208,6 +208,9 @@ You can use same UUID with two different name or type.
 ### uuid of Accessory
 The uuid need to be the "STATE" uuid of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this uuid as parameter for attributes request.<br>
 ![Select state for uuid](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/select_state.jpeg?raw=true)<br>
+To be sure you can try an api request directly from the my.zipato.com API page. Follow the link :<br>
+![API link](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/apiLink.png?raw=true)<br>
+![uuid value test API](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/uuidApiTest.png?raw=true)<br>
 The Device uuid is find automatically by the plugin if noStatus is not specified.
 
 ### uuidB - Second Characteristic for implemented Services
@@ -246,7 +249,7 @@ You do not need this to keep the connection to the Box. The plugin will reconnec
 If you specify the batteryLimit parameter the plugin will try to get the battery value of the device of the accessory. To use this the device answer need to have a battery level status.
 If use correctly, Home app will indicate a warning if the battery level is under the specified battery limit.<br>
 ![Battery limit indicator](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/batteryLowIndicator.jpeg?raw=true)<br>
-The information will be also displayed on the accessory pop-up.
+The information will be also displayed on the accessory pop-up.<br>
 ![Battery limit indication](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/batteryLowAccessory.jpeg?raw=true)<br>
 
 
