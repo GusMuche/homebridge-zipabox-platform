@@ -48,16 +48,16 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Battery > 0.6.54
   - [ ] Test leak and CO
 7. Add the reconnect method and other tool from [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.7.0
-  - [ ] Battery limit
+  - [x] Battery limit > 0.6.57
   - [x] No Status > 0.6.34
   - [x] Reverse > 0.6.38
+  - [ ] Test reconnection method
 8. Add the security lawyer > Version 0.8.0
   - [ ] Init and connect for security
   - [ ] Alarm accessory
   - [ ] Nightmode
-9. Find a solution for removing accessory in cache
-10. Validate the remote API access > Already done
-
+9. Validate the remote API access > Already done
+10. Find a solution for removing accessory in cache
 ### Further To-do List (based on accessory-plugin)
 
 - [x] Add a method to check config file if same UUID used
@@ -79,6 +79,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
 - [ ] Implementation of Outlet In Use Status > if needed
 - [ ] Manage possibility to have night mode with an alarm
 - [ ] Find a solution for the battery level not recognize by app (simple sensor ?)
+- [ ] Reconnect to the box also if only noStatus is used
 
 
 ### Not Implemented Accessory (cause I'm not using them)
@@ -206,6 +207,7 @@ You can use same UUID with two different name or type.
 
 ### uuid of Accessory
 The uuid need to be the "STATE" uuid of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this uuid as parameter for attributes request.
+![alt text](https://github.com/GusMuche/homebridge-zipabox-platform/pics/state_uuid.png)
 The Device uuid is find automatically by the plugin if noStatus is not specified.
 
 ### uuidB - Second Characteristic for implemented Services
