@@ -1,8 +1,11 @@
-## 0.7.0 -> latest
+## 0.8.0 -> latest
 Adding security partition
 
 # Previous minor version
 
+### 0.7.0 -> 0.7.1
+Reconnect method
+Testing last accessories
 ### 0.6.0 -> 0.6.56
 Add accessory outlet + light bulb <br>
 Add sensor temperature + ambient + motion + contact + door + window + battery <br>
