@@ -46,12 +46,12 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Leak > 0.6.48
   - [x] co2 > 0.6.48
   - [x] Battery > 0.6.54
-  - [ ] Test leak and CO
 7. Add the reconnect method and other tool from [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory). > Version 0.7.0
   - [x] Battery limit > 0.6.57
   - [x] No Status > 0.6.34
   - [x] Reverse > 0.6.38
   - [ ] Test reconnection method
+  - [ ] Test leak and CO with real accessories
 8. Add the security lawyer > Version 0.8.0
   - [ ] Init and connect for security
   - [ ] Alarm accessory

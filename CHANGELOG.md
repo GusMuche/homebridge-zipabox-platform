@@ -1,10 +1,13 @@
-## 0.6.0 -> latest
+## 0.7.0 -> latest
+Adding security partition
+
+# Previous minor version
+
+### 0.6.0 -> 0.6.56
 Add accessory outlet + light bulb <br>
 Add sensor temperature + ambient + motion + contact + door + window + battery <br>
 Add method for refresh + model Info + range lux<br>
 Add method for Battery Level
-
-# Previous minor version
 ### 0.5.0 -> 0.5.71
 Integration of fist accessory > switch
 ### 0.4.0 -> 0.4.2
