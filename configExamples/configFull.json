@@ -23,8 +23,16 @@
                   "manufacturer": "GusInc",
                   "model": "switch1m",
                   "serial": "serialOfSwitch",
-                  "batteryLimit": 30,
                   "noStatus": true,
+                  "reverse": true
+                },
+                {
+                  "name": "Light 1",
+                  "uuid": "baaa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "type": "light",
+                  "manufacturer": "GusInc",
+                  "model": "light1m",
+                  "serial": "serialOfLight",
                   "reverse": true
                 }
             ]

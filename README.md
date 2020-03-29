@@ -69,6 +69,7 @@ Evolution or correction :
 - [x] Check lux scale if correct
 - [x] Rewrite the parameter order to have something more clear and logic (sub division?)
 - [x] Manage possibility to have night mode with an alarm
+- [ ] Complete the documentation example (full example)
 - [ ] Reconnect to the box also if only noStatus is used
 - [ ] Force an "online" method with the use of StatusFault
 - [ ] Reset also the first accessory implemented
@@ -82,7 +83,6 @@ Evolution or correction :
 Functionality :
 - [x] Add a method to check config file if same UUID used
 - [x] Adapt to non local access > use of "remote" in IP parameter
-- [ ] Add a Identify config to blink or else accessory
 - [ ] Add a fake switch accessory to force refresh
 - [ ] Add a fake switch to reboot the box
 - [ ] Bind with a graph viewer (like fakegato)
@@ -91,6 +91,7 @@ Functionality :
 
 ### Excluded method (out from Development route)
 - [ ] Add a method to refresh cash every x minutes > no need
+- [ ] Add a Identify config to blink or else accessory > not for accessory
 
 ### Not Implemented Accessory (cause I'm not using them)
 - Doorbell
@@ -117,43 +118,8 @@ Short example
         }
     ]
 ```
-Full example
-```JSON
-"platforms": [
-        {
-            "platform": "ZipaboxPlatform",
-            "username": "you@email.com",
-            "password": "yourPassword",
-            "server_ip": "192.168.0.1",
-            "debug": true,
-            "refresh": 5,
-            "accessories": [
-                {
-                    "name": "Switch first room",
-                    "uuid": "aa2zx65s-013s-1s12-12s2-s12312s9s253",
-                    "uuidb": "aa2zx65s-013s-1s12-12s2-s12312s9s25b",
-                    "type": "switch",
-                    "manufacturer": "mySwitchManufacturer",
-                    "model": "mySwitchModel",
-                    "serial": "mySwitchSerial",
-                    "noStatus": true,
-                    "reverse": true,
-                    "batteryLimit": 15
-                },
-                {
-                    "name": "lux kitchen",
-                    "uuid": "aa2zx65s-013s-1s12-12s2-s12312s9s253",
-                    "type": "ambient",
-                    "manufacturer": "mySwitchManufacturer",
-                    "model": "mySwitchModel",
-                    "serial": "mySwitchSerial",
-                    "min": 10,
-                    "max": 200,
-                }
-            ]
-        }
-    ]
-```
+Full example can be found [here](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/configExamples/configShort.json).
+
 ## Parameters information - Platform
 Parameter       | Remarks
 -----------     | -------
@@ -173,9 +139,9 @@ Parameter       | Remarks
 -----------     | -------
 `type`          | Select the Accessory Type. `switch` (default) -others see below-
 `name`          | Name of your accessory, will be displayed in HomeKit <br> (muss be unique) - see below -
-`manufacturer`  | Manufacturer of your device. No more use than info in HomeKit <br> `unknown` by default
-`model`         | Model of your device. No more use than info in HomeKit <br> `unknown` by default
-`serial`        | Serial number of your device. No more use than info in HomeKit <br> `unknown` by default
+`manufacturer`  | Manufacturer of your device. No more use than info in HomeKit <br> `zipato` by default
+`model`         | Model of your device. No more use than info in HomeKit <br> `zipato` by default
+`serial`        | Serial number of your device. No more use than info in HomeKit <br> `zipato` by default
 `uuid`          | uuid of your devices Switch - see Below -
 `uuidb`         | (Optional) Specify a second uuid for a service with two implemented<br>Characteristics - see below -
 `batteryLimit`  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive) - see below -
@@ -190,9 +156,9 @@ Please note the lower and upper case of the parameters.
 ## List of implemented accessories and function
 Device              | type          | Methods
 ------------------- | ------------- | -------
-Switch (default)    | `switch`      | Get Status - Set On - Set Off - Unavailable
-Light Bulb          | `light`       | Get Status - Set On - Set Off - Unavailable
-Outlet              | `outlet`      | Get Status - Set On - Set Off - Unavailable
+Switch (default)    | `switch`      | Get Status - Set On - Set Off - Unavailable - Identify
+Light Bulb          | `light`       | Get Status - Set On - Set Off - Unavailable - Identify
+Outlet              | `outlet`      | Get Status - Set On - Set Off - Unavailable - Identify
 Temperature Sensor  | `temperature` | Get Value - Battery Low Status - Unavailable
 Light Sensor        | `ambient`     | Get Value - min/max - Battery Low Status - Unavailable
 Motion Sensor       | `motion`      | Get Value - Battery Low Status - Unavailable
@@ -207,7 +173,7 @@ Security System     | `alarm`       | Get Value - Set Value - Not ready - Night 
 ## Remarks
 
 ### remote or local use
-The plugin is developped 
+The plugin is developped
 
 ### Name of an accessory
 The name will be display in the Home app on your devices. For best pratice use a short one.<br>
@@ -263,7 +229,6 @@ If use correctly, Home app will indicate a warning if the battery level is under
 The information will be also displayed on the accessory pop-up.<br>
 ![Battery limit indication](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/batteryLowAccessory.jpeg?raw=true)<br>
 
-
 ## Alarm - Security system
 
 ### Alarm configuration
@@ -284,6 +249,11 @@ Home mode is selected has default.
 ### Cached accessories from old config
 Unfortunately I didn't success during my test to clean all the cache for old platform accessories. The first one is still there and no possibility to clean it correctly (also if I use the `reset` option).<br>
 If this is your case, you need to delete the cachedAccessories file inside the accessories folder of your Homebridge installation.
+
+### Updated configuration not take
+If you change parameters inside the `config.json` of an configured accessory, the change will not be taked in account if you not change the name or reset the cache.<br>
+Best way to do this is to add the `reset`parameter to `true` and restart homebridge.<br><br>
+Explanation : a big part of the parameter from accessories are saved inside homebridge (context of an accessory). The plugin will first try to reload a configured accessory in state of recharge the `config.json`.
 
 ### Battery device not recognize by Home APP
 In my test the Battery Service is not recognize by the app, but the value and the status are correctly given. The icon will be a house with a status "not recognize".<br>
