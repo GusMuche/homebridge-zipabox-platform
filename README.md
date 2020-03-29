@@ -53,8 +53,8 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Test reconnection method
   - [x] Test leak and CO with real accessories
 8. Add the security lawyer > Version 0.8.0
-  - [ ] Init and connect for security
-  - [ ] Alarm accessory
+  - [x] Init and connect for security
+  - [x] Alarm accessory
   - [ ] Nightmode
   - [ ] reconnect after connection loss for security
 9. Validate the remote API access > Already done but need to be test
@@ -151,9 +151,10 @@ Full example
 Parameter     | Remarks
 ---------     | -------
 platform      | Must be "ZipaboxPlatform" for select the correct plugin
+server_ip     | Local ip of your Box : format 192.168.0.1 - do not add http or port <br>OR "remote" - see below -
 username      | Username use to connect to my.zipato.com
 password      | Password use to connect to my.zipato.com > never publish your Config <br>with this infos
-server_ip     | Local ip of your Box : format 192.168.0.1 - do not add http or port <br>OR "remote" - see below -
+pin           | (Optional) : your Pin in Zipato Board to arm or disarm alarm.
 debug         | (Optional) If true the console will display tests informations
 refresh       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
 reset         | (Optional) If true the plugin will try to rebuilt all accessories <br>from config.json
@@ -175,7 +176,6 @@ noStatus      | (Optional) = true if no Status (is connected) option is availabl
 reverse       | (Optional) = true if the boolean signal of the sensor need to be<br>reversed - see below
 min           | (Optional) Fix a min value for a specific range. 0 by default
 max           | (Optional) Fix a max value for a specific range. 100 by default
-pin           | (Optional) : your Pin in Zipato Board to arm or disarm alarm.
 nightMode     | (Optional) : Select Home or Night for Security system
 
 Please note the lower and upper case of the parameters.
@@ -203,8 +203,8 @@ Security System     | alarm       | Get Value - Set Value - Not ready - Night or
 -COMPLETE TEXT -
 
 ### Name of an accessory
-The name will be display in the Home app on your devices. For best pratice use a short one.
-An accessory name must be unique.
+The name will be display in the Home app on your devices. For best pratice use a short one.<br>
+An accessory name must be unique.<br>
 You can use same UUID with two different name or type.
 
 ### uuid of Accessory
@@ -223,9 +223,9 @@ Accessory | uuid          | uuidB
 Battery   | BatteryLevel  | ChargingState
 
 ### Clear the cache
-Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. ~~If some old accessories doesn't disappear, try to put this option to "true". If other parameter given, parameter will be forced to false.~~
-If you reset the cache, you can loose all your room configuration and other topic inside iOS.
-If the problem is not solve, try to delete the file "cachedAccessories" inside folder "accessories" from homebridge installation.
+Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. ~~If some old accessories doesn't disappear, try to put this option to "true". If other parameter given, parameter will be forced to false.~~<br>
+If you reset the cache, you can loose all your room configuration and other topic inside iOS.<br>
+If the problem is not solve, try to delete the file "cachedAccessories" inside folder "accessories" from homebridge installation.<br>
 Additionally see Troubleshooting at the end of README.
 
 ### Window and Doors
@@ -235,20 +235,20 @@ The plugin only get the status open or closed for door and window. It's like a c
 TEXT TO COMPLETE
 
 ### Reverse a value
-Some sensor work inverted as HomeKit expect. Example : a motion sensor return true if no motion are detected. If you can't change your sensor return value in his configuration or Zipato configuration, you can add the "reverse = true" parameter to reverse the returned value. Work for all "get" for attributes.
+Some sensor work inverted as HomeKit expect. Example : a motion sensor return true if no motion are detected. If you can't change your sensor return value in his configuration or Zipato configuration, you can add the "reverse = true" parameter to reverse the returned value. Work for all "get" for attributes.<br>
 This option if fixed to false by the plugin for an alarm type.
 
 ### Device Status Unavailable
-In case of unavailable device status you can add the parameter "noStatus": true to ask the plugin to not check the availability of the device. This can happen for wired device to the box (security module).
-It can help if your Status UUID have no Parent device with a "status" option.
-This option is fixed to true by the plugin for an alarm type.
+In case of unavailable device status you can add the parameter "noStatus": true to ask the plugin to not check the availability of the device. This can happen for wired device to the box (security module).<br>
+It can help if your Status UUID have no Parent device with a "status" option.<br>
+This option is fixed to true by the plugin for an alarm type.<br>
 
 ### Refresh Rate
-HomeKit update the status of your device when you reopen the Home APP. If you want to force a refresh you can use the optional parameter "refresh".
+HomeKit update the status of your device when you reopen the Home APP. If you want to force a refresh you can use the optional parameter "refresh".<br>
 You do not need this to keep the connection to the Box. The plugin will reconnect if need after a long time without connection.
 
 ### Battery Limit
-If you specify the batteryLimit parameter the plugin will try to get the battery value of the device of the accessory. To use this the device answer need to have a battery level status.
+If you specify the batteryLimit parameter the plugin will try to get the battery value of the device of the accessory. To use this the device answer need to have a battery level status.<br>
 If use correctly, Home app will indicate a warning if the battery level is under the specified battery limit.<br>
 ![Battery limit indicator](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/batteryLowIndicator.jpeg?raw=true)<br>
 The information will be also displayed on the accessory pop-up.<br>
@@ -258,16 +258,16 @@ The information will be also displayed on the accessory pop-up.<br>
 ## Alarm - Security system
 
 ### Alarm configuration
-To configure an alarm, you must specify the UUID of the partition that you want to follow (not the device or sensor). Also the pin of the user is necessary to permit access to change the alarm (see next point).
+To configure an alarm, you must specify the UUID of the partition that you want to follow (not the device or sensor). Also the pin of the user is necessary to permit access to change the alarm (see next point).<br>
 To find the uuid of the partitions, you muss go to the API website after connection to your my.zipato.com deskboard. Use the alarm/partitions/ request.<br>
 ![Find alarm partitions uuid](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/alarmUUID.png?raw=true)<br>
 
 ### Pin missing for Alarm
 The pin parameter muss be set on the platform, not the accessory. Only one user with one pin can be used.
-In case of missing PIN parameter for a Alarm accessory, the plugin send a log warning, change the type to "switch" and add an info in the name.
+In case of missing PIN parameter for a Alarm accessory, the plugin send a log warning, ~~change the type to "switch" and add an info in the name.~~
 
 ### Select night or home status
-Homekit can return "Night" status or "Home" status for an "Perimeter only alarm". Zipato can only have one of the both. To choose if the homebridge should return Night or Home, the user has to select nightMode = true if the system has to return Night.
+Homekit can return "Night" status or "Home" status for an "Perimeter only alarm". Zipato can only have one of the both. To choose if the homebridge should return Night or Home, the user has to select nightMode = true if the system has to return Night.<br>
 Home mode is selected has default.
 
 ## Troubleshoting
@@ -276,12 +276,12 @@ Home mode is selected has default.
 Unfortunately I didn't success during my test to clean all the cache for old platform accessories. If this is your case, you need to delete the cachedAccessories file inside the accessories folder.
 
 ### Battery device not recognize by Home APP
-In my test the Battery Service is not recognize by the app, but the value and the status are correctly given. The icon will be a house with a status "not recognize".
+In my test the Battery Service is not recognize by the app, but the value and the status are correctly given. The icon will be a house with a status "not recognize".<br>
 If someone have a solution or idea, please send mp or fetch.
 
 ## CREDITS
 
 ### Thanks to the best plugin example
-homebridge-gpio-wpi2
-homebridge-camera-ffmpeg
-homebridge-hue
+homebridge-gpio-wpi2<br>
+homebridge-camera-ffmpeg<br>
+homebridge-hue<br>
