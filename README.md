@@ -258,7 +258,7 @@ The information will be also displayed on the accessory pop-up.<br>
 ## Alarm - Security system
 
 ### Alarm configuration
-To configure an alarm, you must specify the UUID of the partition that you want to follow (not the device or sensor). Also the pin of the user logged in ist necessary to permit access to change the alarm (see next point).
+To configure an alarm, you must specify the UUID of the partition that you want to follow (not the device or sensor). Also the pin of the user is necessary to permit access to change the alarm (see next point).
 
 ### Pin missing for Alarm
 In case of missing PIN parameter for a Alarm accessory, the plugin send a log warning, change the type to "switch" and add an info in the name.
