@@ -259,8 +259,11 @@ The information will be also displayed on the accessory pop-up.<br>
 
 ### Alarm configuration
 To configure an alarm, you must specify the UUID of the partition that you want to follow (not the device or sensor). Also the pin of the user is necessary to permit access to change the alarm (see next point).
+To find the uuid of the partitions, you muss go to the API website after connection to your my.zipato.com deskboard. Use the alarm/partitions/ request.<br>
+![Find alarm partitions uuid](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/alarmUUID.png?raw=true)<br>
 
 ### Pin missing for Alarm
+The pin parameter muss be set on the platform, not the accessory. Only one user with one pin can be used.
 In case of missing PIN parameter for a Alarm accessory, the plugin send a log warning, change the type to "switch" and add an info in the name.
 
 ### Select night or home status
