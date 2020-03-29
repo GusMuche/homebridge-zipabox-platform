@@ -53,10 +53,11 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Test reconnection method
   - [x] Test leak and CO with real accessories
 8. Add the security lawyer > Version 0.8.0
-  - [x] Init and connect for security
-  - [x] Alarm accessory
-  - [ ] Nightmode
-  - [ ] reconnect after connection loss for security
+  - [x] Init and connect for security > 0.8.2
+  - [x] Alarm accessory > 0.8.3
+  - [ ] Get status activate after activation request
+  - [ ] Nightmode > implemented, still need test
+  - [ ] reconnect after connection loss for security > implemented, still need test
 9. Validate the remote API access > Already done but need to be test
 10. Find a solution for removing accessory in cache
 ### Further To-do List (based on accessory-plugin)
@@ -68,7 +69,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
 - [x] Check lux scale if correct
 - [x] Adapt to non local access > use of "remote" in IP parameter
 - [x] Adapt from accessory to platform > check if need (actual multiple connection)
-- [ ] Accelereta method to reconnect or go to the platform level
+- [ ] Accelerate method to reconnect or go to the platform level
 - [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
 - [ ] Force an online method with the use of StatusFault
 - [ ] Add a Identify config to blink or else accessory

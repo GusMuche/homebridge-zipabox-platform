@@ -1,6 +1,6 @@
 {
   "name": "homebridge-zipabox-platform",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "Homebridge plugin for Zipabox for homebridge : http://github.com/GusMuche/homebridge-zipabox-platform",
   "main": "index.js",
   "license": "MIT",
