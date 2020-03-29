@@ -149,54 +149,54 @@ Full example
     ]
 ```
 ## Parameters information - Platform
-Parameter     | Remarks
----------     | -------
-platform      | Must be "ZipaboxPlatform" for select the correct plugin
-server_ip     | Local ip of your Box : format 192.168.0.1 - do not add http or port <br>OR "remote" - see below -
-username      | Username use to connect to my.zipato.com
-password      | Password use to connect to my.zipato.com > never publish your Config <br>with this infos
-pin           | (Optional) : your Pin in Zipato Board to arm or disarm alarm.
-debug         | (Optional) If true the console will display tests informations
-refresh       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
-reset         | (Optional) If true the plugin will try to rebuilt all accessories <br>from config.json
+Parameter       | Remarks
+-----------     | -------
+`platform`      | Must be "ZipaboxPlatform" for select the correct plugin
+`server_ip`     | Local ip of your Box : format 192.168.0.1 - do not add http or port <br>OR `remote` - see below -
+`username`      | Username use to connect to my.zipato.com
+`password`      | Password use to connect to my.zipato.com > never publish your Config <br>with this infos
+`pin`           | (Optional) Your Pin in Zipato Board to arm or disarm alarm.
+`debug`         | (Optional) If true the console will display tests informations
+`refresh`       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
+`reset`         | (Optional) If true the plugin will try to rebuilt all accessories <br>from config.json
 
 Please note the lower and upper case of the parameters.
 
 ## Parameters information - Accessory
-Parameter     | Remarks
----------     | -------
-type          | Select the Accessory Type. switch (default) -others see below-
-name          | Name of your accessory, will be displayed in HomeKit <br> (muss be unique) - see below -
-manufacturer  | Manufacturer of your device. No more use than info in HomeKit <br> "unknown" by default
-model         | Model of your device. No more use than info in HomeKit <br> "unknown" by default
-serial        | Serial number of your device. No more use than info in HomeKit <br> "unknown" by default
-uuid          | uuid of your devices Switch - see Below -
-uuidb         | (Optional) Specify a second uuid for a service with two implemented<br>Characteristic - see below -
-batteryLimit  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive) - see below -
-noStatus      | (Optional) = true if no Status (is connected) option is available for<br>the device - false in default - see below-
-reverse       | (Optional) = true if the boolean signal of the sensor need to be<br>reversed - see below
-min           | (Optional) Fix a min value for a specific range. 0 by default
-max           | (Optional) Fix a max value for a specific range. 100 by default
-nightMode     | (Optional) : Select Home or Night for Security system
+Parameter       | Remarks
+-----------     | -------
+`type`          | Select the Accessory Type. `switch` (default) -others see below-
+`name`          | Name of your accessory, will be displayed in HomeKit <br> (muss be unique) - see below -
+`manufacturer`  | Manufacturer of your device. No more use than info in HomeKit <br> `unknown` by default
+`model`         | Model of your device. No more use than info in HomeKit <br> `unknown` by default
+`serial`        | Serial number of your device. No more use than info in HomeKit <br> `unknown` by default
+`uuid`          | uuid of your devices Switch - see Below -
+`uuidb`         | (Optional) Specify a second uuid for a service with two implemented<br>Characteristics - see below -
+`batteryLimit`  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive) - see below -
+`noStatus`      | (Optional) Set to `true` if no Status (is connected) option is available<br>for the device - `false` in default - see below-
+`reverse`       | (Optional) Set to `true` if the boolean signal of the sensor need to be<br>reversed - see below
+`min`           | (Optional) Fix a min value for a specific range. 0 by default
+`max`           | (Optional) Fix a max value for a specific range. 100 by default
+`nightMode`     | (Optional) Select Home or Night for Security system <br>`false` by default
 
 Please note the lower and upper case of the parameters.
 
 ## List of implemented accessories and function
-Device              | type        | Methods
-------------------- | ----------- | -------
-Switch (default)    | switch      | Get Status - Set On - Set Off - Unavailable
-Light Bulb          | light       | Get Status - Set On - Set Off - Unavailable
-Outlet              | outlet      | Get Status - Set On - Set Off - Unavailable
-Temperature Sensor  | temperature | Get Value - Battery Low Status - Unavailable
-Light Sensor        | ambient     | Get Value - min/max - Battery Low Status - Unavailable
-Motion Sensor       | motion      | Get Value - Battery Low Status - Unavailable
-Contact Sensor      | contact     | Get Value - Battery Low Status - Unavailable
-Window              | window      | Current Position (0 or 100 %) - Unavailable
-Door                | door        | Current Position (0 or 100 %) - Unavailable
-Leak Sensor         | leak        | Get Value - Battery Low Status - Unavailable
-Battery             | battery     | Battery Level - Status - Unavailable
-Carbon Monoxide     | co2         | Carbon Detected - Battery Low Status - Unavailable
-Security System     | alarm       | Get Value - Set Value - Not ready - Night or Home
+Device              | type          | Methods
+------------------- | ------------- | -------
+Switch (default)    | `switch`      | Get Status - Set On - Set Off - Unavailable
+Light Bulb          | `light`       | Get Status - Set On - Set Off - Unavailable
+Outlet              | `outlet`      | Get Status - Set On - Set Off - Unavailable
+Temperature Sensor  | `temperature` | Get Value - Battery Low Status - Unavailable
+Light Sensor        | `ambient`     | Get Value - min/max - Battery Low Status - Unavailable
+Motion Sensor       | `motion`      | Get Value - Battery Low Status - Unavailable
+Contact Sensor      | `contact`     | Get Value - Battery Low Status - Unavailable
+Window              | `window`      | Current Position (0 or 100 %) - Unavailable
+Door                | `door`        | Current Position (0 or 100 %) - Unavailable
+Leak Sensor         | `leak`        | Get Value - Battery Low Status - Unavailable
+Battery             | `battery`     | Battery Level - Status - Unavailable
+Carbon Monoxide     | `co2`         | Carbon Detected - Battery Low Status - Unavailable
+Security System     | `alarm`       | Get Value - Set Value - Not ready - Night or Home
 
 ## Remarks
 
@@ -233,15 +233,17 @@ Additionally see Troubleshooting at the end of README.
 The plugin only get the status open or closed for door and window. It's like a contact sensor but with an other icon. If the user click on the button in HomeKit, the plugin will force the get position method.
 
 ### min / max value
-TEXT TO COMPLETE
+For some sensor, we need to adapt the scale. If Zipato give a percent and HomeKit want a scale, you can specify the `min` and the `max` parameter.<br>
+The plugin will calculate a `range` = `max` - `min`.<br>
+Then the value given to HomeKit will be calculatet = `min` + `valueOfZipato`/100 * `range`.
 
 ### Reverse a value
 Some sensor work inverted as HomeKit expect. Example : a motion sensor return true if no motion are detected. If you can't change your sensor return value in his configuration or Zipato configuration, you can add the "reverse = true" parameter to reverse the returned value. Work for all "get" for attributes.<br>
 This option if fixed to false by the plugin for an alarm type.
 
 ### Device Status Unavailable
-In case of unavailable device status you can add the parameter "noStatus": true to ask the plugin to not check the availability of the device. This can happen for wired device to the box (security module).<br>
-It can help if your Status UUID have no Parent device with a "status" option.<br>
+In case of unavailable device status you can add the parameter `noStatus`: true to ask the plugin to not check the availability of the device. This can happen for wired device to the box (security module).<br>
+It can help if your Status UUID have no Parent device with a `status` option.<br>
 This option is fixed to true by the plugin for an alarm type.<br>
 
 ### Refresh Rate
