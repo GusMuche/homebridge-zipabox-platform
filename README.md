@@ -55,35 +55,42 @@ I didn't work with javascript since a few years, so please be comprehensive.
 8. Add the security lawyer > Version 0.8.0
   - [x] Init and connect for security > 0.8.2
   - [x] Alarm accessory > 0.8.3
-  - [ ] Get status activate after activation request
-  - [ ] Nightmode > implemented, still need test
-  - [ ] reconnect after connection loss for security > implemented, still need test
+  - [x] Nightmode > implemented, still need test > 0.8.8
+  - [x] Get status activate after activation request > 0.8.16
+  - [ ] Reconnect after connection loss for security > implemented, still need test
 9. Validate the remote API access > Already done but need to be test
-10. Find a solution for removing accessory in cache
+
+
 ### Further To-do List (based on accessory-plugin)
 
-- [x] Add a method to check config file if same UUID used
+Evolution or correction :
 - [x] Change the check double to agree same UUID with different type
-- [x] ~~Add a method to force cache reset at startut~~
-- [x] Rewrite the parameter order to have something more clear and logic (sub division?)
+- [x] Add a method to force cache reset at startut
 - [x] Check lux scale if correct
-- [x] Adapt to non local access > use of "remote" in IP parameter
-- [x] Adapt from accessory to platform > check if need (actual multiple connection)
+- [x] Rewrite the parameter order to have something more clear and logic (sub division?)
+- [x] Manage possibility to have night mode with an alarm
+- [ ] Reconnect to the box also if only noStatus is used
+- [ ] Force an "online" method with the use of StatusFault
+- [ ] Reset also the first accessory implemented
+- [ ] Compatibility with the [Homebridge Config UI](https://github.com/homebridge/homebridge/wiki/verified-Plugins)
+- [ ] Defense prog if batteryLevel requested without battery available ?
 - [ ] Accelerate method to reconnect or go to the platform level
 - [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
-- [ ] Force an online method with the use of StatusFault
+- [ ] Get name with name device ? > first test no concluded > do we need ?
+- [ ] Find a solution for the battery level not recognize by app (simple sensor ?)
+
+Functionality :
+- [x] Add a method to check config file if same UUID used
+- [x] Adapt to non local access > use of "remote" in IP parameter
 - [ ] Add a Identify config to blink or else accessory
-- [ ] Add a method to refresh cash every x minutes
-- [ ] Add a button accessory to force refresh
+- [ ] Add a fake switch accessory to force refresh
 - [ ] Add a fake switch to reboot the box
 - [ ] Bind with a graph viewer (like fakegato)
-- [ ] Defense prog if batteryLevel requested without battery available ?
-- [ ] Get name with name device ? > first test no concluded > do we need ?
 - [ ] Implementation of Outlet In Use Status > if needed
-- [ ] Manage possibility to have night mode with an alarm
-- [ ] Find a solution for the battery level not recognize by app (simple sensor ?)
-- [ ] Reconnect to the box also if only noStatus is used
 
+
+### Excluded method (out from Development route)
+- [ ] Add a method to refresh cash every x minutes > no need
 
 ### Not Implemented Accessory (cause I'm not using them)
 - Doorbell
@@ -92,7 +99,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
 
 ## Config Examples
 
-Simple example
+Short example
 ```JSON
 "platforms": [
         {
@@ -100,7 +107,6 @@ Simple example
             "USERNAME": "you@email.com",
             "PASSWORD": "yourPassword",
             "server_ip": "192.168.0.1",
-            "debug": true,
             "accessories": [
                 {
                     "name": "Switch first room",
@@ -201,7 +207,7 @@ Security System     | `alarm`       | Get Value - Set Value - Not ready - Night 
 ## Remarks
 
 ### remote or local use
--COMPLETE TEXT -
+The plugin is developped 
 
 ### Name of an accessory
 The name will be display in the Home app on your devices. For best pratice use a short one.<br>
@@ -224,9 +230,9 @@ Accessory | uuid          | uuidB
 Battery   | BatteryLevel  | ChargingState
 
 ### Clear the cache
-Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. ~~If some old accessories doesn't disappear, try to put this option to "true". If other parameter given, parameter will be forced to false.~~<br>
-If you reset the cache, you can loose all your room configuration and other topic inside iOS.<br>
+Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. If some old accessories doesn't disappear, try to put option `reset` to `true`. If other parameter given, parameter will be forced to false.<br>
 If the problem is not solve, try to delete the file "cachedAccessories" inside folder "accessories" from homebridge installation.<br>
+If you reset the cache, you can loose all your room configuration and other topic inside iOS.<br>
 Additionally see Troubleshooting at the end of README.
 
 ### Window and Doors
@@ -270,13 +276,14 @@ The pin parameter muss be set on the platform, not the accessory. Only one user 
 In case of missing PIN parameter for a Alarm accessory, the plugin send a log warning, ~~change the type to "switch" and add an info in the name.~~
 
 ### Select night or home status
-Homekit can return "Night" status or "Home" status for an "Perimeter only alarm". Zipato can only have one of the both. To choose if the homebridge should return Night or Home, the user has to select nightMode = true if the system has to return Night.<br>
+Homekit can return "Night" status or "Home" status for an "Perimeter only alarm". Zipato can only have one of the both. To choose if the homebridge should return Night or Home, the user has to select `nightMode` = `true` if the system has to return Night.<br>
 Home mode is selected has default.
 
 ## Troubleshoting
 
 ### Cached accessories from old config
-Unfortunately I didn't success during my test to clean all the cache for old platform accessories. If this is your case, you need to delete the cachedAccessories file inside the accessories folder.
+Unfortunately I didn't success during my test to clean all the cache for old platform accessories. The first one is still there and no possibility to clean it correctly (also if I use the `reset` option).<br>
+If this is your case, you need to delete the cachedAccessories file inside the accessories folder of your Homebridge installation.
 
 ### Battery device not recognize by Home APP
 In my test the Battery Service is not recognize by the app, but the value and the status are correctly given. The icon will be a house with a status "not recognize".<br>
@@ -284,7 +291,7 @@ If someone have a solution or idea, please send mp or fetch.
 
 ## CREDITS
 
-### Thanks to the best plugin example
+### Thanks to the best plugin example that I followed
 homebridge-gpio-wpi2<br>
 homebridge-camera-ffmpeg<br>
 homebridge-hue<br>
