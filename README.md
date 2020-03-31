@@ -58,10 +58,10 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Nightmode > implemented, still need test > 0.8.8
   - [x] Get status activate after activation request > 0.8.16
   - [x] Test with a lot of accessories > 0.8.19 (but not with full debug)
-  - [ ] Reconnect after connection loss for security > implemented, still need test
-  - [ ] Change some non Debug Information (status change, warning, error, ...)
-  - [ ] Give the possibility to debug only one accessory and not all (have two level ?)
-  - [ ] Make a refresh rate for each accessory (based on the type ?)
+  - [x] Change some non Debug Information (status change, warning, error, ...) > 0.8.33
+  - [x] Give the possibility to debug only one accessory and not all (have two level ?) > 0.8.33
+  - [ ] Reconnect after connection loss for security (and normal) > implemented, still need test
+  - [ ] Make a refresh rate for each accessory (based on the type ?) and not on the platform level
 9. Validate the remote API access > Already done but need to be test
 
 
@@ -132,7 +132,8 @@ Parameter       | Remarks
 `username`      | Username use to connect to my.zipato.com
 `password`      | Password use to connect to my.zipato.com > never publish your Config <br>with this infos
 `pin`           | (Optional) Your Pin in Zipato Board to arm or disarm alarm.
-`debug`         | (Optional) If true the console will display tests informations
+`debug`         | (Optional) If true the console will display tests informations for <br>the platform level and ALL the accessories - `false` in default
+`debugApi`      | (Optional) If true the console will display tests informations for <br>the API request (independent of `debug` parameter) - `false` in default
 `refresh`       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
 `reset`         | (Optional) If true the plugin will try to rebuilt all accessories <br>from config.json
 
@@ -147,9 +148,10 @@ Parameter       | Remarks
 `model`         | Model of your device. No more use than info in HomeKit <br> `zipato` by default
 `serial`        | Serial number of your device. No more use than info in HomeKit <br> `zipato` by default
 `uuid`          | uuid of your devices Switch - see Below -
+`debug`         | (Optional) If true the console will display tests informations for <br>the this accessory - `false` in default - see below -
 `uuidb`         | (Optional) Specify a second uuid for a service with two implemented<br>Characteristics - see below -
 `batteryLimit`  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive) - see below -
-`noStatus`      | (Optional) Set to `true` if no Status (is connected) option is available<br>for the device - `false` in default - see below-
+`noStatus`      | (Optional) Set to `true` if no Status (is connected) option is available<br>for the device - `false` in default - see below -
 `reverse`       | (Optional) Set to `true` if the boolean signal of the sensor need to be<br>reversed - see below
 `min`           | (Optional) Fix a min value for a specific range. 0 by default
 `max`           | (Optional) Fix a max value for a specific range. 100 by default
@@ -183,6 +185,13 @@ The plugin is developped
 The name will be display in the Home app on your devices. For best practice use a short one.<br>
 You can use same name with different uuid.<br>
 You can't use same name AND same uuid for multiples accessories.
+
+### Debug modes
+The user can activate 3 level of debug
+- API : parameter `debugApi` will activate all the API request information only. Without the next debug information it can be hard to follow
+- Accessory : will activate the debug information for only one accessory, no influence on the API or Platform level
+- Platform : will give a lot information for the platform level and set ALL the accessory `debug` to `true` (will not affect the `debugApi` parameter)
+If the user set `debug` to `true` for Platform and `false` for one (or more) Accessory, the plugin will not consider the last one.
 
 ### uuid of Accessory
 The uuid need to be the "STATE" uuid of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this uuid as parameter for attributes request.<br>
