@@ -57,7 +57,11 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Alarm accessory > 0.8.3
   - [x] Nightmode > implemented, still need test > 0.8.8
   - [x] Get status activate after activation request > 0.8.16
+  - [x] Test with a lot of accessories > 0.8.19 (but not with full debug)
   - [ ] Reconnect after connection loss for security > implemented, still need test
+  - [ ] Change some non Debug Information (status change, warning, error, ...)
+  - [ ] Give the possibility to debug only one accessory and not all (have two level ?)
+  - [ ] Make a refresh rate for each accessory (based on the type ?)
 9. Validate the remote API access > Already done but need to be test
 
 
@@ -65,11 +69,11 @@ I didn't work with javascript since a few years, so please be comprehensive.
 
 Evolution or correction :
 - [x] Change the check double to agree same UUID with different type
-- [x] Add a method to force cache reset at startut
 - [x] Check lux scale if correct
 - [x] Rewrite the parameter order to have something more clear and logic (sub division?)
 - [x] Manage possibility to have night mode with an alarm
-- [ ] Complete the documentation example (full example)
+- [ ] Add a method to force cache reset at startup > still a part of accessory will not be deleted (why???)
+- [ ] Complete the documentation example (full example with default parameter)
 - [ ] Reconnect to the box also if only noStatus is used
 - [ ] Force an "online" method with the use of StatusFault
 - [ ] Reset also the first accessory implemented
@@ -91,7 +95,7 @@ Functionality :
 
 ### Excluded method (out from Development route)
 - [ ] Add a method to refresh cash every x minutes > no need
-- [ ] Add a Identify config to blink or else accessory > not for accessory
+- [ ] Add a Identify config to blink or else accessory > not for accessory through a bridge
 
 ### Not Implemented Accessory (cause I'm not using them)
 - Doorbell
@@ -176,9 +180,9 @@ Security System     | `alarm`       | Get Value - Set Value - Not ready - Night 
 The plugin is developped
 
 ### Name of an accessory
-The name will be display in the Home app on your devices. For best pratice use a short one.<br>
-An accessory name must be unique.<br>
-You can use same UUID with two different name or type.
+The name will be display in the Home app on your devices. For best practice use a short one.<br>
+You can use same name with different uuid.<br>
+You can't use same name AND same uuid for multiples accessories.
 
 ### uuid of Accessory
 The uuid need to be the "STATE" uuid of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this uuid as parameter for attributes request.<br>
@@ -258,6 +262,12 @@ Explanation : a big part of the parameter from accessories are saved inside home
 ### Battery device not recognize by Home APP
 In my test the Battery Service is not recognize by the app, but the value and the status are correctly given. The icon will be a house with a status "not recognize".<br>
 If someone have a solution or idea, please send mp or fetch.
+
+## Tested accessories
+
+Zipato - Security Module
+Zipato - Backup Module
+Zipato - Multisensor 4 in 1
 
 ## CREDITS
 
