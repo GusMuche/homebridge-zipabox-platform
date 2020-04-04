@@ -60,7 +60,8 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Test with a lot of accessories > 0.8.19 (but not with full debug)
   - [x] Change some non Debug Information (status change, warning, error, ...) > 0.8.33
   - [x] Give the possibility to debug only one accessory and not all (have two level ?) > 0.8.33
-  - [ ] Reconnect after connection loss for security (and normal) > implemented, still need test
+  - [x] Reconnect after connection loss for security (and normal) > implemented, still need test > 0.8.36
+  - [ ] Reconnection only for 1 accessory and update status after reconnection
   - [ ] Make a refresh rate for each accessory (based on the type ?) and not on the platform level
 9. Validate the remote API access > Already done but need to be test
 
@@ -72,6 +73,7 @@ Evolution or correction :
 - [x] Check lux scale if correct
 - [x] Rewrite the parameter order to have something more clear and logic (sub division?)
 - [x] Manage possibility to have night mode with an alarm
+- [ ] Add PArameter for the wait reconnection ?
 - [ ] Add a method to force cache reset at startup > still a part of accessory will not be deleted (why???)
 - [ ] Complete the documentation example (full example with default parameter)
 - [ ] Reconnect to the box also if only noStatus is used
