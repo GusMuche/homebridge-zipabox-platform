@@ -61,7 +61,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Change some non Debug Information (status change, warning, error, ...) > 0.8.33
   - [x] Give the possibility to debug only one accessory and not all (have two level ?) > 0.8.33
   - [x] Reconnect after connection loss for security (and normal) > implemented, still need test > 0.8.36
-  - [ ] Reconnection only for 1 accessory and update status after reconnection
+  - [x] Reconnection only for 1 accessory and update status after reconnection > 0.8.80
   - [x] Avoid two connection for door or window state > 0.8.68
   - [ ] Make a refresh rate for each accessory (based on the type ?) and not on the platform level
 9. Validate the remote API access > Already done but need to be test
@@ -93,7 +93,7 @@ Functionality :
 - [x] Adapt to non local access > use of "remote" in IP parameter
 - [ ] Add a fake switch accessory to force refresh
 - [ ] Add a fake switch to reboot the box
-- [ ] Add a fake switch to logout the user
+- [x] Add a fake switch to logout the user > 0.8.80
 - [ ] Bind with a graph viewer (like fakegato)
 - [ ] Implementation of Outlet In Use Status > if needed
 
