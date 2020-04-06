@@ -78,12 +78,12 @@ Evolution or correction :
 - [ ] Add a method to force cache reset at startup > still a part of accessory will not be deleted (why???) also if the plugin is stopped
 - [ ] Complete the documentation example (full example with default parameter)
 - [ ] Reconnect to the box also if only noStatus is used
-- [ ] Force an "online" method with the use of StatusFault
+- [ ] Force an "is online" method with the use of StatusFault
 - [ ] Reset also the first accessory implemented
 - [x] Manage the plugin if nothing is configured (and delete accessories still saved) > 0.8.58
 - [ ] Compatibility with the [Homebridge Config UI](https://github.com/homebridge/homebridge/wiki/verified-Plugins)
 - [ ] Defense prog if batteryLevel requested without battery available ?
-- [ ] Accelerate method to reconnect or go to the platform level
+- [x] Accelerate method to reconnect or go to the platform level > 0.8.80
 - [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
 - [ ] Get name with name device ? > first test no concluded > do we need ?
 - [ ] Find a solution for the battery level not recognize by app (simple sensor ?)
@@ -91,7 +91,6 @@ Evolution or correction :
 Functionality :
 - [x] Add a method to check config file if same UUID used
 - [x] Adapt to non local access > use of "remote" in IP parameter
-- [ ] Add a fake switch accessory to force refresh
 - [ ] Add a fake switch to reboot the box
 - [x] Add a fake switch to logout the user > 0.8.80
 - [ ] Bind with a graph viewer (like fakegato)
@@ -101,6 +100,7 @@ Functionality :
 ### Excluded method (out from Development route)
 - [ ] Add a method to refresh cash every x minutes > no need
 - [ ] Add a Identify config to blink or else accessory > not for accessory through a bridge
+- [ ] Add a fake switch accessory to force refresh > need one event-observer method
 
 ### Not Implemented Accessory (cause I'm not using them)
 - Doorbell
