@@ -62,6 +62,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Give the possibility to debug only one accessory and not all (have two level ?) > 0.8.33
   - [x] Reconnect after connection loss for security (and normal) > implemented, still need test > 0.8.36
   - [ ] Reconnection only for 1 accessory and update status after reconnection
+  - [x] Avoid two connection for door or window state > 0.8.68
   - [ ] Make a refresh rate for each accessory (based on the type ?) and not on the platform level
 9. Validate the remote API access > Already done but need to be test
 
@@ -73,12 +74,13 @@ Evolution or correction :
 - [x] Check lux scale if correct
 - [x] Rewrite the parameter order to have something more clear and logic (sub division?)
 - [x] Manage possibility to have night mode with an alarm
-- [ ] Add PArameter for the wait reconnection ?
-- [ ] Add a method to force cache reset at startup > still a part of accessory will not be deleted (why???)
+- [ ] Add Parameter for the wait reconnection ? > need to be tested
+- [ ] Add a method to force cache reset at startup > still a part of accessory will not be deleted (why???) also if the plugin is stopped
 - [ ] Complete the documentation example (full example with default parameter)
 - [ ] Reconnect to the box also if only noStatus is used
 - [ ] Force an "online" method with the use of StatusFault
 - [ ] Reset also the first accessory implemented
+- [x] Manage the plugin if nothing is configured (and delete accessories still saved) > 0.8.58
 - [ ] Compatibility with the [Homebridge Config UI](https://github.com/homebridge/homebridge/wiki/verified-Plugins)
 - [ ] Defense prog if batteryLevel requested without battery available ?
 - [ ] Accelerate method to reconnect or go to the platform level
@@ -91,6 +93,7 @@ Functionality :
 - [x] Adapt to non local access > use of "remote" in IP parameter
 - [ ] Add a fake switch accessory to force refresh
 - [ ] Add a fake switch to reboot the box
+- [ ] Add a fake switch to logout the user
 - [ ] Bind with a graph viewer (like fakegato)
 - [ ] Implementation of Outlet In Use Status > if needed
 
