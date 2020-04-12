@@ -64,7 +64,8 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Reconnection only for 1 accessory and update status after reconnection > 0.8.80
   - [x] Avoid two connection for door or window state > 0.8.68
   - [x] Make a refresh rate for each accessory (based on the type ?) and not on the platform level > 0.8.94
-9. Validate the remote API access > Already done but need to be test
+9. Validate the remote API access > Already done but need to be test > Version 0.9.0
+- [ ] Find all the difference between local and remote API
 
 
 ### Further To-do List (based on accessory-plugin)
