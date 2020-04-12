@@ -63,7 +63,7 @@ I didn't work with javascript since a few years, so please be comprehensive.
   - [x] Reconnect after connection loss for security (and normal) > implemented, still need test > 0.8.36
   - [x] Reconnection only for 1 accessory and update status after reconnection > 0.8.80
   - [x] Avoid two connection for door or window state > 0.8.68
-  - [ ] Make a refresh rate for each accessory (based on the type ?) and not on the platform level
+  - [x] Make a refresh rate for each accessory (based on the type ?) and not on the platform level > 0.8.94
 9. Validate the remote API access > Already done but need to be test
 
 
@@ -139,7 +139,7 @@ Parameter       | Remarks
 `pin`           | (Optional) Your Pin in Zipato Board to arm or disarm alarm.
 `debug`         | (Optional) If true the console will display tests informations for <br>the platform level and ALL the accessories - `false` in default
 `debugApi`      | (Optional) If true the console will display tests informations for <br>the API request (independent of `debug` parameter) - `false` in default
-`refresh`       | (Optional) Time for forced refresh of the status (in seconds)<br>(see Remarks)
+`refresh`       | (Optional) Time for forced refresh of the status (in seconds)<br>see below
 `reset`         | (Optional) If true the plugin will try to rebuilt all accessories <br>from config.json
 
 Please note the lower and upper case of the parameters.
@@ -156,6 +156,7 @@ Parameter       | Remarks
 `debug`         | (Optional) If true the console will display tests informations for <br>the this accessory - `false` in default - see below -
 `uuidb`         | (Optional) Specify a second uuid for a service with two implemented<br>Characteristics - see below -
 `batteryLimit`  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive) - see below -
+`refresh`       | (Optional) Time for forced refresh of the status (in seconds)<br>see below
 `noStatus`      | (Optional) Set to `true` if no Status (is connected) option is available<br>for the device - `false` in default - see below -
 `reverse`       | (Optional) Set to `true` if the boolean signal of the sensor need to be<br>reversed - see below
 `min`           | (Optional) Fix a min value for a specific range. 0 by default
@@ -237,8 +238,10 @@ It can help if your Status UUID have no Parent device with a `status` option.<br
 This option is fixed to true by the plugin for an alarm type.<br>
 
 ### Refresh Rate
-HomeKit update the status of your device when you reopen the Home APP. If you want to force a refresh you can use the optional parameter "refresh".<br>
-You do not need this to keep the connection to the Box. The plugin will reconnect if need after a long time without connection.
+HomeKit update the status of your device when you reopen the Home APP. If you want to force a refresh you can use the optional parameter "refresh" at the platform level.<br>
+You do not need this to keep the connection to the Box. The plugin will reconnect if need after a long time without connection.<br>
+Refresh the box will alsorefresh all the accessories states.<br><br>
+For installation with a lot of accessories, you can choose to refresh at different rates some accessories. The rules is simple : the refresh at accessory level is added to the global. If two request is made too shortly, the plugin will miss one.
 
 ### Battery Limit
 If you specify the batteryLimit parameter the plugin will try to get the battery value of the device of the accessory. To use this the device answer need to have a battery level status.<br>
@@ -270,7 +273,8 @@ If this is your case, you need to delete the cachedAccessories file inside the a
 
 ### Updated configuration not take
 If you change parameters inside the `config.json` of an configured accessory, the change will not be taked in account if you not change the name or reset the cache.<br>
-Best way to do this is to add the `reset`parameter to `true` and restart homebridge.<br><br>
+Best way to do this is to add the `reset`parameter to `true` and restart homebridge.<br>
+For some error this action will not give the right answer. Then you'll need to delete the `cachedAccessories` file inside the accessories folder of your Homebridge installation.<br><br>
 Explanation : a big part of the parameter from accessories are saved inside homebridge (context of an accessory). The plugin will first try to reload a configured accessory in state of recharge the `config.json`.
 
 ### Battery device not recognize by Home APP
