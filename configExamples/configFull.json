@@ -12,9 +12,10 @@
             "password": "yourPassword",
             "server_ip": "192.168.0.1",
             "pin": "1234",
-            "debug": true,
-            "refresh": 20,
-            "reset": true,
+            "debug": false,
+            "debugApi": false,
+            "refresh": 0,
+            "reset": false,
             "accessories": [
                 {
                   "name": "Switch 1",
@@ -27,6 +28,40 @@
                   "reverse": true
                 },
                 {
+                  "name": "Kitchen",
+                  "type": "door",
+                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "manufacturer": "GusInc",
+                  "model": "door1m",
+                  "serial": "serialOfDoor",
+                  "debug": false,
+                  "refresh": 30
+                },
+                {
+                  "name": "Kitchen",
+                  "type": "ambient",
+                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "manufacturer": "GusInc",
+                  "model": "ambient1m",
+                  "serial": "serialOfAmbient",
+                  "min": 1,
+                  "max": 1000,
+                  "debug": false,
+                  "refresh": 30
+                },
+                {
+                  "name": "Kitchen",
+                  "type": "temperature",
+                  "uuid": "aa3aa3aaa-333a-3a33-33a3-a33333a3a333",
+                  "manufacturer": "GusInc",
+                  "model": "temperature1m",
+                  "serial": "serialOfTemperature",
+                  "min": 1,
+                  "max": 1000,
+                  "debug": false,
+                  "refresh": 30
+                },
+                {
                   "name": "Light 1",
                   "uuid": "baaa1aaa-111a-1a11-11a1-a11111a1a111",
                   "type": "light",
@@ -34,6 +69,19 @@
                   "model": "light1m",
                   "serial": "serialOfLight",
                   "reverse": true
+                },
+                {
+                  "name": "Alarm",
+                  "type": "alarm",
+                  "uuid": "baaa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "nightMode": false,
+                  "debug": false,
+                  "refresh": 30
+                },
+                {
+                    "name": "Log Out",
+                    "type": "switch",
+                    "uuid": "disconnectBox"
                 }
             ]
         }

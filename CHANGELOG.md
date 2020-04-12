@@ -1,8 +1,15 @@
-## 0.8.0 -> latest
-Adding security partition
+## 1.0.0
+First public version<br>
+Adapt the config Example (full)
 
 # Previous minor version
 
+### 0.9.103 -> 0.9.104
+First public version<br>
+Remote test
+### 0.8.0 -> 0.9.103
+Adding security partition<br>
+Add a looot of changes
 ### 0.7.0 -> 0.7.1
 Reconnect method
 Testing last accessories
