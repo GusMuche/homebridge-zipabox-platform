@@ -1,6 +1,7 @@
 ### 1.0.x
-resend the default if accesory not there (as before recheck Error)
-
+Add possibility to activate a bigger debug for API
+### 1.0.7
+Bug correction : Status offline of accessory / Also for trouble but online
 ### 1.0.4
 Update configuration of accessories after cache update even if reset is not on true.
 

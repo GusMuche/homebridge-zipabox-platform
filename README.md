@@ -61,7 +61,7 @@ Parameter       | Remarks
 `password`      | Password use to connect to my.zipato.com > never publish your Config <br>with this infos
 `pin`           | (Optional) Your Pin in Zipato Board to arm or disarm alarm.
 `debug`         | (Optional) If true the console will display tests informations for <br>the platform level and ALL the accessories - `false` in default
-`debugApi`      | (Optional) If true the console will display tests informations for <br>the API request (independent of `debug` parameter) - `false` in default
+`debugApi`      | (Optional) If true the console will display tests informations for <br>the API request (independent of `debug` parameter) - `false` in default<br>Can also set to "FULL" to have more details from API requests.
 `refresh`       | (Optional) Time for forced refresh of the status (in seconds)<br>see below
 `reset`         | (Optional) If true the plugin will try to rebuilt all accessories <br>from config.json
 
