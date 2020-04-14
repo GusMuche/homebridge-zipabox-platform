@@ -1,4 +1,7 @@
-## 1.0.x
+### 1.0.x
+resend the default if accesory not there (as before recheck Error)
+
+### 1.0.4
 Update configuration of accessories after cache update even if reset is not on true.
 
 ## 1.0.0

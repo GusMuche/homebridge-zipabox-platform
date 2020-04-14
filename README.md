@@ -140,7 +140,7 @@ Battery   | BatteryLevel  | ChargingState
 ### Clear the cache
 Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. If some old accessories doesn't disappear, try to put option `reset` to `true`. If other parameter given, parameter will be forced to false.<br>
 If the problem is not solve, try to delete the file "cachedAccessories" inside folder "accessories" from homebridge installation.<br>
-If you reset the cache, you can loose all your room configuration and other topic inside iOS.<br>
+~~If you reset the cache, you can loose all your room configuration and other topic inside iOS.<br>~~
 Additionally see Troubleshooting at the end of README.
 
 ### Window and Doors
@@ -206,9 +206,9 @@ If someone have a solution or idea, please send mp or fetch.
 
 ## Tested accessories
 
-Zipato - Security Module
-Zipato - Backup Module
-Zipato - Multisensor 4 in 1
+Zipato - Security Module<br>
+Zipato - Backup Module<br>
+Zipato - Multisensor 4 in 1<br>
 
 ## CREDITS
 
