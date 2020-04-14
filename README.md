@@ -1,6 +1,6 @@
 This is a Plugin for [Homebridge](https://github.com/nfarina/homebridge) to link Siri and the ZipaBox.
 
-![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) ![homebridge version](https://badgen.net/badge/homebridge/>0.2.0/purple) ![Homebridge docker](https://badgen.net/badge/homebridge docker/v4.15.1/purple)
+![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) ![homebridge version](https://badgen.net/badge/homebridge/>0.2.0/purple) ![homebridge docker](https://badgen.net/badge/homebridge_docker/v4.15.1/purple)
 
 It's the next step of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory) plugin (witch is made for single accessory).
 
