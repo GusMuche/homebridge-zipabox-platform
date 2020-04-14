@@ -1,6 +1,6 @@
 This is a Plugin for [Homebridge](https://github.com/nfarina/homebridge) to link Siri and the ZipaBox.
 
-![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) ![homebridge version](https://badgen.net/badge/homebridge/>0.2.0/purple) ![homebridge docker](https://badgen.net/badge/homebridge_docker/v4.15.1/purple)
+![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) ![homebridge version](https://badgen.net/badge/homebridge/>0.2.0/purple) ![homebridge docker](https://badgen.net/badge/docker-homebridge/v4.15.1/purple)
 
 It's the next step of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory) plugin (witch is made for single accessory).
 
@@ -13,6 +13,13 @@ This plugin will NOT find the device itself. The devices need to be configured i
 The plugin didn't use the [Zipato API Node.js Implementation](https://github.com/espenmjos/zipato) (no success after a few try) like the [homebridge-zipato](https://github.com/lrozema/homebridge-zipato) plugin. The actual plugin is an alternative with direct connection to [Zipato API](https://my.zipato.com/zipato-web/api/).
 
 I didn't work with javascript since a few years, so please be comprehensive.
+
+## Installation instructions
+
+I usually install the package through the [npm package](https://www.npmjs.com/package/homebridge-zipabox-platform) with the help of [homebridge-config-ui-x](https://github.com/oznu/homebridge-config-ui-x).<br>
+You can try another installation process but this is the simplest one.
+
+All the tests are done on homebridge installed on a docker with the [docker-homebridge image](https://github.com/oznu/docker-homebridge).
 
 ## Development route
 
