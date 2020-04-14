@@ -1,3 +1,6 @@
+## 1.0.x
+Update configuration of accessories after cache update even if reset is not on true.
+
 ## 1.0.0
 First public version<br>
 Adapt the config Example (full)
