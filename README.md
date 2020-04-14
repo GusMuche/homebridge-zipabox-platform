@@ -1,6 +1,6 @@
 This is a Plugin for [Homebridge](https://github.com/nfarina/homebridge) to link Siri and the ZipaBox.
 
-https://badgen.net/github/license/micromatch/micromatch
+<a href="https://www.npmjs.com/package/homebridge"><img title="npm version" src=https://badgen.net/github/license/micromatch/micromatch</a>
 
 It's the next step of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory) plugin (witch is made for single accessory).
 
