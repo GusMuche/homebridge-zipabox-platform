@@ -70,7 +70,7 @@ Evolution or correction :
 - [x] Manage the plugin if nothing is configured (and delete accessories still saved) > 0.8.58
 - [ ] Compatibility with the [Homebridge Config UI](https://github.com/homebridge/homebridge/wiki/verified-Plugins)
 - [ ] Defense prog if batteryLevel requested without battery available ?
-- [x] Accelerate method to reconnect or go to the platform level > 0.8.80
+- [x] Accelerate method to reconnect or go to the platform level > 0.8.80 (BOX level)
 - [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
 - [ ] Get name with name device ? > first test no concluded > do we need ?
 - [ ] Find a solution for the battery level not recognize by app (simple sensor ?)
@@ -85,6 +85,6 @@ Functionality :
 
 
 ### Excluded method (out from Development route)
-- [ ] Add a method to refresh cash every x minutes > no need
-- [ ] Add a Identify config to blink or else accessory > not for accessory through a bridge
-- [ ] Add a fake switch accessory to force refresh > need one event-observer method
+- [ ] Add a method to refresh cash of `homebridge` every x minutes > no need
+- [ ] Add a Identify config to blink or else accessory > not very usefull
+- [ ] Add a fake switch accessory to force refresh > need one event-observer method (not know by me) > just close and open the HOME APP
