@@ -293,9 +293,9 @@ If someone have a solution or idea, please send mp or fetch.
 
 ## Tested accessories
 
-Zipato - Security Module
-Zipato - Backup Module
-Zipato - Multisensor 4 in 1
+Zipato - Security Module<br>
+Zipato - Backup Module<br>
+Zipato - Multisensor 4 in 1<br>
 
 ## CREDITS
 
