@@ -58,6 +58,41 @@
         "required": false,
         "default": false,
         "description": "Will ask to the plugin to delete all cached accessories before adding the others."
+      },
+      "accessories": {
+        "title": "Accessories to request on the Box",
+        "type": "array",
+        "items": {
+          "name": "Accessory",
+          "type": "object",
+          "properties":{
+            "name" :{
+                "title":"Name",
+                "type" : "string",
+                "default": "Kitchen light",
+                "description": "Name diplayed inside your Home APP",
+                "required": true
+            },
+            "uuid":{
+                "title":"uuid",
+                "type" : "string",
+                "default": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                "description": "UUID of the state. Lowest level in my.zipato (see readme)",
+                "required": true
+            },
+            "type":{
+                "title": "Type of accessory",
+                "type": "string",
+                "default": "switch",
+                "oneOf":[
+                    {"title":"switch", "enum": ["switch"] },
+                    {"title":"contact", "enum": ["contact"] },
+                    {"title":"motion", "enum": ["motion"] },
+                    {"title":"door", "enum": ["door"] } ],
+                "required": true
+            }
+          }
+        }
       }
-    }   
+    }
   }
