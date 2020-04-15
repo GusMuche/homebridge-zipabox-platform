@@ -5,10 +5,8 @@
   "headerDisplay": "Optional content to display above the plugin config. Supports markdown.",
   "footerDisplay": "Optional content to display below the plugin config. Supports markdown.",
   "schema": {
-    "type": "object",
-    "properties": {
       "username": {
-        "title": "Username to my.zipato",
+        "title": "Username to my.zipato.com",
         "type": "string",
         "required": true,
         "default": "name@mail.com"
@@ -19,15 +17,47 @@
         "required": true,
         "default": "****"
       },
-      server_ip: {
+      "server_ip": {
         "title": "Local IP or remote",
         "type": "string",
         "required": true,
         "default": "192.168.0.1",
-        "description": "Only IP, no http or port. For remote access just type remote"
+        "description": "Only IP, no http or port. For remote access just type 'remote'"
       },
-    }
-  },
-  "form": null,
-  "display": null
-}
+      "pin": {
+        "title": "PIN code for alarm",
+        "type": "string",
+        "required": false,
+        "default": "1234",
+        "description": "Need to connect to an alarm partition."
+      },
+      "refresh": {
+        "title": "Refresh rate",
+        "type": "integer",
+        "required": false,
+        "default": 0,
+        "description": "Time in seconds to refresh ALL the accessories."
+      },
+      "debug": {
+        "title": "Debug mode ?",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "description": "Will activate debug for platform and ALL accessories"
+      },
+      "debugApi": {
+        "title": "Debug for API level",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "description": "Will activate debug for API request."
+      },
+      "reset": {
+        "title": "Reset all accessories",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "description": "Will ask to the plugin to delete all cached accessories before adding the others."
+      }
+    }   
+  }
