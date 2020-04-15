@@ -1,3 +1,7 @@
+### 1.1.x - ongoing
+Manage errors with too much accessory
+Correction and more details in config examples
+
 ## 1.1.0
 Add possibility to activate a bigger debug for API (see Readme)<br>
 Bug correction : Status offline of accessory / Also for trouble but online<br>
