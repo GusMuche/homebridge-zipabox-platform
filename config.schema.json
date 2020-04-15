@@ -1,0 +1,33 @@
+{
+  "pluginAlias": "ZipaboxPlatform",
+  "pluginType": "platform",
+  "singular": false,
+  "headerDisplay": "Optional content to display above the plugin config. Supports markdown.",
+  "footerDisplay": "Optional content to display below the plugin config. Supports markdown.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "title": "Username to my.zipato",
+        "type": "string",
+        "required": true,
+        "default": "name@mail.com"
+      },
+      "password":{
+        "title": "Password to my.zipato",
+        "type": "string",
+        "required": true,
+        "default": "****"
+      },
+      server_ip: {
+        "title": "Local IP or remote",
+        "type": "string",
+        "required": true,
+        "default": "192.168.0.1",
+        "description": "Only IP, no http or port. For remote access just type remote"
+      },
+    }
+  },
+  "form": null,
+  "display": null
+}
