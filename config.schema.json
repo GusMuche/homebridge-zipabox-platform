@@ -31,7 +31,6 @@
       "title": "Refresh rate",
       "type": "integer",
       "required": false,
-      "default": 0,
       "description": "Time in seconds to refresh ALL the accessories."
     },
     "debug": {
@@ -72,9 +71,9 @@
             "required": true
           },
           "uuidb":{
-            "title":"uuid bis - uuidb",
+            "title":"uuidb",
             "type" : "string",
-            "description": "UUID if needed by the device type (see readme)",
+            "description": "second UUID for battery accessory only (see readme)",
             "required": false
           },
           "type":{
@@ -108,58 +107,54 @@
             "required": false
           },
           "serial":{
-            "title":"Manufacturer",
+            "title":"serial",
             "type" : "string",
             "description": "Only for info in Home App",
             "required": false
           },
           "nightMode":{
-            "title":"Night mode in place of home mode",
+            "title":"Night in place of Home",
             "type" : "boolean",
             "default": false,
             "required": false
           },
           "reverse":{
-            "title":"Reverse the signal ?",
+            "title":"Reverse the signal",
             "type" : "boolean",
             "required": false
           },
           "noStatus":{
-            "title":"No Status available ?",
+            "title":"No Status available",
             "type" : "boolean",
             "description": "Set to true for wired device",
             "required": false
           },
           "debug":{
-            "title":"Debug Mode ?",
+            "title":"Debug Mode",
             "type" : "boolean",
             "required": false
           },
           "refresh":{
             "title":"Refresh rate",
             "type" : "integer",
-            "default": 0,
             "description": "Time need to update the accessory (seconds)",
             "required": false
           },
           "batteryLimit":{
             "title":"Battery limit",
             "type" : "integer",
-            "default": 10,
             "description": "Battery percents before warning",
             "required": false
           },
           "min":{
             "title":"Min value",
             "type" : "integer",
-            "default": 0,
             "description": "Minimum value to adapt the scale",
             "required": false
           },
           "max":{
             "title":"Max value",
             "type" : "integer",
-            "default": 100,
             "description": "Maximum value to adapt the scale",
             "required": false
           }
@@ -193,7 +188,9 @@
             {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].uuid","accessories[].uuidb"]},
             {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].manufacturer","accessories[].model","accessories[].serial"]},
             {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].nightMode","accessories[].reverse"]},
-            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug"]}
+            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug"]},
+            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].refresh","accessories[].batteryLimit"]},
+            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].min","accessories[].max"]}
           ]
         }
       ]
