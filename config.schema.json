@@ -6,12 +6,12 @@
   "footerDisplay": "For help please see the [gihub page](https://github.com/GusMuche/homebridge-zipabox-platform).",
   "schema": {
     "username": {
-      "title": "Username used to login on my.zipato.com",
+      "title": "Login on my.zipato.com",
       "type": "string",
       "required": true
     },
     "password":{
-      "title": "Password to my.zipato.com",
+      "title": "Password on my.zipato.com",
       "type": "string",
       "required": true
     },
@@ -19,13 +19,13 @@
       "title": "Local IP or remote",
       "type": "string",
       "required": true,
-      "description": "Only IP, no http or port. For remote access just type 'remote'"
+      "description": "Local : only IP, no http or port. Remote : just type 'remote'"
     },
     "pin": {
       "title": "PIN code for alarm",
       "type": "string",
       "required": false,
-      "description": "Need to connect to an alarm partition."
+      "description": "Only if you have one alarm accessory"
     },
     "refresh": {
       "title": "Refresh rate",
@@ -73,7 +73,7 @@
           "uuidb":{
             "title":"uuidb",
             "type" : "string",
-            "description": "second UUID for battery accessory only (see readme)",
+            "description": "Only for battery accessory",
             "required": false
           },
           "type":{
@@ -192,12 +192,19 @@
           "legend": "{{idx}}.{{value.name}}/{{value.type}}",
           "items": [
             {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].name","accessories[].type"]},
-            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].uuid","accessories[].uuidb"]},
-            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].manufacturer","accessories[].model","accessories[].serial"]},
-            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].nightMode","accessories[].reverse"]},
-            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug"]},
-            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].refresh","accessories[].batteryLimit"]},
-            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].min","accessories[].max"]}
+            "accessories[].uuid",
+            "accessories[].uuidb",
+            {"type": "fieldset",
+            "title": "Optional parameters",
+            "expandable": true,
+            "expanded": false,
+            "items": [
+                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].manufacturer","accessories[].model","accessories[].serial"]},
+                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].nightMode","accessories[].reverse"]},
+                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug"]},
+                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].refresh","accessories[].batteryLimit"]},
+                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].min","accessories[].max"]}
+            ]}
           ]
         }
       ]
