@@ -25,11 +25,6 @@ All the tests are done on homebridge installed on a docker with the [docker-home
 
 The complete Development route can be found here [here](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/Development.md)
 
-### Not Implemented Accessory (cause I'm not using them)
-- Doorbell
-- Dioxide Sensor
-- Smoke Sensor
-
 ## Config Examples
 
 Short example
@@ -87,6 +82,11 @@ Parameter       | Remarks
 `nightMode`     | (Optional) Select Home or Night for Security system <br>`false` by default
 
 Please note the lower and upper case of the parameters.
+
+### Not Implemented Accessory (cause I'm not using them)
+- Doorbell
+- Dioxide Sensor
+- Smoke Sensor
 
 ## List of implemented accessories and function
 Device              | type          | Methods
