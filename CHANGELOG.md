@@ -1,6 +1,9 @@
+## 1.2.0
+Add the config.schema.json
+
 ## 1.1.0
-Add possibility to activate a bigger debug for API (see Readme)<br>
-Bug correction : Status offline of accessory / Also for trouble but online<br>
+Add possibility to activate a bigger debug for API (see Readme)
+Bug correction : Status offline of accessory / Also for trouble but online
 Update configuration of accessories after cache update even if reset is not on true.
 
 ## 1.0.0
