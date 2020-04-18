@@ -47,6 +47,8 @@ Short example
 ```
 Full example can be found [here](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/configExamples).
 
+You can also use the possibility to configure the plugin through the [homebridge-config-ui-x](https://github.com/oznu/homebridge-config-ui-x) plugin. To do this go to the plugin tab and select the "Settings" option on the plugin. There you can complete the needed parameters and if you want also the optional.
+
 ## Parameters information - Platform
 Parameter       | Remarks
 -----------     | -------
@@ -70,7 +72,7 @@ Parameter       | Remarks
 `manufacturer`  | Manufacturer of your device. No more use than info in HomeKit <br> `zipato` by default
 `model`         | Model of your device. No more use than info in HomeKit <br> `zipato` by default
 `serial`        | Serial number of your device. No more use than info in HomeKit <br> `zipato` by default
-`uuid`          | uuid of your devices Switch - see Below -
+`uuid`          | uuid of your accessory - see Below -
 `debug`         | (Optional) If true the console will display tests informations for <br>the this accessory - `false` in default - see below -
 `uuidb`         | (Optional) Specify a second uuid for a service with two implemented<br>Characteristics - see below -
 `batteryLimit`  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive) - see below -
@@ -195,13 +197,6 @@ Home mode is selected has default.
 The plugin can create a Log Off Switch in Homebridge. If you activate this switch, the user will be disconnect from the Box. You need then to refresh the Home App or wait the refresh to reconnect automatically.<br>
 This can be use for debug purpose.<br>
 You need to choose `disconnectBox` as uuid and `switch` as type <br> :
-```JSON
-{
-  "name": "Log Out",
-  "type": "switch",
-  "uuid": "disconnectBox"
-}
-```
 
 ### Reboot HomeBridge
 Same as the previous one but for restart Homebridge. To do this the plugin generate a error.<br>
