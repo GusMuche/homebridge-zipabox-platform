@@ -189,6 +189,42 @@ In case of missing PIN parameter for a Alarm accessory, the plugin send a log wa
 Homekit can return "Night" status or "Home" status for an "Perimeter only alarm". Zipato can only have one of the both. To choose if the homebridge should return Night or Home, the user has to select `nightMode` = `true` if the system has to return Night.<br>
 Home mode is selected has default.
 
+## Special accessory
+
+### Log Off User
+The plugin can create a Log Off Switch in Homebridge. If you activate this switch, the user will be disconnect from the Box. You need then to refresh the Home App or wait the refresh to reconnect automatically.<br>
+This can be use for debug purpose.<br>
+You need to choose `disconnectBox` as uuid and `switch` as type <br> :
+```JSON
+{
+  "name": "Log Out",
+  "type": "switch",
+  "uuid": "disconnectBox"
+}
+```
+
+### Reboot HomeBridge
+Same as the previous one but for restart Homebridge. To do this the plugin generate a error.<br>
+You need to choose `rebootHomebridge` as uuid and `switch` as type <br> :
+```JSON
+{
+  "name": "Reboot Homebridge",
+  "type": "switch",
+  "uuid": "rebootHomebridge"
+}
+```
+
+### Reboot Zipato
+Same as the previous one but for restart the Zipato box.<br>
+You need to choose `rebootBox` as uuid and `switch` as type <br> :
+```JSON
+{
+  "name": "Reboot Box",
+  "type": "switch",
+  "uuid": "rebootBox"
+}
+```
+
 ## Troubleshoting
 
 ### Cached accessories from old config
