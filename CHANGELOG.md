@@ -1,3 +1,6 @@
+## 1.3.0
+Add special Reboot switch
+
 ## 1.2.0
 Add the config.schema.json<br>
 Debug remote POST for alarm accessory
