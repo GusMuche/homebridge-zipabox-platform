@@ -78,7 +78,8 @@ Evolution or correction :
 Functionality :
 - [x] Add a method to check config file if same UUID used
 - [x] Adapt to non local access > use of "remote" in IP parameter
-- [ ] Add a fake switch to reboot the box
+- [x] Add a fake switch to reboot the box
+- [x] Add a fake switch to reboot homebridge
 - [x] Add a fake switch to logout the user > 0.8.80
 - [ ] Bind with a graph viewer (like fakegato)
 - [ ] Implementation of Outlet In Use Status > if needed

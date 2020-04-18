@@ -192,14 +192,31 @@ Homekit can return "Night" status or "Home" status for an "Perimeter only alarm"
 Home mode is selected has default.
 
 ## Special accessory
+
+### Log Off User
 The plugin can create a Log Off Switch in Homebridge. If you activate this switch, the user will be disconnect from the Box. You need then to refresh the Home App or wait the refresh to reconnect automatically.<br>
 This can be use for debug purpose.<br>
-You need to manually change the config.json (not possible through the config settings UI) with `disconnectBox` as uuid and `switch`as type <br> :
+You need to choose `disconnectBox` as uuid and `switch` as type <br> :
+
+### Reboot HomeBridge
+Same as the previous one but for restart Homebridge. To do this the plugin generate a error.<br>
+You need to choose `rebootHomebridge` as uuid and `switch` as type <br> :
 ```JSON
 {
-  "name": "Log Out",
+  "name": "Reboot Homebridge",
   "type": "switch",
-  "uuid": "disconnectBox"
+  "uuid": "rebootHomebridge"
+}
+```
+
+### Reboot Zipato
+Same as the previous one but for restart the Zipato box.<br>
+You need to choose `rebootBox` as uuid and `switch` as type <br> :
+```JSON
+{
+  "name": "Reboot Box",
+  "type": "switch",
+  "uuid": "rebootBox"
 }
 ```
 
