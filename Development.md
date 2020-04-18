@@ -68,7 +68,7 @@ Evolution or correction :
 - [ ] Force an "is online" method with the use of StatusFault
 - [ ] Reset also the first accessory implemented
 - [x] Manage the plugin if nothing is configured (and delete accessories still saved) > 0.8.58
-- [ ] Compatibility with the [Homebridge Config UI](https://github.com/homebridge/homebridge/wiki/verified-Plugins)
+- [x] Compatibility with the [Homebridge Config UI](https://github.com/homebridge/homebridge/wiki/verified-Plugins)
 - [ ] Defense prog if batteryLevel requested without battery available ?
 - [x] Accelerate method to reconnect or go to the platform level > 0.8.80 (BOX level)
 - [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
