@@ -197,6 +197,12 @@ Home mode is selected has default.
 The plugin can create a Log Off Switch in Homebridge. If you activate this switch, the user will be disconnect from the Box. You need then to refresh the Home App or wait the refresh to reconnect automatically.<br>
 This can be use for debug purpose.<br>
 You need to choose `disconnectBox` as uuid and `switch` as type <br> :
+```JSON
+{
+  "name": "Log Off User",
+  "type": "switch",
+  "uuid": "disconnectBox"
+}
 
 ### Reboot HomeBridge
 Same as the previous one but for restart Homebridge. To do this the plugin generate a error.<br>
