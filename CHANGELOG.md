@@ -1,5 +1,5 @@
 ## 1.2.0
-Add the config.schema.json
+Add the config.schema.json<br>
 Debug remote POST for alarm accessory
 
 ## 1.1.0
