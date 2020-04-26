@@ -115,7 +115,6 @@
           "nightMode":{
             "title":"Night in place of Home",
             "type" : "boolean",
-            "default": false,
             "required": false
           },
           "reverse":{
@@ -169,8 +168,8 @@
       "expandable": true,
       "expanded": true,
       "items": [
-        { "type": "flex", "flex-flow": "row wrap", 
-            "items": [ 
+        { "type": "flex", "flex-flow": "row wrap",
+            "items": [
                 "username",
                 {
                     "key":"password",

@@ -1,3 +1,12 @@
+## 1.4.0
+Debug :
+  - Delete the default parameter nightMode from config UI settings (not included if false)
+  - undefined error in case of reconnection
+  - set the correct value if user ask to reverse
+
+## 1.3.0
+Add special Reboot switch
+
 ## 1.2.0
 Add the config.schema.json<br>
 Debug remote POST for alarm accessory
