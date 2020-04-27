@@ -1,3 +1,6 @@
+## 1.5.0
+
+
 ## 1.4.0
 Debug :
   - Delete the default parameter nightMode from config UI settings (not included if false)
