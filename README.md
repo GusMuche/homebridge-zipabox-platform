@@ -93,9 +93,9 @@ Please note the lower and upper case of the parameters.
 ## List of implemented accessories and function
 Device              | type          | Methods
 ------------------- | ------------- | -------
-Switch (default)    | `switch`      | Get Status - Set On - Set Off - Unavailable - Identify
-Light Bulb          | `light`       | Get Status - Set On - Set Off - Unavailable - Identify
-Outlet              | `outlet`      | Get Status - Set On - Set Off - Unavailable - Identify
+Switch (default)    | `switch`      | Get Status - Set On - Set Off - Unavailable
+Light Bulb          | `light`       | Get Status - Set On - Set Off - Unavailable
+Outlet              | `outlet`      | Get Status - Set On - Set Off - Unavailable
 Temperature Sensor  | `temperature` | Get Value - Battery Low Status - Unavailable
 Light Sensor        | `ambient`     | Get Value - min/max - Battery Low Status - Unavailable
 Motion Sensor       | `motion`      | Get Value - Battery Low Status - Unavailable
