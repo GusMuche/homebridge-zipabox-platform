@@ -1,11 +1,16 @@
 ## 1.5.0
+Functionality :
+- Identify method recoded (will only generate a log warning)
 
+Debug :
+- Door and window no more in movement in eve app
+- Minor function rewriting (bindCharacteristic)
 
 ## 1.4.0
 Debug :
-  - Delete the default parameter nightMode from config UI settings (not included if false)
-  - undefined error in case of reconnection
-  - set the correct value if user ask to reverse
+- Delete the default parameter nightMode from config UI settings (not included if false)
+- undefined error in case of reconnection
+- set the correct value if user ask to reverse
 
 ## 1.3.0
 Add special Reboot switch
