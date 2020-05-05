@@ -1,12 +1,14 @@
 ## 1.5.0
 Functionality :
-- Identify method recoded (will only generate a log warning)
+- Identify method recoded (will only generate a log warning with base information)
 - Plugin now detect if device is on battery or not
+- The config json will now be completely consider also for cached accessories
 
 Debug :
 - Door and window no more in movement in eve app
 - Minor function rewriting (bindCharacteristic)
-- Value returned for battery level in remote mode
+- Correct value returned for battery level in remote mode
+- Battery level verification is now called all 10 get method (before only at startup)
 
 ## 1.4.0
 Debug :
