@@ -1,5 +1,7 @@
 This is a Plugin for [Homebridge](https://github.com/nfarina/homebridge) to link Siri and the ZipaBox.
 
+![Find alarm partitions uuid](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/logoZipato.jpg?raw=true)
+
 Temporary Note : this plugin is NOT tested with homebridge version higher than 1.0.0.
 
 ![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) ![homebridge version](https://badgen.net/badge/homebridge/0.4.53/purple) ![homebridge docker](https://badgen.net/badge/docker-homebridge/v4.15.1/purple) ![homebridge-config-UI-X](https://badgen.net/badge/homebridge-config-ui-x/v4.16.0/purple)
@@ -77,7 +79,7 @@ Parameter       | Remarks
 `uuid`          | uuid of your accessory - see Below -
 `debug`         | (Optional) If true the console will display tests informations for <br>the this accessory - `false` in default - see below -
 `uuidb`         | (Optional) Specify a second uuid for a service with two implemented<br>Characteristics - see below -
-`batteryLimit`  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 0 in default (inactive) - see below -
+`batteryLimit`  | (Optional) Level (in percent 1 to 100) to launch the BatteryLow<br>Status - 10 in default - see below -
 `refresh`       | (Optional) Time for forced refresh of the status (in seconds)<br>see below
 `noStatus`      | (Optional) Set to `true` if no Status (is connected) option is available<br>for the device - `false` in default - see below -
 `reverse`       | (Optional) Set to `true` if the boolean signal of the sensor need to be<br>reversed - see below
@@ -111,7 +113,7 @@ Security System     | `alarm`       | Get Value - Set Value - Not ready - Night 
 
 ## Remarks
 
-### remote or local use
+### Remote or local use
 The plugin is developped since the beginning on local access. To use this you must give your box IP in the parameter.
 After some tests the plugin can also go on the API through the Internet. Better response are observe with remote access but no security control is made at this step (connection is made on https://my.zipato.com:443/zipato-web/v2/)
 
@@ -172,7 +174,8 @@ Refresh the box will alsorefresh all the accessories states.<br><br>
 For installation with a lot of accessories, you can choose to refresh at different rates some accessories. The rules is simple : the refresh at accessory level is added to the global. If two request is made too shortly, the plugin will miss one.
 
 ### Battery Limit
-If you specify the batteryLimit parameter the plugin will try to get the battery value of the device of the accessory. To use this the device answer need to have a battery level status.<br>
+The plugin will try do discover if the device have a battery or not. If yes it will fix the battery limit before warning to 10 percent. Youcan change this by specify your own value.<br>
+The battery limit is disable if `noStatus` is on `true`.<br>
 If use correctly, Home app will indicate a warning if the battery level is under the specified battery limit.<br>
 ![Battery limit indicator](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/batteryLowIndicator.jpeg?raw=true)<br>
 The information will be also displayed on the accessory pop-up.<br>
