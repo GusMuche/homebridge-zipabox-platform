@@ -1,6 +1,6 @@
 This is a Plugin for [Homebridge](https://github.com/nfarina/homebridge) to link Siri and the ZipaBox.
 
-![Find alarm partitions uuid](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/logoZipato.jpg?raw=true)
+![Zipato Logo](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/logoZipato.jpg?raw=true)
 
 Temporary Note : this plugin is NOT tested with homebridge version higher than 1.0.0.
 
@@ -25,13 +25,15 @@ You can try another installation process but this is the simplest one that I fou
 
 All the tests are done on homebridge installed on a docker with the [docker-homebridge image](https://github.com/oznu/docker-homebridge).
 
-## Development route
 
-The complete Development route can be found here [here](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/Development.md)
+## Configuration
 
-## Config Examples
+![Reaching config panel](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/settingsConfigUi.png?raw=true)<br>
+The best way to configure your accessories is to use the configure panel through the [homebridge-config-ui-x](https://github.com/oznu/homebridge-config-ui-x) plugin. To do this go to the plugin tab and select the "Settings" option on the plugin. There you can complete the needed parameters and if you want also the optional.
 
-Short example
+Another way is to edit the `config.json`file of Homebridge and add a new platforms with the needed parameters.
+
+Short example :
 ```JSON
 "platforms": [
         {
@@ -49,11 +51,16 @@ Short example
         }
     ]
 ```
-Full example can be found [here](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/configExamples).
+Larger example can be found [here](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/configExamples).
 
-You can also use the possibility to configure the plugin through the [homebridge-config-ui-x](https://github.com/oznu/homebridge-config-ui-x) plugin. To do this go to the plugin tab and select the "Settings" option on the plugin. There you can complete the needed parameters and if you want also the optional.
+### How it's working
 
-## Parameters information - Platform
+The platform level must contain all global information about the box. Some global parameters are also to define at this level. With this information the plugin can connect to your box through API request.
+
+The `accessories` input is an array who each item is an accessory in the Home App of iOS. If you have a device with multiples function, you need to create multiples accessories. For example the Quad Sensor of Zipato give you motion + ambient + contact + temperature. You need one accessories per sensor that you want in iOS Home App. The plugin need to know the lowest level UUID of your sensor to find his value. Too choose the correct sensor please see "uuid of Accessory" here below.
+
+
+### Parameters information - Platform
 Parameter       | Remarks
 -----------     | -------
 `platform`      | Must be "ZipaboxPlatform" for select the correct plugin
@@ -62,13 +69,13 @@ Parameter       | Remarks
 `password`      | Password use to connect to my.zipato.com > never publish your Config <br>with this infos
 `pin`           | (Optional) Your Pin in Zipato Board to arm or disarm alarm.
 `debug`         | (Optional) If true the console will display tests informations for <br>the platform level and ALL the accessories - `false` in default
-`debugApi`      | (Optional) If true the console will display tests informations for <br>the API request (independent of `debug` parameter) - `false` in default<br>Can also set to "FULL" to have more details from API requests.
+`debugApi`      | (Optional) If true the console will display tests informations for <br>the API request (independent of `debug` parameter) - `false` in default<br>Can also set to `"FULL"One to have more details from API requests.
 `refresh`       | (Optional) Time for forced refresh of the status (in seconds)<br>see below
-`reset`         | (Optional) If true the plugin will try to rebuilt all accessories <br>from config.json
+`reset`         | (Optional) If true the plugin will try to rebuilt all accessories <br>from `config.json`
 
 Please note the lower and upper case of the parameters.
 
-## Parameters information - Accessory
+### Parameters information - Accessory
 Parameter       | Remarks
 -----------     | -------
 `type`          | Select the Accessory Type. `switch` (default) -others see below-
@@ -123,11 +130,11 @@ You can use same name with different uuid.<br>
 You can't use same name AND same uuid for multiples accessories.
 
 ### Debug modes
-The user can activate 3 level of debug
+You can activate 3 level of debug
 - API : parameter `debugApi` will activate all the API request information only. Without the next debug information it can be hard to follow
 - Accessory : will activate the debug information for only one accessory, no influence on the API or Platform level
-- Platform : will give a lot information for the platform level and set ALL the accessory `debug` to `true` (will not affect the `debugApi` parameter)
-If the user set `debug` to `true` for Platform and `false` for one (or more) Accessory, the plugin will not consider the last one.
+- Platform : will give a lot of information for the platform level and set ALL the accessory `debug` to `true` (will not affect the `debugApi` parameter)
+If you set `debug` to `true` for Platform and `false` for one (or more) Accessory, the plugin will not consider the last one.
 
 ### uuid of Accessory
 The uuid need to be the "STATE" uuid of your Zwave Device (the lowest structure level). To be sure you can try with the Zipato API to use this uuid as parameter for attributes request.<br>
@@ -145,7 +152,7 @@ Accessory | uuid          | uuidB
 Battery   | BatteryLevel  | ChargingState
 
 ### Clear the cache
-Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. If some old accessories doesn't disappear, try to put option `reset` to `true`. If other parameter given, parameter will be forced to false.<br>
+Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. If some old accessories doesn't disappear, try to put option `reset` to `true` and restart Homebridge.<br>
 If the problem is not solve, try to delete the file "cachedAccessories" inside folder "accessories" from homebridge installation.<br>
 ~~If you reset the cache, you can loose all your room configuration and other topic inside iOS.<br>~~
 Additionally see Troubleshooting at the end of README.
@@ -154,29 +161,30 @@ Additionally see Troubleshooting at the end of README.
 The plugin only get the status open or closed for door and window. It's like a contact sensor but with an other icon. If the user click on the button in HomeKit, the plugin will force the get position method.
 
 ### min / max value
-For some sensor, we need to adapt the scale. If Zipato give a percent and HomeKit want a scale, you can specify the `min` and the `max` parameter.<br>
+For some sensor, the scale need to be adapt. If Zipato give a percent and HomeKit want a scale, you can specify the `min` and the `max` parameter.<br>
 The plugin will calculate a `range` = `max` - `min`.<br>
 Then the value given to HomeKit will be calculatet = `min` + `valueOfZipato`/100 * `range`.
 
 ### Reverse a value
-Some sensor work inverted as HomeKit expect. Example : a motion sensor return true if no motion are detected. If you can't change your sensor return value in his configuration or Zipato configuration, you can add the "reverse = true" parameter to reverse the returned value. Work for all "get" for attributes.<br>
-This option if fixed to false by the plugin for an alarm type.
+Some sensor work inverted as HomeKit expect. Example : a motion sensor return true if no motion are detected. If you can't change your sensor return value in his configuration or Zipato configuration, you can add the `reverse : true` parameter to reverse the returned value. Work for all "get" for attributes.<br>
+This option is fixed to false by the plugin for an alarm type.
 
 ### Device Status Unavailable
-In case of unavailable device status you can add the parameter `noStatus`: true to ask the plugin to not check the availability of the device. This can happen for wired device to the box (security module).<br>
+In case of unavailable device status you can add the parameter `noStatus: true` to ask the plugin to not check the availability of the device. This can happen for wired device to the box (security module).<br>
 It can help if your Status UUID have no Parent device with a `status` option.<br>
-This option is fixed to true by the plugin for an alarm type.<br>
+This option is fixed to `true` by the plugin for an `alarm`.<br>
 
 ### Refresh Rate
-HomeKit update the status of your device when you reopen the Home APP. If you want to force a refresh you can use the optional parameter "refresh" at the platform level.<br>
+HomeKit update the status of your device when you reopen the Home APP. If you want to force a refresh you can use the optional parameter "refresh" at the platform level and for each accessory.<br>
 You do not need this to keep the connection to the Box. The plugin will reconnect if need after a long time without connection.<br>
-Refresh the box will alsorefresh all the accessories states.<br><br>
-For installation with a lot of accessories, you can choose to refresh at different rates some accessories. The rules is simple : the refresh at accessory level is added to the global. If two request is made too shortly, the plugin will miss one.
+Refresh the box will also refresh all the accessories states.<br><br>
+For installation with a lot of accessories, you can choose to refresh at different rates some accessories. The rule is simple : the refresh at accessory level is added to the global. If two request is made too shortly, the plugin will miss one.<br>
+TIP : put 600 (10 minutes) to the platform level and adapt the accessories to what you need (`temperature` can be empty, `motion` to 30, `contact` to 60, ...). Refresh lower than 10 is not a good choice.
 
 ### Battery Limit
-The plugin will try do discover if the device have a battery or not. If yes it will fix the battery limit before warning to 10 percent. Youcan change this by specify your own value.<br>
+The plugin will try do discover if the device have a battery or not. If yes it will fix the battery limit before warning to 10 percent. You can change this by specify your own value with the `batteryLimit` parameter.<br>
 The battery limit is disable if `noStatus` is on `true`.<br>
-If use correctly, Home app will indicate a warning if the battery level is under the specified battery limit.<br>
+If used correctly, Home app will indicate a warning if the battery level is under the specified battery limit.<br>
 ![Battery limit indicator](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/batteryLowIndicator.jpeg?raw=true)<br>
 The information will be also displayed on the accessory pop-up.<br>
 ![Battery limit indication](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/batteryLowAccessory.jpeg?raw=true)<br>
@@ -190,28 +198,31 @@ To find the uuid of the partitions, you muss go to the API website after connect
 
 ### Pin missing for Alarm
 The pin parameter muss be set on the platform, not the accessory. Only one user with one pin can be used.
-In case of missing PIN parameter for a Alarm accessory, the plugin send a log warning, ~~change the type to "switch" and add an info in the name.~~
+In case of missing PIN parameter for a Alarm accessory, the plugin send a log warning.
 
-### Select night or home status
-Homekit can return "Night" status or "Home" status for an "Perimeter only alarm". Zipato can only have one of the both. To choose if the homebridge should return Night or Home, the user has to select `nightMode` = `true` if the system has to return Night.<br>
+### Select night or home
+Homekit can return "Night" status or "Home" status for an "Perimeter only alarm". Zipato can only have one of both. To choose if `homebridge` should return Night or Home, the user has to select `nightMode` = `true` if the system has to return Night.<br>
 Home mode is selected has default.
 
-## Special accessory
+## Special accessories
+
+Some special button can be added to Home App to manage your box or plugin.
 
 ### Log Off User
 The plugin can create a Log Off Switch in Homebridge. If you activate this switch, the user will be disconnect from the Box. You need then to refresh the Home App or wait the refresh to reconnect automatically.<br>
 This can be use for debug purpose.<br>
-You need to choose `disconnectBox` as uuid and `switch` as type <br> :
+You need to choose `disconnectBox` as uuid and `switch` as type.
 ```JSON
 {
   "name": "Log Off User",
   "type": "switch",
   "uuid": "disconnectBox"
 }
+```
 
 ### Reboot HomeBridge
-Same as the previous one but for restart Homebridge. To do this the plugin generate a error.<br>
-You need to choose `rebootHomebridge` as uuid and `switch` as type <br> :
+Same as the previous one but used to restart Homebridge. To do this the plugin force an error.<br>
+You need to choose `rebootHomebridge` as uuid and `switch` as type.
 ```JSON
 {
   "name": "Reboot Homebridge",
@@ -222,7 +233,7 @@ You need to choose `rebootHomebridge` as uuid and `switch` as type <br> :
 
 ### Reboot Zipato
 Same as the previous one but for restart the Zipato box.<br>
-You need to choose `rebootBox` as uuid and `switch` as type <br> :
+You need to choose `rebootBox` as uuid and `switch` as type.
 ```JSON
 {
   "name": "Reboot Box",
@@ -231,23 +242,31 @@ You need to choose `rebootBox` as uuid and `switch` as type <br> :
 }
 ```
 
+## Development route
+
+The complete Development route can be found here [here](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/Development.md)
+
 ## Troubleshoting
 
 ### Cached accessories from old config
-Unfortunately I didn't success during my test to clean all the cache for old platform accessories. The first one is still there and no possibility to clean it correctly (also if I use the `reset` option).<br>
-If this is your case, you need to delete the cachedAccessories file inside the accessories folder of your Homebridge installation.
+Unfortunately I didn't success during my test to clean all the cache for old platform accessories. Event after multiples reboot. The first one is still there and no possibility to clean it correctly (also if I use the `reset` option).<br>
+If this is your case :
+1. Stop HomeBridge
+2. Delete the `cachedAccessories` file inside the `accessories folder of your Homebridge installation
+3. Start Homebridge
 
 ### Updated configuration not take
-If you change parameters inside the `config.json` of an configured accessory, the change will not be taked in account if you not change the name or reset the cache.<br>
-Best way to do this is to add the `reset`parameter to `true` and restart homebridge.<br>
-For some error this action will not give the right answer. Then you'll need to delete the `cachedAccessories` file inside the accessories folder of your Homebridge installation.<br><br>
+
+If you change parameters of an configured accessory, the change maybe not be taked by the plugin.<br>
+Best way to do this is to add the `reset` parameter to `true` and restart homebridge.<br>
+For some error this action will not give the right answer. Then you'll need to delete the `cachedAccessories` file inside the `accessories folder of your Homebridge installation.<br><br>
 Explanation : a big part of the parameter from accessories are saved inside homebridge (context of an accessory). The plugin will first try to reload a configured accessory in state of recharge the `config.json`.
 
 ### Battery device not recognize by Home APP
 In my test the Battery Service is not recognize by the app, but the value and the status are correctly given. The icon will be a house with a status "not recognize".<br>
 If someone have a solution or idea, please send mp or fetch.
 
-## Tested accessories
+## Tested accessories (list need to be update)
 
 Zipato - Security Module<br>
 Zipato - Backup Module<br>
@@ -255,7 +274,9 @@ Zipato - Multisensor 4 in 1<br>
 
 ## CREDITS
 
-### Thanks to the best plugin example that I followed
+### Thanks to the best plugin example
 homebridge-gpio-wpi2<br>
 homebridge-camera-ffmpeg<br>
 homebridge-hue<br>
+
+And of course thanks to Homebridge team !
