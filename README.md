@@ -121,8 +121,9 @@ Security System     | `alarm`       | Get Value - Set Value - Not ready - Night 
 ## Remarks
 
 ### Remote or local use
-The plugin is developped since the beginning on local access. To use this you must give your box IP in the parameter.
-After some tests the plugin can also go on the API through the Internet. Better response are observe with remote access but no security control is made at this step (connection is made on https://my.zipato.com:443/zipato-web/v2/)
+The plugin is developped since the beginning on local access. To use this you must give your box IP in the parameter.<br>
+After some tests the plugin can also go on the API through the Internet. Better response are observe with remote access but no security validation is made by the plugin author (connection is made on https://my.zipato.com:443/zipato-web/v2/)<br>
+For a lot of accessories, remote access will give a really better result.
 
 ### Name of an accessory
 The name will be display in the Home app on your devices. For best practice use a short one.<br>
