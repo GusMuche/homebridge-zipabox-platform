@@ -1,8 +1,22 @@
+## 1.5.0
+Functionality :
+- Identify method recoded (will only generate a log warning with base information)
+- Plugin now detect if device is on battery or not
+- The config json will now be completely consider also for cached accessories
+
+Debug :
+- Door and window no more in movement in eve app
+- Minor function rewriting (bindCharacteristic)
+- Correct value returned for battery level in remote mode
+- Battery level verification is now called all 10 get method (before only at startup)
+- Alarm status if tamper will now active the Status Tampered
+- The not configured accessories are now correctly deleted
+
 ## 1.4.0
 Debug :
-  - Delete the default parameter nightMode from config UI settings (not included if false)
-  - undefined error in case of reconnection
-  - set the correct value if user ask to reverse
+- Delete the default parameter nightMode from config UI settings (not included if false)
+- undefined error in case of reconnection
+- set the correct value if user ask to reverse
 
 ## 1.3.0
 Add special Reboot switch
