@@ -1,3 +1,7 @@
+## 1.5.1
+Debug :
+- Minor : battery recheck each 10 and no 3 times
+
 ## 1.5.0
 Functionality :
 - Identify method recoded (will only generate a log warning with base information)
