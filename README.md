@@ -249,19 +249,12 @@ The complete Development route can be found here [here](https://github.com/GusMu
 
 ## Troubleshoting
 
-### Cached accessories from old config
-Unfortunately I didn't success during my test to clean all the cache for old platform accessories. Event after multiples reboot. The first one is still there and no possibility to clean it correctly (also if I use the `reset` option).<br>
-If this is your case :
-1. Stop HomeBridge
-2. Delete the `cachedAccessories` file inside the `accessories folder of your Homebridge installation
-3. Start Homebridge
-
 ### Updated configuration not take
 
 If you change parameters of an configured accessory, the change maybe not be taked by the plugin.<br>
 Best way to do this is to add the `reset` parameter to `true` and restart homebridge.<br>
-For some error this action will not give the right answer. Then you'll need to delete the `cachedAccessories` file inside the `accessories folder of your Homebridge installation.<br><br>
-Explanation : a big part of the parameter from accessories are saved inside homebridge (context of an accessory). The plugin will first try to reload a configured accessory in state of recharge the `config.json`.
+For some errors this action will not give the right answer. Then you'll need to delete the `cachedAccessories` file inside the `accessories folder of your Homebridge installation.<br><br>
+Explanation : a big part of the parameter from accessories are saved inside homebridge (context of an accessory). The plugin will first try to reload a configured accessory and then apply the configuration. Please report an issue if this is the case.
 
 ### Battery device not recognize by Home APP
 In my test the Battery Service is not recognize by the app, but the value and the status are correctly given. The icon will be a house with a status "not recognize".<br>

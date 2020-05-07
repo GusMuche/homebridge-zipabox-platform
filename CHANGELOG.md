@@ -10,6 +10,7 @@ Debug :
 - Correct value returned for battery level in remote mode
 - Battery level verification is now called all 10 get method (before only at startup)
 - Alarm status if tamper will now active the Status Tampered
+- The not configured accessories are now correctly deleted
 
 ## 1.4.0
 Debug :
