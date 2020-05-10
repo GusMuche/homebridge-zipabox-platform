@@ -10,10 +10,10 @@ Evolution or correction :
 - [ ] Complete the documentation example (full example with default parameter)
 - [ ] Reconnect to the box also if only noStatus is used
 - [ ] Force an "is online" method with the use of StatusFault
-- [ ] Reset also the first accessory implemented
+- [x] Reset also the first accessory implemented
 - [x] Manage the plugin if nothing is configured (and delete accessories still saved) > 0.8.58
 - [x] Compatibility with the [Homebridge Config UI](https://github.com/homebridge/homebridge/wiki/verified-Plugins)
-- [ ] Defense prog if batteryLevel requested without battery available ?
+- [x] Defense prog if batteryLevel requested without battery available ?
 - [x] Accelerate method to reconnect or go to the platform level > 0.8.80 (BOX level)
 - [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
 - [ ] Get name with name device ? > first test no concluded > do we need ?

@@ -4,7 +4,7 @@ This is a Plugin for [Homebridge](https://github.com/nfarina/homebridge) to link
 
 Temporary Note : this plugin is NOT tested with homebridge version higher than 1.0.0.
 
-![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) ![homebridge version](https://badgen.net/badge/homebridge/0.4.53/purple) ![homebridge docker](https://badgen.net/badge/docker-homebridge/v4.15.1/purple) ![homebridge-config-UI-X](https://badgen.net/badge/homebridge-config-ui-x/v4.16.0/purple)
+![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) ![homebridge version](https://badgen.net/badge/homebridge/1.0.4/purple) ![homebridge docker](https://badgen.net/badge/docker-homebridge/v4.15.1/purple) ![homebridge-config-UI-X](https://badgen.net/badge/homebridge-config-ui-x/v4.18.0/purple) ![Node.js](https://badgen.net/badge/Node.js/v12.13.0/red)  ![npm](https://badgen.net/badge/npm/v6.12.0/red) 
 
 It's based on many different plugin example that you can find by searching ["homebridge-plugin"](https://github.com/search?q=homebridgeplugin) in all Git repository.
 

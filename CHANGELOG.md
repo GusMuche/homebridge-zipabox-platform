@@ -1,11 +1,11 @@
 ## 1.6.0 (actually in development)
 Enhancement :
-- Plugin will now try to refresh with noStatus = true even if user dont configure it
+- Plugin will now try to refresh with noStatus = true even if user don't configure it
 - Plugin will now say in log which accessories is configured twice
-- Accessories with no Battery Low Status will no more received this Characteristic
 
 Debug :
 - Alarm reconnection after a long delay to keep session alive and avoid disfunction
+- Accessories with no Battery Low Status will no more received this Characteristic
 
 ## 1.5.1
 Debug :
