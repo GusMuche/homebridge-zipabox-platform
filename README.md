@@ -6,8 +6,6 @@ Temporary Note : this plugin is NOT tested with homebridge version higher than 1
 
 ![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) ![homebridge version](https://badgen.net/badge/homebridge/0.4.53/purple) ![homebridge docker](https://badgen.net/badge/docker-homebridge/v4.15.1/purple) ![homebridge-config-UI-X](https://badgen.net/badge/homebridge-config-ui-x/v4.16.0/purple)
 
-It's the next step of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory) plugin (witch is made for single accessory).
-
 It's based on many different plugin example that you can find by searching ["homebridge-plugin"](https://github.com/search?q=homebridgeplugin) in all Git repository.
 
 The approach is to add multiple accessory through an platform and get the base information and action through API request.
@@ -16,7 +14,10 @@ This plugin will NOT find the device itself. The devices need to be configured i
 
 The plugin didn't use the [Zipato API Node.js Implementation](https://github.com/espenmjos/zipato) (no success after a few try) like the [homebridge-zipato](https://github.com/lrozema/homebridge-zipato) plugin. The actual plugin is an alternative with direct connection to [Zipato API](https://my.zipato.com/zipato-web/api/).
 
-I didn't work with javascript since a few years, so please be comprehensive.
+You'll find 3 repository related to this project :
+- homebridge-zipabox-accessory : no more maintaned, just for 1 accessory (the previous version of this project)
+- homebridge-zipabox-platform : the present one with a relatively stable version
+- homebridge-zipabox-platform-dev : the package used for the dev branch. Not for all day use (unstable)
 
 ## Installation
 

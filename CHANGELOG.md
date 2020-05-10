@@ -1,4 +1,7 @@
 ## 1.6.0 (actually in development)
+Enhancement :
+- Plugin will now try to refresh with noStatus = true even if user dont configure it
+
 Debug :
 - Alarm reconnection after a long delay to keep session alive and avoid disfunction
 
