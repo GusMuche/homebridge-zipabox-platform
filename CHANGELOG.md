@@ -1,3 +1,7 @@
+## 1.6.0 (actually in development)
+Debug :
+- Alarm reconnection after a long delay to keep session alive and avoid disfunction
+
 ## 1.5.1
 Debug :
 - Minor : battery recheck each 10 and no 3 times
