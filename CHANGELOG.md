@@ -2,10 +2,12 @@
 Enhancement :
 - Plugin will now try to refresh with noStatus = true even if user don't configure it
 - Plugin will now say in log which accessories is configured twice
+- More information inside identify call
 
 Debug :
 - Alarm reconnection after a long delay to keep session alive and avoid disfunction
 - Accessories with no Battery Low Status will no more received this Characteristic
+- Avoid crash after identify method
 
 ## 1.5.1
 Debug :
