@@ -1,27 +1,32 @@
-## 1.6.0 (actually in development)
-Enhancement :
+# Change Log
+
+## 1.6.0 (actually in development - unstable)
+
+### Enhancement
 - Plugin will now try to refresh with noStatus = true even if user don't configure it
 - Plugin will now say in log which accessories is configured twice
 - More information inside identify call inside the log of Homebridge
 - First EVE characteristic implemented : battery level
 
-Debug :
+### Debug
 - Alarm reconnection after a long delay to keep session alive and avoid disfunction
 - Accessories with no Battery Low Status will no more received this Characteristic
 - Avoid crash after identify method
 - Minor improvements...
 
 ## 1.5.1
-Debug :
+
+### Debug
 - Minor : battery recheck each 10 and no 3 times
 
 ## 1.5.0
-Functionality :
+
+### Functionality
 - Identify method recoded (will only generate a log warning with base information)
 - Plugin now detect if device is on battery or not
 - The config json will now be completely consider also for cached accessories
 
-Debug :
+### Debug
 - Door and window no more in movement in eve app
 - Minor function rewriting (bindCharacteristic)
 - Correct value returned for battery level in remote mode
@@ -30,26 +35,27 @@ Debug :
 - The not configured accessories are now correctly deleted
 
 ## 1.4.0
-Debug :
+
+### Debug
 - Delete the default parameter nightMode from config UI settings (not included if false)
 - undefined error in case of reconnection
 - set the correct value if user ask to reverse
 
 ## 1.3.0
-Add special Reboot switch
+- Add special Reboot switch
 
 ## 1.2.0
-Add the config.schema.json<br>
-Debug remote POST for alarm accessory
+- Add the config.schema.json<br>
+- Debug remote POST for alarm accessory
 
 ## 1.1.0
-Add possibility to activate a bigger debug for API (see Readme)
-Bug correction : Status offline of accessory / Also for trouble but online
-Update configuration of accessories after cache update even if reset is not on true.
+- Add possibility to activate a bigger debug for API (see Readme)
+- Bug correction : Status offline of accessory / Also for trouble but online
+- Update configuration of accessories after cache update even if reset is not on true.
 
 ## 1.0.0
-First public version<br>
-Adapt the config Example (full)
+- First public version<br>
+- Adapt the config Example (full)
 
 # Previous minor version
 
