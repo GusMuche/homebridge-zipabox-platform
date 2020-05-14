@@ -9,7 +9,7 @@ Debug :
 - Alarm reconnection after a long delay to keep session alive and avoid disfunction
 - Accessories with no Battery Low Status will no more received this Characteristic
 - Avoid crash after identify method
-- Door and Window is no more maintained
+- Minor improvements...
 
 ## 1.5.1
 Debug :
