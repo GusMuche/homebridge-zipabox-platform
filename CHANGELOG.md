@@ -7,6 +7,8 @@
 - Plugin will now say in log which accessories is configured twice
 - More information inside identify call inside the log of Homebridge
 - First EVE characteristic implemented : battery level
+- Outlet will now show if in use or not (just copy the state per default)
+- 2nd option : add uuidb of the current consomption to have a status based on this
 
 ### Debug
 - Alarm reconnection after a long delay to keep session alive and avoid disfunction

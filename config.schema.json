@@ -73,7 +73,7 @@
           "uuidb":{
             "title":"uuidb",
             "type" : "string",
-            "description": "Only for battery accessory",
+            "description": "Only for some accessories (see Readme)",
             "required": false
           },
           "type":{
