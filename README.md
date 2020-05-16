@@ -94,6 +94,7 @@ Parameter       | Remarks
 `min`           | (Optional) Fix a min value for a specific range. 0 by default
 `max`           | (Optional) Fix a max value for a specific range. 100 by default
 `nightMode`     | (Optional) Select Home or Night for Security system <br>`false` by default
+`useEve`        | (Optional) If true, plugin will add the automatically<br>battery percentage of the device
 
 Please note the lower and upper case of the parameters.
 
@@ -107,7 +108,7 @@ Device              | type          | Methods
 ------------------- | ------------- | -------
 Switch (default)    | `switch`      | Get Status - Set On - Set Off - Unavailable
 Light Bulb          | `light`       | Get Status - Set On - Set Off - Unavailable
-Outlet              | `outlet`      | Get Status - Set On - Set Off - Unavailable
+Outlet              | `outlet`      | Get Status - Set On - Set Off - In Use status - Unavailable
 Temperature Sensor  | `temperature` | Get Value - Battery Low Status - Unavailable
 Light Sensor        | `ambient`     | Get Value - min/max - Battery Low Status - Unavailable
 Motion Sensor       | `motion`      | Get Value - Battery Low Status - Unavailable

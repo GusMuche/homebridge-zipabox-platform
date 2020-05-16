@@ -1,38 +1,38 @@
 ## Public Development
 
 Evolution or correction :
+- [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
+- [x] Complete the documentation example (full example with default parameter)
+- [x] Force an "is online" method with the use of StatusFault
 - [x] Change the check double to agree same UUID with different type
 - [x] Check lux scale if correct
 - [x] Rewrite the parameter order to have something more clear and logic (sub division?)
 - [x] Manage possibility to have night mode with an alarm
-- [ ] Add Parameter for the wait reconnection ? > need to be tested
-- [ ] Add a method to force cache reset at startup > still a part of accessory will not be deleted (why???) also if the plugin is stopped
-- [ ] Complete the documentation example (full example with default parameter)
-- [ ] Reconnect to the box also if only noStatus is used
-- [ ] Force an "is online" method with the use of StatusFault
+- [x] Add a method to force cache reset at startup > still a part of accessory will not be deleted (why???) also if the plugin is stopped
+- [x] Reconnect to the box also if only noStatus is used
 - [x] Reset also the first accessory implemented
 - [x] Manage the plugin if nothing is configured (and delete accessories still saved) > 0.8.58
 - [x] Compatibility with the [Homebridge Config UI](https://github.com/homebridge/homebridge/wiki/verified-Plugins)
 - [x] Defense prog if batteryLevel requested without battery available ?
 - [x] Accelerate method to reconnect or go to the platform level > 0.8.80 (BOX level)
-- [ ] Check if updateReachability is used or not > https://github.com/KhaosT/HAP-NodeJS/pull/556
-- [ ] Get name with name device ? > first test no concluded > do we need ?
-- [ ] Find a solution for the battery level not recognize by app (simple sensor ?)
+- [x] Get name with name device ? > first test no concluded > do we need ? > No
+- [x] Implementation of Outlet In Use Status
 
 Functionality :
+- [ ] Bind with a graph viewer (like fakegato)
 - [x] Add a method to check config file if same UUID used
 - [x] Adapt to non local access > use of "remote" in IP parameter
 - [x] Add a fake switch to reboot the box
 - [x] Add a fake switch to reboot homebridge
 - [x] Add a fake switch to logout the user > 0.8.80
 - [x] Add a Identify config to blink or else accessory > 1.4.2 (only log)
-- [ ] Bind with a graph viewer (like fakegato)
-- [ ] Implementation of Outlet In Use Status > if needed
 
 
 ### Excluded method (out from Development route)
 - [ ] Add a method to refresh cach of `homebridge` every x minutes > no need
 - [ ] Add a fake switch accessory to force refresh > need one event-observer method (not know by me) > just close and open the HOME APP
+- [ ] Find a solution for the battery level not recognize by app (simple sensor ?)
+- [ ] Add Parameter for the wait reconnection ? > no
 
 ## Private Development route (for archive)
 
