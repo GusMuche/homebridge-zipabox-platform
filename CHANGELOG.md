@@ -1,6 +1,6 @@
 # Change Log
 
-## 1.6.0 (actually in development - unstable)
+## 1.6.0
 
 ### Enhancement
 - Plugin will now try to refresh with noStatus = true even if user don't configure it
