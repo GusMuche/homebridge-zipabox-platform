@@ -1,5 +1,5 @@
 {
-  "name": "homebridge-zipabox-platform-dev",
+  "name": "homebridge-zipabox-platform",
   "version": "1.6.0",
   "description": "Homebridge plugin for Zipabox for homebridge : http://github.com/GusMuche/homebridge-zipabox-platform",
   "main": "index.js",
