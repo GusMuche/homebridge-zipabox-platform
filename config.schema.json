@@ -73,7 +73,7 @@
           "uuidb":{
             "title":"uuidb",
             "type" : "string",
-            "description": "Only for battery accessory",
+            "description": "Only for some accessories (see Readme)",
             "required": false
           },
           "type":{
@@ -125,11 +125,15 @@
           "noStatus":{
             "title":"No Status available",
             "type" : "boolean",
-            "description": "Set to true for wired device",
             "required": false
           },
           "debug":{
             "title":"Debug Mode",
+            "type" : "boolean",
+            "required": false
+          },
+          "useEve":{
+            "title":"Use Eve",
             "type" : "boolean",
             "required": false
           },
@@ -175,7 +179,13 @@
                     "key":"password",
                     "type":"password"
                 }]},
-        { "type": "flex", "flex-flow": "row wrap", "items": [ "server_ip","pin"]},
+        { "type": "flex", "flex-flow": "row wrap",
+            "items": [
+              "server_ip",
+              {
+                  "key":"pin",
+                  "type":"password"
+              }]},
         "refresh",
         { "type": "flex", "flex-flow": "row wrap", "items": [ "debug","debugApi","reset"]}
       ]
@@ -200,7 +210,7 @@
             "items": [
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].manufacturer","accessories[].model","accessories[].serial"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].nightMode","accessories[].reverse"]},
-                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug"]},
+                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug","accessories[].useEve"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].refresh","accessories[].batteryLimit"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].min","accessories[].max"]}
             ]}

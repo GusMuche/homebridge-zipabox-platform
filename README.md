@@ -1,12 +1,10 @@
-This is a Plugin for [Homebridge](https://github.com/nfarina/homebridge) to link Siri and the ZipaBox.
+This is a Plugin for [Homebridge](https://github.com/nfarina/homebridge) to link Siri and the ZipaBox or ZipaTile.
 
 ![Zipato Logo](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/logoZipato.jpg?raw=true)
 
 Temporary Note : this plugin is NOT tested with homebridge version higher than 1.0.0.
 
-![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) ![homebridge version](https://badgen.net/badge/homebridge/0.4.53/purple) ![homebridge docker](https://badgen.net/badge/docker-homebridge/v4.15.1/purple) ![homebridge-config-UI-X](https://badgen.net/badge/homebridge-config-ui-x/v4.16.0/purple)
-
-It's the next step of [homebridge-zipabox-accessory](https://github.com/GusMuche/homebridge-zipabox-accessory) plugin (witch is made for single accessory).
+![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) ![homebridge version](https://badgen.net/badge/homebridge/1.0.4/purple) ![homebridge docker](https://badgen.net/badge/docker-homebridge/v4.15.1/purple) ![homebridge-config-UI-X](https://badgen.net/badge/homebridge-config-ui-x/v4.18.0/purple) ![Node.js](https://badgen.net/badge/Node.js/v12.13.0/red)  ![npm](https://badgen.net/badge/npm/v6.12.0/red)
 
 It's based on many different plugin example that you can find by searching ["homebridge-plugin"](https://github.com/search?q=homebridgeplugin) in all Git repository.
 
@@ -16,7 +14,10 @@ This plugin will NOT find the device itself. The devices need to be configured i
 
 The plugin didn't use the [Zipato API Node.js Implementation](https://github.com/espenmjos/zipato) (no success after a few try) like the [homebridge-zipato](https://github.com/lrozema/homebridge-zipato) plugin. The actual plugin is an alternative with direct connection to [Zipato API](https://my.zipato.com/zipato-web/api/).
 
-I didn't work with javascript since a few years, so please be comprehensive.
+You'll find 3 repository related to this project :
+- homebridge-zipabox-accessory : no more maintaned, just for 1 accessory (the previous version of this project)
+- homebridge-zipabox-platform : the present one with a relatively stable version
+- homebridge-zipabox-platform-dev : the package used for the dev branch. Not for all day use (unstable)
 
 ## Installation
 
@@ -93,6 +94,7 @@ Parameter       | Remarks
 `min`           | (Optional) Fix a min value for a specific range. 0 by default
 `max`           | (Optional) Fix a max value for a specific range. 100 by default
 `nightMode`     | (Optional) Select Home or Night for Security system <br>`false` by default
+`useEve`        | (Optional) If true, plugin will add the automatically<br>battery percentage of the device
 
 Please note the lower and upper case of the parameters.
 
@@ -106,7 +108,7 @@ Device              | type          | Methods
 ------------------- | ------------- | -------
 Switch (default)    | `switch`      | Get Status - Set On - Set Off - Unavailable
 Light Bulb          | `light`       | Get Status - Set On - Set Off - Unavailable
-Outlet              | `outlet`      | Get Status - Set On - Set Off - Unavailable
+Outlet              | `outlet`      | Get Status - Set On - Set Off - In Use status - Unavailable
 Temperature Sensor  | `temperature` | Get Value - Battery Low Status - Unavailable
 Light Sensor        | `ambient`     | Get Value - min/max - Battery Low Status - Unavailable
 Motion Sensor       | `motion`      | Get Value - Battery Low Status - Unavailable
@@ -148,9 +150,10 @@ The Device uuid is find automatically by the plugin if noStatus is not specified
 ### uuidB - Second Characteristic for implemented Services
 For some Accessory, two UUID are necessary to get all the needed Information.
 
-Accessory | uuid          | uuidB
---------- | ----          | -----
-Battery   | BatteryLevel  | ChargingState
+Accessory | uuid              | uuidB                | Option
+--------- | ----------------- | -------------------- | ----------
+Battery   | BatteryLevel      | ChargingState        | Necessary
+Outlet    | State of device   | Current consomption  | Optional
 
 ### Clear the cache
 Homebridge try to relaunch cached accessories before add the other one specified inside the config.json file. If some old accessories doesn't disappear, try to put option `reset` to `true` and restart Homebridge.<br>

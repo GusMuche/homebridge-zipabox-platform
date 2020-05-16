@@ -14,40 +14,41 @@
             "pin": "1234",
             "debug": false,
             "debugApi": false,
-            "refresh": 0,
+            "refresh": 600,
             "reset": false,
             "accessories": [
                 {
-                  "name": "Switch 1",
+                  "name": "Kitchen",
                   "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
                   "type": "switch",
                   "manufacturer": "GusInc",
                   "model": "switch1m",
                   "serial": "serialOfSwitch",
-                  "noStatus": true,
-                  "reverse": true
+                  "noStatus": false,
+                  "reverse": false,
+                  "refresh": 120,
+                  "debug": false
                 },
                 {
                   "name": "Kitchen",
-                  "type": "door",
-                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "uuid": "baaa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "type": "light",
                   "manufacturer": "GusInc",
-                  "model": "door1m",
-                  "serial": "serialOfDoor",
-                  "debug": false,
-                  "refresh": 30
+                  "model": "light1m",
+                  "serial": "serialOfLight",
+                  "noStatus": false,
+                  "refresh": 120,
+                  "debug": false
                 },
                 {
                   "name": "Kitchen",
-                  "type": "ambient",
-                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "uuid": "baaa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "type": "outlet",
                   "manufacturer": "GusInc",
-                  "model": "ambient1m",
-                  "serial": "serialOfAmbient",
-                  "min": 1,
-                  "max": 1000,
-                  "debug": false,
-                  "refresh": 30
+                  "model": "outlet1m",
+                  "serial": "serialOfOutlet",
+                  "refresh": 120,
+                  "debug": false
                 },
                 {
                   "name": "Kitchen",
@@ -56,19 +57,112 @@
                   "manufacturer": "GusInc",
                   "model": "temperature1m",
                   "serial": "serialOfTemperature",
+                  "batteryLimit" : 15,
+                  "noStatus": false,
                   "min": 1,
                   "max": 1000,
+                  "debug": false,
+                  "refresh": 300
+                },
+                {
+                  "name": "Kitchen",
+                  "type": "ambient",
+                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "manufacturer": "GusInc",
+                  "model": "ambient1m",
+                  "serial": "serialOfAmbient",
+                  "batteryLimit" : 15,
+                  "noStatus": false,
+                  "min": 1,
+                  "max": 1000,
+                  "debug": false,
+                  "refresh": 300
+                },
+                {
+                  "name": "Kitchen",
+                  "type": "motion",
+                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "manufacturer": "GusInc",
+                  "model": "motion1m",
+                  "serial": "serialOfMotion",
+                  "batteryLimit" : 15,
+                  "noStatus": false,
+                  "reverse": false,
                   "debug": false,
                   "refresh": 30
                 },
                 {
-                  "name": "Light 1",
-                  "uuid": "baaa1aaa-111a-1a11-11a1-a11111a1a111",
-                  "type": "light",
+                  "name": "Kitchen window",
+                  "type": "contact",
+                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
                   "manufacturer": "GusInc",
-                  "model": "light1m",
-                  "serial": "serialOfLight",
-                  "reverse": true
+                  "model": "contact1m",
+                  "serial": "serialOfContact",
+                  "batteryLimit" : 15,
+                  "noStatus": false,
+                  "reverse": false,
+                  "debug": false,
+                  "refresh": 30
+                },
+                {
+                  "name": "Kitchen",
+                  "type": "window",
+                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "manufacturer": "GusInc",
+                  "model": "window1m",
+                  "serial": "serialOfWindow",
+                  "refresh": 20,
+                  "reverse": false,
+                  "debug": false
+                },
+                {
+                  "name": "Kitchen",
+                  "type": "door",
+                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "manufacturer": "GusInc",
+                  "model": "door1m",
+                  "serial": "serialOfDoor",
+                  "refresh": 20,
+                  "reverse": false,
+                  "debug": false
+                },
+                {
+                  "name": "Kitchen water",
+                  "type": "leak",
+                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "manufacturer": "GusInc",
+                  "model": "leak1m",
+                  "serial": "serialOfLeak",
+                  "batteryLimit" : 15,
+                  "noStatus": false,
+                  "reverse": false,
+                  "debug": false,
+                  "refresh": 20
+                },
+                {
+                  "name": "Kitchen",
+                  "type": "battery",
+                  "uuid": "aa3aa3aaa-333a-3a33-33a3-a33333a3a333",
+                  "uuidb": "bb3bb3bbb-333b-3b33-33b3-b33333b3b333",
+                  "manufacturer": "GusInc",
+                  "model": "battery1m",
+                  "serial": "serialOfBattery",
+                  "noStatus": false,
+                  "debug": false,
+                  "refresh": 200
+                },
+                {
+                  "name": "Kitchen CO2",
+                  "type": "co2",
+                  "uuid": "aa1aa1aaa-111a-1a11-11a1-a11111a1a111",
+                  "manufacturer": "GusInc",
+                  "model": "co21m",
+                  "serial": "serialOfCO2",
+                  "batteryLimit" : 15,
+                  "noStatus": false,
+                  "reverse": false,
+                  "debug": false,
+                  "refresh": 30
                 },
                 {
                   "name": "Alarm",
@@ -76,12 +170,22 @@
                   "uuid": "baaa1aaa-111a-1a11-11a1-a11111a1a111",
                   "nightMode": false,
                   "debug": false,
-                  "refresh": 30
+                  "refresh": 60
                 },
                 {
-                    "name": "Log Out",
-                    "type": "switch",
-                    "uuid": "disconnectBox"
+                  "name": "Log Out",
+                  "type": "switch",
+                  "uuid": "disconnectBox"
+                },
+                {
+                  "name": "Reboot Homebridge",
+                  "type": "switch",
+                  "uuid": "rebootHomebridge"
+                },
+                {
+                  "name": "Reboot Box",
+                  "type": "switch",
+                  "uuid": "rebootBox"
                 }
             ]
         }
