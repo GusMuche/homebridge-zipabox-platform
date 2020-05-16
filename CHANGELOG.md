@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.7.0 (Actually in Development)
+
+### Enhancement
+
+### Debug
+
 ## 1.6.0
 
 ### Enhancement
