@@ -179,7 +179,13 @@
                     "key":"password",
                     "type":"password"
                 }]},
-        { "type": "flex", "flex-flow": "row wrap", "items": [ "server_ip","pin"]},
+        { "type": "flex", "flex-flow": "row wrap",
+            "items": [
+              "server_ip",
+              {
+                  "key":"pin",
+                  "type":"password"
+              }]},
         "refresh",
         { "type": "flex", "flex-flow": "row wrap", "items": [ "debug","debugApi","reset"]}
       ]
