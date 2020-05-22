@@ -3,8 +3,10 @@
 ## 1.7.0 (Actually in Development)
 
 ### Enhancement
+- User can now config to use cache value. Goal is to answer quicker to Homebridge request trough home app
 
 ### Debug
+- Put security timer correction
 
 ## 1.6.0
 

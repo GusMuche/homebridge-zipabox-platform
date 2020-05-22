@@ -246,7 +246,7 @@ You need to choose `rebootBox` as uuid and `switch` as type.
 
 ## Development route
 
-The complete Development route can be found here [here](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/Development.md)
+The complete Development route can be found [here](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/Development.md)
 
 ## Troubleshoting
 
