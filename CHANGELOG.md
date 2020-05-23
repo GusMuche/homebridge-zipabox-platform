@@ -4,9 +4,11 @@
 
 ### Enhancement
 - User can now config to use cache value. Goal is to answer quicker to Homebridge request trough home app
+- Plugin will now check if attribute UUID given as config is correct or not
 
 ### Debug
 - Put security timer correction
+- batteryLimit default = 0 (no battery indicator)
 
 ## 1.6.0
 
