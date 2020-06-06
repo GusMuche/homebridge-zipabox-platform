@@ -122,6 +122,11 @@
             "type" : "boolean",
             "required": false
           },
+          "useCache":{
+            "title":"Use plugin cache",
+            "type" : "boolean",
+            "required": false
+          },
           "noStatus":{
             "title":"No Status available",
             "type" : "boolean",
@@ -209,7 +214,7 @@
             "expanded": false,
             "items": [
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].manufacturer","accessories[].model","accessories[].serial"]},
-                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].nightMode","accessories[].reverse"]},
+                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].nightMode","accessories[].reverse","accessories[].useCache"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug","accessories[].useEve"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].refresh","accessories[].batteryLimit"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].min","accessories[].max"]}
