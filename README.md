@@ -82,13 +82,13 @@ Please note the lower and upper case of the parameters.
 Parameters      | Default  | Mandatory | Explanation
 --------------- | -------- | --------- | -----------
 `type`          | `switch` | yes       | Select the Accessory Type
-`name`          | -        | yes       | Name of your accessory, will be showed in Home App
+`name`          | -        | yes       | Name of your accessory, will be showed <br>in Home App
 `manufacturer`  | `zipato` | optional  | Manufacturer of your device. <br>No more use than info in HomeKit
 `model`         | `zipato` | optional  | Model of your device. <br>No more use than info in HomeKit
 `serial`        | `zipato` | optional  | Serial number of your device. <br>No more use than info in HomeKit
 `uuid`          | -        | yes       | uuid of your accessory
 `debug`         | `false`  | optional  | If true the console will display tests informations for <br>this accessory
-`uuidb`         | -        | optional  | Specify a second uuid for a service with two implemented<br>Characteristics
+`uuidb`         | -        | optional  | Specify a second uuid for a service with two <br>implemented Characteristics
 `batteryLimit`  | 0        | optional  | Level (in percent 1 to 100) to launch the <br>BatteryLow Status
 `refresh`       | 0        | optional  | Time for forced refresh of the status (in seconds)
 `noStatus`      | `false`  | optional  | Set to `true` if no Status (is connected) option is <br>available for the device
@@ -108,7 +108,6 @@ More information for a lot of parameters here below.
 - Smoke Sensor
 
 ## List of implemented accessories and function
-
 
 Home App Device     | Plugin type   | get        | set | range | Online | Low <br>Battery | Special
 ------------------- | ------------- | ---------- | --- | ----- | ------ | --------------- | -------
@@ -149,7 +148,7 @@ If you set `debug` to `true` for Platform and `false` for one (or more) Accessor
 The uuid need to be the lowest level (see `STATE` in the picture) uuid of your Zwave Device. The name can be another be it must be the lowest level.<br>
 ![Select state for uuid](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/select_state.jpeg?raw=true)<br>
 
-Since v1.6.36 the plugin will compare your parameter to the list of all available `attributes` in the box. If he didn't find the UUID in the box, an error will occur : `[PTFM] [checkUUIDAttributes] The UUID of the accessory DoorMotion da696653-2a9e-43c3-a7-8cab35e6bbc7 is not available in the box. Please check config. Accessory will not be added`
+Since v1.7.0 the plugin will compare your parameter to the list of all available `attributes` in the box. If he didn't find the UUID in the box, an error will occur : `[PTFM] [checkUUIDAttributes] The UUID of the accessory DoorMotion da696653-2a9e-43c3-a7-8cab35e6bbc7 is not available in the box. Please check config. Accessory will not be added. Not implemented for `alarm`.
 
  To be sure you can try with the Zipato API to use this uuid as parameter for attributes request.<br>
 ![API link](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/apiLink.png?raw=true)<br>
