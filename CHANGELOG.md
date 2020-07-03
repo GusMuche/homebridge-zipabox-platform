@@ -1,6 +1,11 @@
 # Change Log
 
-## 1.7.0 (Actually in Development)
+## 1.8.0 (Actually in development)
+
+### Enhancement
+- Compatibility for some accessories with the V3 api of Zipato
+
+## 1.7.0
 
 ### Enhancement
 - User can now config to use cache value. Goal is to answer quicker to Homebridge request trough home app
