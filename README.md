@@ -47,7 +47,7 @@ Short example :
             "accessories": [
                 {
                     "name": "Switch first room",
-                    "UUID": "aa2zx65s-013s-1s12-12s2-s12312s9s253",
+                    "uuid": "aa2zx65s-013s-1s12-12s2-s12312s9s253",
                     "type": "switch"
                 }
             ]
