@@ -4,6 +4,8 @@
 
 ### Enhancement
 - Compatibility for some accessories with the V3 api of Zipato
+  - Connection work
+  - Switch tested
 
 ## 1.7.0
 
