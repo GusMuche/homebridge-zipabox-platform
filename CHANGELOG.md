@@ -6,6 +6,13 @@
 - Compatibility for some accessories with the V3 api of Zipato
   - Connection work
   - Switch tested
+  - Cache for switch ok
+  - noStatus ok
+  - Not online detection
+  - BatteryLevel ok
+
+### Debug
+- UseCache calculation to avoid non update for some conversion
 
 ## 1.7.0
 
