@@ -10,6 +10,8 @@
   - noStatus ok
   - Not online detection
   - BatteryLevel ok
+  - Temperature ok
+  
 
 ### Debug
 - UseCache calculation to avoid non update for some conversion

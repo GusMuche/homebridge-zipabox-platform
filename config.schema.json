@@ -19,7 +19,16 @@
       "title": "Local IP or remote",
       "type": "string",
       "required": true,
-      "description": "Local : only IP, no http or port. Remote : just type 'remote'"
+      "description": "Local : only IP (no http or port). RemoteV2 : just type 'remote'. Remote V3 : just type 'remoteV3'"
+    },
+    "boxSerial": {
+      "title": "[Only V3] Box Serial",
+      "type": "string",
+      "required": false,
+      "description": "The box serial to use if you use my3.zipato.com as dashboard.",
+      "condition": {
+            "functionBody": "return model.server_ip === 'remoteV3';"
+        }
     },
     "pin": {
       "title": "PIN code for alarm",
@@ -177,20 +186,15 @@
       "expandable": true,
       "expanded": true,
       "items": [
-        { "type": "flex", "flex-flow": "row wrap",
-            "items": [
-                "username",
-                {
-                    "key":"password",
-                    "type":"password"
-                }]},
-        { "type": "flex", "flex-flow": "row wrap",
-            "items": [
-              "server_ip",
-              {
-                  "key":"pin",
-                  "type":"password"
-              }]},
+        { "type": "flex", "flex-flow": "row wrap","items": [
+            "username",
+            {"key":"password","type":"password"}
+        ]},
+        { "type": "flex", "flex-flow": "row wrap","items": [
+            "server_ip",
+            "boxSerial"
+        ]},
+        {"key":"pin","type":"password"},
         "refresh",
         { "type": "flex", "flex-flow": "row wrap", "items": [ "debug","debugApi","reset"]}
       ]
