@@ -11,10 +11,15 @@
   - Not online detection
   - BatteryLevel ok
   - Temperature ok
-  
+  - Ambient ok
+  - offline IN PROGRESS
+
+- Add Window Covering accessory - use "covering" as accessory type ok
+- Add hide option to not add accessory in homebridge (but keep configuration) IN PROGRESS
+
 
 ### Debug
-- UseCache calculation to avoid non update for some conversion
+- UseCache calculation to avoid non update for some time input
 
 ## 1.7.0
 
