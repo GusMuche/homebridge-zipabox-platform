@@ -1,6 +1,6 @@
 # Change Log
 
-## 1.8.0 (Actually in development)
+## 1.8.0 (Actually in development - final test phase)
 
 ### Enhancement
 - Compatibility for some accessories with the V3 api of Zipato
@@ -20,7 +20,7 @@
   - contact ok
   - door ok
   - window ok
-  - alarm IN PROGRESS
+  - alarm ok
 
 - Add Window Covering accessory - use "covering" as accessory type ok
 - Add hidden option to not add accessory in Homebridge (but keep configuration) ok
