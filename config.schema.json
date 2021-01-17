@@ -99,6 +99,7 @@
               {"title":"contact", "enum": ["contact"] },
               {"title":"window", "enum": ["window"] },
               {"title":"door", "enum": ["door"] },
+              {"title":"covering", "enum": ["covering"] },
               {"title":"leak", "enum": ["leak"] },
               {"title":"battery", "enum": ["battery"] },
               {"title":"co2", "enum": ["co2"] },
@@ -116,23 +117,28 @@
             "required": false
           },
           "serial":{
-            "title":"serial",
+            "title": "serial",
             "type" : "string",
             "description": "Only for info in Home App",
             "required": false
           },
           "nightMode":{
-            "title":"Night in place of Home",
+            "title": "Night in place of Home",
             "type" : "boolean",
             "required": false
           },
           "reverse":{
-            "title":"Reverse the signal",
+            "title": "Reverse the signal",
             "type" : "boolean",
             "required": false
           },
           "useCache":{
-            "title":"Use plugin cache",
+            "title": "Use plugin cache",
+            "type" : "boolean",
+            "required": false
+          },
+          "hidden":{
+            "title": "Hide",
             "type" : "boolean",
             "required": false
           },
@@ -219,7 +225,7 @@
             "items": [
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].manufacturer","accessories[].model","accessories[].serial"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].nightMode","accessories[].reverse","accessories[].useCache"]},
-                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug","accessories[].useEve"]},
+                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug","accessories[].useEve","accessories[].hidden"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].refresh","accessories[].batteryLimit"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].min","accessories[].max"]}
             ]}

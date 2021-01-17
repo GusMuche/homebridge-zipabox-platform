@@ -12,10 +12,18 @@
   - BatteryLevel ok
   - Temperature ok
   - Ambient ok
-  - offline IN PROGRESS
+  - offline ok
+  - inUse for outlet debug ok
+  - outlet ok
+  - light ok
+  - motion ok
+  - contact ok
+  - door ok
+  - window ok
+  - alarm IN PROGRESS
 
 - Add Window Covering accessory - use "covering" as accessory type ok
-- Add hide option to not add accessory in homebridge (but keep configuration) IN PROGRESS
+- Add hidden option to not add accessory in Homebridge (but keep configuration) ok
 
 
 ### Debug
