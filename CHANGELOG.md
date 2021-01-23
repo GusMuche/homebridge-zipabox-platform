@@ -25,6 +25,7 @@
 - Add Window Covering accessory - use "covering" as accessory type ok
 - Add hidden option to not add accessory in Homebridge (but keep configuration) ok
 - Wrong user password error : IN PROGRESS
+- Add Dimmer Accessory (as a dimmable light) : IN PROGRESS
 
 
 ### Debug

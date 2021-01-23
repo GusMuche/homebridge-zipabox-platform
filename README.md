@@ -114,6 +114,7 @@ Home App Device     | Plugin type   | get        | set | range | Online | Low <b
 ------------------- | ------------- | ---------- | --- | ----- | ------ | --------------- | -------
 Switch (default)    | `switch`      | O/I        | O/I | -     | yes    | yes             | -
 Light Bulb          | `light`       | O/I        | O/I | -     | yes    | yes             | -
+Dimmer              | `dimmer`      | value      | yes | yes   | yes    | no              | -
 Outlet              | `outlet`      | O/I        | O/I | -     | yes    | no              | In Use<br>Eve
 Temperature Sensor  | `temperature` | Value      | no  | yes   | yes    | yes             | -
 Light Sensor        | `ambient`     | Value      | no  | yes   | yes    | yes             | -
