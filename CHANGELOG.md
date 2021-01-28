@@ -30,6 +30,7 @@
 
 ### Debug
 - UseCache calculation to avoid non update for some time input
+- Adapt OnGoing detection to avoid infinity cache and detection
 
 ## 1.7.0
 
