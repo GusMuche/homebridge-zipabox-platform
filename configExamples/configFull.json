@@ -10,7 +10,7 @@
             "platform": "ZipaboxPlatform",
             "username": "you@email.com",
             "password": "yourPassword",
-            "server_ip": "192.168.0.1",
+            "server_ip": "remoteV3",
             "pin": "1234",
             "debug": false,
             "debugApi": false,
