@@ -1,7 +1,5 @@
 This is a Plugin for [Homebridge](https://github.com/nfarina/homebridge) to link Siri and the ZipaBox or ZipaTile.
 
-The plugin need a box configured on the v2 API (no test today on other API). 
-
 ![Zipato Logo](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/pics/logoZipato.jpg?raw=true)
 
 ![licence MIT](https://badgen.net/github/license/GusMuche/homebridge-zipabox-platform) <br>
