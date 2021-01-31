@@ -12,12 +12,10 @@ The approach is to add multiple accessory through a platform and get the base in
 
 This plugin will NOT find the device itself. The devices need to be configured inside the config.json file of Homebridge.
 
-The plugin didn't use the [Zipato API Node.js Implementation](https://github.com/espenmjos/zipato) (no success after a few try) like the [homebridge-zipato](https://github.com/lrozema/homebridge-zipato) plugin. The actual plugin is an alternative with direct connection to [Zipato API](https://my.zipato.com/zipato-web/api/).
-
 You'll find 3 repository related to this project :
-- homebridge-zipabox-accessory : no more maintained, just for 1 accessory (the previous version of this project)
 - homebridge-zipabox-platform : the present one with a relatively stable version
 - homebridge-zipabox-platform-dev : the package used for the dev branch. Not for all day use (unstable)
+- homebridge-zipabox-accessory : no more maintained, just for 1 accessory (the previous version of this project)
 
 ## Installation
 
@@ -41,11 +39,11 @@ Short example :
             "platform": "ZipaboxPlatform",
             "USERNAME": "you@email.com",
             "PASSWORD": "yourPassword",
-            "server_ip": "192.168.0.1",
+            "server_ip": "remoteV3",
             "accessories": [
                 {
                     "name": "Switch first room",
-                    "uuid": "aa2zx65s-013s-1s12-12s2-s12312s9s253",
+                    "UUID": "aa2zx65s-013s-1s12-12s2-s12312s9s253",
                     "type": "switch"
                 }
             ]
@@ -72,7 +70,7 @@ Parameter       | Explanation
 `password`      | Password use to connect to my.zipato.com > never publish your Config <br>with this infos
 `pin`           | (Optional) Your Pin in Zipato Board to arm or disarm alarm.
 `debug`         | (Optional) If true the console will display tests informations for <br>the platform level and ALL the accessories - `false` in default
-`debugApi`      | (Optional) If true the console will display tests informations for <br>the API request (independent of `debug` parameter) - `false` in default<br>Can also set to `"FULL"One to have more details from API requests.
+`debugApi`      | (Optional) If true the console will display tests informations for <br>the API request (independent of `debug` parameter) - `false` in default<br>Can also set to `FULL` to have more details from API requests.
 `refresh`       | (Optional) Time for forced refresh of the status (in seconds)<br>see below
 `reset`         | (Optional) If true the plugin will try to rebuilt all accessories <br>from `config.json`
 
@@ -283,12 +281,6 @@ Explanation : a big part of the parameter from accessories are saved inside Home
 ### Battery device not recognize by Home APP
 In my test the `battery Service` is not recognize by the app, but the value and the status are correctly given. The icon will be a house with a status "not recognize".<br>
 If someone have a solution or idea, please send mp or fetch.
-
-## Tested accessories (list need to be update)
-
-Zipato - Security Module<br>
-Zipato - Backup Module<br>
-Zipato - Multisensor 4 in 1<br>
 
 ## CREDITS
 
