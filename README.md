@@ -99,6 +99,7 @@ Parameters      | Default  | Mandatory | Explanation
 `max`           | 100      | optional  | Fix a max value for a specific range
 `nightMode`     | `false`  | optional  | Select Home or Night for Security system
 `useEve`        | `false`  | optional  | If true and compatible, plugin will add automatically<br>the battery percentage of the device
+`hidden`        | `false`  | optional  | Delete the accessory inside Homebridge,<br> keep the config
 
 Please note the lower and upper case of the parameters.
 
@@ -115,6 +116,7 @@ Home App Device     | Plugin type   | get        | set | range | Online | Low <b
 ------------------- | ------------- | ---------- | --- | ----- | ------ | --------------- | -------
 Switch (default)    | `switch`      | O/I        | O/I | -     | yes    | yes             | -
 Light Bulb          | `light`       | O/I        | O/I | -     | yes    | yes             | -
+Dimmer              | `dimmer`      | value      | yes | yes   | yes    | no              | -
 Outlet              | `outlet`      | O/I        | O/I | -     | yes    | no              | In Use<br>Eve
 Temperature Sensor  | `temperature` | Value      | no  | yes   | yes    | yes             | -
 Light Sensor        | `ambient`     | Value      | no  | yes   | yes    | yes             | -
@@ -122,6 +124,7 @@ Motion Sensor       | `motion`      | Value      | no  | -     | yes    | yes   
 Contact Sensor      | `contact`     | Value      | no  | -     | yes    | yes             | -
 Window              | `window`      | open/close | no  | no    | yes    | no              | -
 Door                | `door`        | open/close | no  | no    | yes    | no              | -
+Covering            | `covering`    | open/close | yes | no    | yes    | no              | -
 Leak Sensor         | `leak`        | O/I        | no  | -     | yes    | yes             | -
 Battery             | `battery`     | Value      | no  | yes   | yes    | yes             | -
 Carbon Monoxide     | `co2`         | O/I        | no  | yes   | yes    | yes             | -

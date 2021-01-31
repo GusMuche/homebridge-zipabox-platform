@@ -19,7 +19,16 @@
       "title": "Local IP or remote",
       "type": "string",
       "required": true,
-      "description": "Local : only IP, no http or port. Remote : just type 'remote'"
+      "description": "Local : only IP (no http or port). RemoteV2 : just type 'remote'. Remote V3 : just type 'remoteV3'"
+    },
+    "boxSerial": {
+      "title": "[Only V3] Box Serial",
+      "type": "string",
+      "required": false,
+      "description": "The box serial to use if you use my3.zipato.com as dashboard.",
+      "condition": {
+            "functionBody": "return model.server_ip === 'remoteV3';"
+        }
     },
     "pin": {
       "title": "PIN code for alarm",
@@ -90,6 +99,7 @@
               {"title":"contact", "enum": ["contact"] },
               {"title":"window", "enum": ["window"] },
               {"title":"door", "enum": ["door"] },
+              {"title":"covering", "enum": ["covering"] },
               {"title":"leak", "enum": ["leak"] },
               {"title":"battery", "enum": ["battery"] },
               {"title":"co2", "enum": ["co2"] },
@@ -107,23 +117,28 @@
             "required": false
           },
           "serial":{
-            "title":"serial",
+            "title": "serial",
             "type" : "string",
             "description": "Only for info in Home App",
             "required": false
           },
           "nightMode":{
-            "title":"Night in place of Home",
+            "title": "Night in place of Home",
             "type" : "boolean",
             "required": false
           },
           "reverse":{
-            "title":"Reverse the signal",
+            "title": "Reverse the signal",
             "type" : "boolean",
             "required": false
           },
           "useCache":{
-            "title":"Use plugin cache",
+            "title": "Use plugin cache",
+            "type" : "boolean",
+            "required": false
+          },
+          "hidden":{
+            "title": "Hide",
             "type" : "boolean",
             "required": false
           },
@@ -177,20 +192,15 @@
       "expandable": true,
       "expanded": true,
       "items": [
-        { "type": "flex", "flex-flow": "row wrap",
-            "items": [
-                "username",
-                {
-                    "key":"password",
-                    "type":"password"
-                }]},
-        { "type": "flex", "flex-flow": "row wrap",
-            "items": [
-              "server_ip",
-              {
-                  "key":"pin",
-                  "type":"password"
-              }]},
+        { "type": "flex", "flex-flow": "row wrap","items": [
+            "username",
+            {"key":"password","type":"password"}
+        ]},
+        { "type": "flex", "flex-flow": "row wrap","items": [
+            "server_ip",
+            "boxSerial"
+        ]},
+        {"key":"pin","type":"password"},
         "refresh",
         { "type": "flex", "flex-flow": "row wrap", "items": [ "debug","debugApi","reset"]}
       ]
@@ -215,7 +225,7 @@
             "items": [
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].manufacturer","accessories[].model","accessories[].serial"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].nightMode","accessories[].reverse","accessories[].useCache"]},
-                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug","accessories[].useEve"]},
+                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug","accessories[].useEve","accessories[].hidden"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].refresh","accessories[].batteryLimit"]},
                 {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].min","accessories[].max"]}
             ]}

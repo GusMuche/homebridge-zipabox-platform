@@ -1,6 +1,38 @@
 # Change Log
 
-## 1.7.0 (Actually in Development)
+## 1.8.0 (Actually in development - final test phase)
+
+### Enhancement
+- Compatibility for some accessories with the V3 api of Zipato
+  - Connection work
+  - Switch tested
+  - Cache for switch ok
+  - noStatus ok
+  - Not online detection
+  - BatteryLevel ok
+  - Temperature ok
+  - Ambient ok
+  - offline ok
+  - inUse for outlet debug ok
+  - outlet ok
+  - light ok
+  - motion ok
+  - contact ok
+  - door ok
+  - window ok
+  - alarm ok
+
+- Add Window Covering accessory - use "covering" as accessory type ok
+- Add hidden option to not add accessory in Homebridge (but keep configuration) ok
+- Wrong user password error : ok
+- Add Dimmer Accessory (as a dimmable light) : ok
+
+
+### Debug
+- UseCache calculation to avoid non update for some time input
+- Adapt OnGoing detection to avoid infinity cache and detection
+
+## 1.7.0
 
 ### Enhancement
 - User can now config to use cache value. Goal is to answer quicker to Homebridge request trough home app
