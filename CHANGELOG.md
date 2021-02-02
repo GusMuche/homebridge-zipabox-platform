@@ -1,6 +1,11 @@
 # Change Log
 
-## 1.8.0 (Actually in development - final test phase)
+## 1.9.0 (Actually in development - final test phase)
+
+### Debug
+- Better reconnection for V3 - 1.8.x
+
+## 1.8.0
 
 ### Enhancement
 - Compatibility for some accessories with the V3 api of Zipato
