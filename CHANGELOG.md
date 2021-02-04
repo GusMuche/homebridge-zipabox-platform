@@ -2,6 +2,9 @@
 
 ## 1.9.0 (Actually in development - final test phase)
 
+### Enhancement
+- Big cash option available to accelerate Homebridge return : lessRequest : true
+
 ### Debug
 - Better reconnection for V3 - 1.8.x
 
