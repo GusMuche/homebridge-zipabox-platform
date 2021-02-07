@@ -8,6 +8,7 @@
 
 ### Debug
 - Better reconnection for V3 - 1.8.x
+- Battery, not connected and eve attributes working allright for big refresh ONGOING
 
 ## 1.8.0
 
@@ -15,26 +16,26 @@
 - Compatibility for some accessories with the V3 api of Zipato
   - Connection work
   - Switch tested
-  - Cache for switch ok
-  - noStatus ok
+  - Cache for switch
+  - noStatus
   - Not online detection
-  - BatteryLevel ok
-  - Temperature ok
-  - Ambient ok
-  - offline ok
-  - inUse for outlet debug ok
-  - outlet ok
-  - light ok
-  - motion ok
-  - contact ok
-  - door ok
-  - window ok
-  - alarm ok
+  - BatteryLevel
+  - Temperature
+  - Ambient
+  - offline
+  - inUse for outlet debug
+  - outlet
+  - light
+  - motion
+  - contact
+  - door
+  - window
+  - alarm
 
-- Add Window Covering accessory - use "covering" as accessory type ok
-- Add hidden option to not add accessory in Homebridge (but keep configuration) ok
-- Wrong user password error : ok
-- Add Dimmer Accessory (as a dimmable light) : ok
+- Add Window Covering accessory - use "covering" as accessory type
+- Add hidden option to not add accessory in Homebridge (but keep configuration)
+- Wrong user password error
+- Add Dimmer Accessory (as a dimmable light)
 
 
 ### Debug
