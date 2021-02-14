@@ -8,6 +8,7 @@
     "username": {
       "title": "Login on my.zipato.com",
       "type": "string",
+      "pattern": "^\\S+@\\S+$",
       "required": true
     },
     "password":{
@@ -15,50 +16,67 @@
       "type": "string",
       "required": true
     },
-    "server_ip": {
-      "title": "Local IP or remote",
-      "type": "string",
-      "required": true,
-      "description": "Local : only IP (no http or port). RemoteV2 : just type 'remote'. Remote V3 : just type 'remoteV3'"
+    "connection":{
+        "type":"object",
+        "properties":{
+            "local" :{
+                "title" : "Local API",
+                "type": "boolean",
+                "default":false
+            },
+            "server_ip": {
+                  "title": "Local IP",
+                  "type": "string",
+                  "condition": {"functionBody": "return model.connection.local === true;"},
+                  "description": "Local : only IP (no http or port)"
+            },
+            "api_version": {
+                "title": "API version",
+                "type": "string",
+                "oneOf":[
+                  {"title":"my.zipato.com", "enum": ["remoteV2"] },
+                  {"title":"my3.zipato.com", "enum": ["remoteV3"] }
+                ],
+                "condition": {"functionBody": "return model.connection.local === false;"}
+            }
+        },
+        "dependencies": {
+            "server_ip": { "required": ["localCheck"] },
+            "api_version": { "required": ["!localCheck"] }
+        }
     },
     "boxSerial": {
-      "title": "[Only V3] Box Serial",
+      "title": "Box Serial",
       "type": "string",
       "required": false,
-      "description": "The box serial to use if you use my3.zipato.com as dashboard.",
-      "condition": {
-            "functionBody": "return model.server_ip === 'remoteV3';"
-        }
+      "description": "The box serial to select.",
+      "condition": {"functionBody": "return model.connection.api_version === 'remoteV3';"}
     },
     "pin": {
       "title": "PIN code for alarm",
       "type": "string",
       "required": false,
-      "description": "Only if you have one alarm accessory"
+      "description": "Needed if you have one alarm accessory"
     },
     "refresh": {
       "title": "Refresh rate",
       "type": "integer",
       "required": false,
-      "description": "Time in seconds to refresh ALL the accessories."
+      "description": "Time in seconds to refresh ALL the accessories.",
+      "default": 10,
+      "minimum": 0,
+      "exclusiveMinimum": false,
+      "maximum": 600
     },
     "debug": {
-      "title": "Debug mode",
+      "title": "Debug platform",
       "type": "boolean",
-      "required": false,
-      "description": "Will activate debug for platform and ALL accessories"
+      "required": false
     },
     "debugApi": {
-      "title": "Debug for API",
+      "title": "Debug API request",
       "type": "boolean",
-      "required": false,
-      "description": "Will activate debug for API request."
-    },
-    "reset": {
-      "title": "Reset accessories at startup",
-      "type": "boolean",
-      "required": false,
-      "description": "Will ask to the plugin to delete all cached accessories before adding the others."
+      "required": false
     },
     "accessories": {
       "title": "Accessories to request on the Box",
@@ -70,41 +88,37 @@
           "name" :{
             "title":"Name",
             "type" : "string",
-            "description": "Name diplayed inside your Home APP (short is best)",
+            "description": "Can be changed in Home App",
             "required": true
           },
-          "uuid":{
-            "title":"uuid",
-            "type" : "string",
-            "description": "UUID of the state. Lowest level in my.zipato.com (see readme)",
-            "required": true
+          "batteryLimit":{
+            "title":"Battery limit",
+            "type" : "integer",
+            "description": "Battery percents before warning",
+            "required": false,
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "maximum": 100
           },
-          "uuidb":{
-            "title":"uuidb",
-            "type" : "string",
-            "description": "Only for some accessories (see Readme)",
+          "noStatus":{
+            "title":"No Status available",
+            "type" : "boolean",
             "required": false
           },
-          "type":{
-            "title": "Type of accessory",
-            "type": "string",
-            "default": "switch",
-            "oneOf":[
-              {"title":"switch", "enum": ["switch"] },
-              {"title":"light", "enum": ["light"] },
-              {"title":"outlet", "enum": ["outlet"] },
-              {"title":"temperature", "enum": ["temperature"] },
-              {"title":"ambient", "enum": ["ambient"] },
-              {"title":"motion", "enum": ["motion"] },
-              {"title":"contact", "enum": ["contact"] },
-              {"title":"window", "enum": ["window"] },
-              {"title":"door", "enum": ["door"] },
-              {"title":"covering", "enum": ["covering"] },
-              {"title":"leak", "enum": ["leak"] },
-              {"title":"battery", "enum": ["battery"] },
-              {"title":"co2", "enum": ["co2"] },
-              {"title":"alarm", "enum": ["alarm"] } ],
-            "required": true
+          "useEve":{
+            "title":"Use Eve info",
+            "type" : "boolean",
+            "required": false
+          },
+          "debug":{
+            "title":"Debug Mode",
+            "type" : "boolean",
+            "required": false
+          },
+          "hidden":{
+            "title": "Hide",
+            "type" : "boolean",
+            "required": false
           },
           "manufacturer":{
             "title":"Manufacturer",
@@ -119,67 +133,73 @@
           "serial":{
             "title": "serial",
             "type" : "string",
-            "description": "Only for info in Home App",
             "required": false
           },
-          "nightMode":{
-            "title": "Night in place of Home",
-            "type" : "boolean",
-            "required": false
-          },
-          "reverse":{
-            "title": "Reverse the signal",
-            "type" : "boolean",
-            "required": false
-          },
-          "useCache":{
-            "title": "Use plugin cache",
-            "type" : "boolean",
-            "required": false
-          },
-          "hidden":{
-            "title": "Hide",
-            "type" : "boolean",
-            "required": false
-          },
-          "noStatus":{
-            "title":"No Status available",
-            "type" : "boolean",
-            "required": false
-          },
-          "debug":{
-            "title":"Debug Mode",
-            "type" : "boolean",
-            "required": false
-          },
-          "useEve":{
-            "title":"Use Eve",
-            "type" : "boolean",
-            "required": false
-          },
-          "refresh":{
-            "title":"Refresh rate",
-            "type" : "integer",
-            "description": "Time need to update the accessory (seconds)",
-            "required": false
-          },
-          "batteryLimit":{
-            "title":"Battery limit",
-            "type" : "integer",
-            "description": "Battery percents before warning",
-            "required": false
-          },
-          "min":{
-            "title":"Min value",
-            "type" : "integer",
-            "description": "Minimum value to adapt the scale",
-            "required": false
-          },
-          "max":{
-            "title":"Max value",
-            "type" : "integer",
-            "description": "Maximum value to adapt the scale",
-            "required": false
+          "services":{
+              "title": "Services for this accessory",
+              "type": "array",
+              "items":{
+                  "name": "Services",
+                  "type" : "object",
+                  "properties":{
+                      "uuid":{
+                        "title":"uuid",
+                        "type" : "string",
+                        "description": "UUID of the state. Lowest level in my.zipato.com (see readme)",
+                        "required": true
+                      },
+                      "type":{
+                        "title": "Type of accessory",
+                        "type": "string",
+                        "default": "switch",
+                        "oneOf":[
+                          {"title":"switch", "enum": ["switch"] },
+                          {"title":"light", "enum": ["light"] },
+                          {"title":"outlet", "enum": ["outlet"] },
+                          {"title":"temperature", "enum": ["temperature"] },
+                          {"title":"ambient", "enum": ["ambient"] },
+                          {"title":"motion", "enum": ["motion"] },
+                          {"title":"contact", "enum": ["contact"] },
+                          {"title":"window", "enum": ["window"] },
+                          {"title":"door", "enum": ["door"] },
+                          {"title":"covering", "enum": ["covering"] },
+                          {"title":"leak", "enum": ["leak"] },
+                          {"title":"battery", "enum": ["battery"] },
+                          {"title":"co2", "enum": ["co2"] },
+                          {"title":"alarm", "enum": ["alarm"] } ],
+                        "required": true
+                      },
+                      "uuidb":{
+                        "title":"uuidb",
+                        "type" : "string",
+                        "description": "Only for some accessories (see Readme)",
+                        "required": false,
+                        "condition": {"functionBody": "return model.accessories[].services[].type === 'battery';"}
+                      },
+                      "nightMode":{
+                        "title": "Night in place of Home",
+                        "type" : "boolean",
+                        "required": false
+                      },
+                      "reverse":{
+                        "title": "Reverse the signal",
+                        "type" : "boolean",
+                        "required": false
+                      },
+                      "min":{
+                        "title":"Min value",
+                        "type" : "integer",
+                        "description": "Minimum value to adapt the scale",
+                        "required": false
+                      },
+                      "max":{
+                        "title":"Max value",
+                        "type" : "integer",
+                        "description": "Maximum value to adapt the scale",
+                        "required": false
+                      }
+                  }
+              }
           }
         }
       }
@@ -197,40 +217,65 @@
             {"key":"password","type":"password"}
         ]},
         { "type": "flex", "flex-flow": "row wrap","items": [
-            "server_ip",
-            "boxSerial"
+            "connection.local",
+            "connection.server_ip",
+            "connection.api_version"
         ]},
-        {"key":"pin","type":"password"},
-        "refresh",
-        { "type": "flex", "flex-flow": "row wrap", "items": [ "debug","debugApi","reset"]}
+        "boxSerial",
+        { "type": "flex", "flex-flow": "row wrap","items": [
+            {"key":"pin","type":"password"},
+            "refresh"
+        ]},
+        { "type": "flex", "flex-flow": "row wrap", "items": [ "debug","debugApi"]}
       ]
     },
     {
       "type":"tabarray",
       "key":"accessories",
       "tabType": "left",
-      "title": "{{idx}}.{{value.name}}/{{value.type}}",
+      "title": "{{idx}}.{{value.name}}",
       "add": "New Accessory",
       "items":[
         {
-          "legend": "{{idx}}.{{value.name}}/{{value.type}}",
+          "legend": "{{idx}}.{{value.name}}",
           "items": [
-            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].name","accessories[].type"]},
-            "accessories[].uuid",
-            "accessories[].uuidb",
+            "accessories[].name",
             {"type": "fieldset",
-            "title": "Optional parameters",
-            "expandable": true,
-            "expanded": false,
-            "items": [
-                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].manufacturer","accessories[].model","accessories[].serial"]},
-                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].nightMode","accessories[].reverse","accessories[].useCache"]},
-                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug","accessories[].useEve","accessories[].hidden"]},
-                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].refresh","accessories[].batteryLimit"]},
-                {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].min","accessories[].max"]}
-            ]}
+                "title": "Optional parameters",
+                "expandable": true,
+                "expanded": false,
+                "items": [
+                    {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].manufacturer","accessories[].model","accessories[].serial"]},
+                    "accessories[].batteryLimit",
+                    {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].noStatus","accessories[].debug","accessories[].useEve","accessories[].hidden"]}
+                ]
+            },
+            {
+                "type":"array",
+                "key": "accessories[].services",
+                "add": "New",
+                "title":"Services for this accessory",
+                "style": { "add": "btn-success" },
+                "items": [
+                    {
+                        "items":[
+                            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].uuid","accessories[].services[].type"]},
+                            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].uuidb"]},
+                            {"type": "fieldset",
+                            "title": "Optional parameters",
+                            "expandable": true,
+                            "expanded": false,
+                            "items": [
+                            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].nightMode","accessories[].services[].reverse"]},
+                            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].min","accessories[].services[].max"]}
+                            ]}
+                        ]
+                    }
+                ]
+            }
           ]
         }
+
       ]
     }
   ]
