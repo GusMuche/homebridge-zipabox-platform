@@ -1,9 +1,11 @@
 # Change Log
 
-## 1.9.0 (Actually in development - final test phase)
+## 2.0.0 (Actually in development - final test phase)
 
 ### Enhancement
-- Big refresh option available to accelerate Homebridge return : `"lessRequest" : true`
+- Now the platform level refresh all accessories
+  - Battery level : TODO
+  - alarm : todo
 - Reset the platform will now be force to true (improvement)
 - Accessory "mix" to add multiples accessories in one
 
