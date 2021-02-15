@@ -2,16 +2,19 @@
 
 ## 2.0.0 (Actually in development - final test phase)
 
+New structure for accessories. You need to change your config.json to adapt to the new version.
+Improvements are : quickest refresh, multiples services for one accessory, less connection to the API (more stable), configuration simplification.
+
 ### Enhancement
 - Now the platform level refresh all accessories
   - Battery level : TODO
   - alarm : todo
+  - noStatus auto : ok
 - Reset the platform will now be force to true (improvement)
 - Accessory "mix" to add multiples accessories in one
 
 ### Debug
-- Better reconnection for V3 - 1.8.x
-- Battery, not connected and eve attributes working allright for big refresh ONGOING
+- Better reconnection for V3 - since 1.8.x
 
 ## 1.8.0
 
