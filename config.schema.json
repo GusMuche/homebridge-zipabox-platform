@@ -92,6 +92,7 @@
             "oneOf":[
               {"title":"switch", "enum": ["switch"] },
               {"title":"light", "enum": ["light"] },
+              {"title":"dimmer", "enum": ["dimmer"] },
               {"title":"outlet", "enum": ["outlet"] },
               {"title":"temperature", "enum": ["temperature"] },
               {"title":"ambient", "enum": ["ambient"] },
