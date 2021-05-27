@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "ZipaboxPlatform",
+  "pluginAlias": "ZipaboxPlatform-dev",
   "pluginType": "platform",
   "singular": false,
   "headerDisplay": "Please read the [README.md](https://github.com/GusMuche/homebridge-zipabox-platform/blob/master/README.md) to understand all the parameters",
