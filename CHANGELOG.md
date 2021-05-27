@@ -5,6 +5,7 @@
 ### Enhancement
 - Big refresh option available to accelerate Homebridge return : `"lessRequest" : true`
 - Reset the platform will now be force to true (improvement)
+- Accessory "mix" to add multiples accessories in one
 
 ### Debug
 - Better reconnection for V3 - 1.8.x
