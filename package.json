@@ -1,6 +1,6 @@
 {
   "name": "homebridge-zipabox-platform-dev",
-  "version": "1.9.78",
+  "version": "1.8.44",
   "description": "Homebridge plugin for Zipabox for homebridge : http://github.com/GusMuche/homebridge-zipabox-platform",
   "main": "index.js",
   "license": "MIT",
@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "fetch-cookie": ">=0.7.3",
-    "node-fetch": ">=2.6.0"
+    "node-fetch": "^2.6.0"
   }
 }
