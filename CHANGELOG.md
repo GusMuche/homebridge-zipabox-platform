@@ -2,6 +2,10 @@
 
 ## 1.8.0 (Actually in development - final test phase)
 
+### 1.8.3
+
+Debug for Node-fetch version
+
 ### Enhancement
 - Compatibility for some accessories with the V3 api of Zipato
   - Connection work
