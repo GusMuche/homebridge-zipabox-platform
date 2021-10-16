@@ -22,7 +22,7 @@ You'll find 3 repository related to this project :
 I usually install the package through the [npm package](https://www.npmjs.com/package/homebridge-zipabox-platform) with the help of [homebridge-config-ui-x](https://github.com/oznu/homebridge-config-ui-x).<br>
 You can try another installation process but this is the simplest one that I found.
 
-All the tests are done on homebridge installed on a docker with the [docker-homebridge image](https://github.com/oznu/docker-homebridge).
+All the tests are done on homebridge installed on a rasperry Pi with the [homebridge-Pi image](https://github.com/homebridge/homebridge-raspbian-image/wiki/Getting-Started).
 
 
 ## Configuration
