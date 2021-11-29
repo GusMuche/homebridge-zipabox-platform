@@ -8,8 +8,9 @@ Improvements are : quickest refresh, multiples services for one accessory, less 
 ### Enhancement
 - Now the platform level refresh all accessories
   - Battery level : TODO
-  - alarm : todo
+  - alarm : TODO
   - noStatus auto : ok
+  -
 - Reset the platform will now be force to true (improvement)
 - Accessory "mix" to add multiples accessories in one
 
