@@ -7,7 +7,7 @@ Improvements are : quickest refresh, multiples services for one accessory, less 
 
 ### Enhancement
 - Now the platform level refresh all accessories
-  - Battery level : TODO
+  - Battery level : to test
   - alarm : TODO
   - noStatus auto : ok
   -
