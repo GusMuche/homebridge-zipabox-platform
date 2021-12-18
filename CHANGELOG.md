@@ -18,6 +18,15 @@ Improvements are : quickest refresh, multiples services for one accessory, less 
 - Better reconnection for V3 - since 1.8.x
 - Avoid battery update without the battery bound
 
+### Tested accessories
+- Virtual Switch
+- Outlet as Light
+- Outlet as outlet
+- Mouvement detector on battery
+- Ambient combined to temperature combined to contact
+
+
+
 ## 1.8.0
 
 ### Enhancement
