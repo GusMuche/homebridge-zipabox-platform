@@ -16,6 +16,7 @@ Improvements are : quickest refresh, multiples services for one accessory, less 
 
 ### Debug
 - Better reconnection for V3 - since 1.8.x
+- Avoid battery update without the battery bound
 
 ## 1.8.0
 
