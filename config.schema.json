@@ -241,7 +241,7 @@
           "items": [
             "accessories[].name",
             {"type": "fieldset",
-                "title": "Optional parameters",
+                "title": "Device optional parameters",
                 "expandable": true,
                 "expanded": false,
                 "items": [
@@ -262,7 +262,7 @@
                             {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].uuid","accessories[].services[].type"]},
                             {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].uuidb"]},
                             {"type": "fieldset",
-                            "title": "Optional parameters",
+                            "title": "Service optional parameters",
                             "expandable": true,
                             "expanded": false,
                             "items": [
