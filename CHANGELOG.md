@@ -2,15 +2,15 @@
 
 ## 2.0.0 (Actually in development - final test phase)
 
-New structure for accessories. You need to change your config.json to adapt to the new version.
+WARNING : New structure for accessories. You need to change your config.json to adapt to the new version.
+
 Improvements are : quickest refresh, multiples services for one accessory, less connection to the API (more stable), configuration simplification.
 
 ### Enhancement
-- Now the platform level refresh all accessories
+- Now the platform level refresh all accessories in one step
   - Battery level : to test
   - alarm : TODO
-  - noStatus auto : ok
-  -
+  - noStatus fixed by the plugin (the option will disappear)
 - Reset the platform will now be force to true (improvement)
 - Accessory "mix" to add multiples accessories in one
 
@@ -24,8 +24,8 @@ Improvements are : quickest refresh, multiples services for one accessory, less 
 - Outlet as outlet
 - Mouvement detector on battery
 - Ambient combined to temperature combined to contact
-
-
+- Leak
+-
 
 ## 1.8.0
 

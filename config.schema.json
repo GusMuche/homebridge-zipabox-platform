@@ -253,7 +253,7 @@
             {
                 "type":"array",
                 "key": "accessories[].services",
-                "add": "New",
+                "add": "Add one service",
                 "title":"Services for this accessory",
                 "style": { "add": "btn-success" },
                 "items": [
