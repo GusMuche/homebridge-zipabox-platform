@@ -25,7 +25,8 @@ Improvements are : quickest refresh, multiples services for one accessory, less 
 - Mouvement detector on battery
 - Ambient combined to temperature combined to contact
 - Leak
--
+- Door
+- Window
 
 ## 1.8.0
 
