@@ -254,22 +254,22 @@
                 "type":"array",
                 "key": "accessories[].services",
                 "add": "Add one service",
-                "title":"Services for this accessory",
+                "title": "Services for this accessory",
                 "style": { "add": "btn-success" },
                 "items": [
                     {
-                        "items":[
-                            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].uuid","accessories[].services[].type"]},
-                            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].uuidb"]},
-                            {"type": "fieldset",
-                            "title": "Service optional parameters",
-                            "expandable": true,
-                            "expanded": false,
-                            "items": [
-                            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].nightMode","accessories[].services[].reverse"]},
-                            {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].min","accessories[].services[].max"]}
-                            ]}
-                        ]
+                      "items":[
+                          {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].uuid","accessories[].services[].type"]},
+                          {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].uuidb"]},
+                          {"type": "fieldset",
+                          "title": "Service optional parameters",
+                          "expandable": true,
+                          "expanded": false,
+                          "items": [
+                          {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].nightMode","accessories[].services[].reverse"]},
+                          {"type": "flex", "flex-flow": "row wrap", "items": [ "accessories[].services[].min","accessories[].services[].max"]}
+                          ]}
+                      ]
                     }
                 ]
             }
